@@ -9,8 +9,11 @@ class 선택자 .
 table,th,td{
   border: 1px solid #000;
   border-collapse: collapse;
+  margin: 0 auto;
 }
 
 th,td{
   padding: 20px;
 }
+
+body{text-align: center;}
