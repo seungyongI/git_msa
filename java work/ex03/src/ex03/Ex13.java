@@ -6,12 +6,13 @@ public class Ex13 {
 		
 		double a = 10.987;
 		double b = 0.007;
-		a -=b;
+//		a -=b;
+//		System.out.println(a);
+		
+		System.out.println(Math.floor(a)+0.98);
+		System.out.println(Math.ceil(a)-0.02);
+		
 		System.out.println(a);
-		
-//		System.out.println(Math.floor(a)+0.98);
-//		System.out.println(Math.ceil(a)-0.02);
-		
 		
 	}
 

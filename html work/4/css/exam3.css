@@ -1,0 +1,14 @@
+ul{
+  list-style-type: none;
+}
+
+li{
+  /* display: flex; */
+  margin-bottom: 15px;
+}
+label{
+  flex: 0.12;
+  width: 50px;
+  float: left;
+  /* background-color: blue; */
+}
