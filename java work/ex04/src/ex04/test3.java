@@ -20,14 +20,14 @@ public class test3 {
 		
 		int num = scan.nextInt();
 		
-		if (num>0 || num<0) {
-			System.out.println(num>0 ? "양수입니다." : "음수입니다.");
-		} else { 
-			System.out.println("0입니다.");
-
-		}
+//		if (num>0 || num<0) {
+//			System.out.println("num="+num+(num>0 ? "양수입니다." : "음수입니다."));
+//		} else { 
+//			System.out.println("0입니다.");
+//
+//		}
 		
-		
+		System.out.println("num="+num+(num>0 ? "양수" : num==0 ? "0":"음수"));
 		}
 		
 

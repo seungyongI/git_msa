@@ -13,8 +13,9 @@ public class test5 {
 
 		System.out.println("F=" + F);
 		System.out.println("C=" + C);
-
-		System.out.println(Math.ceil(C) - 0.23);
+		//연산에 실수와 정수가 만나면 둘 다 실수로 형변환 됨.
+		System.out.println(((int)(C*100))/(double)100);
+//		System.out.println(Math.ceil(C) - 0.23);
 	}
 
 }

@@ -10,6 +10,8 @@ public class test4 {
 
 		int result = (num / 100) * 100;
 		System.out.println(result);
+		
+		
 	}
 
 }
