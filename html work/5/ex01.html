@@ -6,47 +6,57 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <style>
-    input[type="text"] {
+    input[type="id"],input[type="password"]{
       width: 100px;
       height: 30px; 
       border-radius: 10px;
     }
-
+    /* #femail:checked~div{
+      background-color: aqua;
+      border: 1px solid #000;
+      width: 100px;
+    }
+    
     #mail:checked~div{
       background-color: aqua;
       border: 1px solid #000;
       width: 100px;
+    } */
+
+    #id, #password{
+      margin-bottom: 5px;
+      display: block;
     }
   </style>
 </head>
 
 <body>
   <form action="ex02.html" method="get" target="_blank">
-    <fieldset>
+    <fieldset style="border-radius: 10px; width: 300px;">
       <legend>회원가입</legend>
       
     <div>
       <label for="id">ID</label>
-      <input type="text" name="id" placeholder="아이디" id="id">
-      <label for="password" style="font-size: small;">PASSWORD</label>
+      <input type="id" name="id" placeholder="아이디" id="id">
+      <br><label for="password" style="font-size: small;">PASSWORD</label>
       <input type="password" name="password" placeholder="비밀번호" id="password">
       <button type="button" id="btn" style="width: 50px;">보기</button>
     </div>
   </fieldset>
-    <fieldset>
+    <fieldset style="border-radius: 10px; width: 90px;">
       <legend>성별</legend>
     <div>
       <label for="mail">남</label>
       <input type="checkbox" id="mail" name="gender">
       <label for="femail">여</label>
       <input type="checkbox" id="femail" name="gender">
-      <div>성별 선택</div>
+      <!-- <div>성별 선택</div> -->
     </div>
+    <input type="submit" value="전송" style="float: right;">
   </fieldset>
-    <input type="submit" value="전송">
+
   </form>
 </body>
-
 </html>
 <script>
   document.getElementById('btn').addEventListener('click', () => {
