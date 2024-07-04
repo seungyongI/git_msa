@@ -15,8 +15,8 @@ public class Ex06 {
 			System.out.println("n=" + n);
 			if (n == 10)
 				break;
-			int temp = scan.nextInt();
-			System.out.println("temp=" + temp);
+//			int temp = scan.nextInt();
+//			System.out.println("temp=" + temp);
 		}
 		System.out.println("종료됩니다.");
 	}
