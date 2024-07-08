@@ -13,7 +13,6 @@ public class GG {
             int value = ((int) result);
 
             if (1 <= result && result <= 6) {
-
                 System.out.println("value =" + value);
             }
         }
