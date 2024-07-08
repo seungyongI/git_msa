@@ -1,0 +1,10 @@
+p{
+  color: red;
+}
+div{
+  border: 1px solid #000;
+  width: 100px;
+  height: 100px;
+  padding: 0 0 0 30px;
+  margin: 0 auto 0 auto;
+}
