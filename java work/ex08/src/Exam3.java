@@ -14,13 +14,17 @@ public class Exam3 {
 
         for (int i = 1; i < 10; i++) {
 
-            for (int j = 1; j <10; j++) {
+            for (int j = 1; j < 10; j++) {
 
                 for (int k = 1; k < 10; k++) {
-
+                    if (5 * i + 7 * j + 4 * k == 35) {
+                        System.out.print("크림빵= " + i);
+                        System.out.print("새우깡= " + j);
+                        System.out.print("콜라= " + k);
+                        System.out.println();
+                    }
                 }
             }
-
         }
 
     }
