@@ -18,9 +18,9 @@ public class Exam3 {
 
                 for (int k = 1; k < 10; k++) {
                     if (5 * i + 7 * j + 4 * k == 35) {
-                        System.out.print("크림빵= " + i);
-                        System.out.print("새우깡= " + j);
-                        System.out.print("콜라= " + k);
+                        System.out.print("크림빵= " + i+"\t");
+                        System.out.print("새우깡= " + j+"\t");
+                        System.out.print("콜라= " + k+"\t");
                         System.out.println();
                     }
                 }

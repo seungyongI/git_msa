@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="3a3c9d07-bdb1-449e-9080-720c1c8efa69" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../ex08/src/Exam5.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ex09/src/Exam2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ex09/src/Exam3.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ex09/src/Exam4.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ex09/src/Exam5.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ex10/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ex10/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ex10/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ex10/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ex10/ex10.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ex10/src/Ex01.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ex10/src/Ex02.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ex10/src/aa/CalSecond.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ex10/src/bank/BankAccount.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ex10/src/bank/BankAccountMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ex08/src/Ex06.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ex08/src/Ex06.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ex08/src/Exam3.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ex08/src/Exam3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ex08/src/Exam4.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ex08/src/Exam4.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 2
+}]]></component>
+  <component name="ProjectId" id="2j2sLpBQ8zjzukfpDvvfR1uRfQe" />
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/work/java work/ex06"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3a3c9d07-bdb1-449e-9080-720c1c8efa69" name="Changes" comment="" />
+      <created>1720596452215</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1720596452215</updated>
+    </task>
+    <servers />
+  </component>
+</project>
