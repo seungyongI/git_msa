@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+
+* {
+  font-family: "Jua", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 960px;
+  min-width: 960px;
+  margin: 0 auto;
+  /* background-color: #d9d9d9; */
+}
+
+.header {
+  overflow: hidden;
+  background-color: #000000;
+}
+
+.logo {
+  float: left;
+  display: block;
+  padding: 0.2rem;
+  margin: 0.1rem;
+  color: white;
+}
+
+ul {
+  float: right;
+}
+
+li {
+  list-style-type: none;
+  float: left;
+}
+
+a {
+  display: block;
+  padding: 0.4rem 1rem;
+  margin: 0.8rem 0.3rem;
+  text-decoration: none;
+  /* background-color: aqua; */
+
+}
+
+.sign {
+  background-color: #b9b7b7;
+  border-radius: 0.4rem;
+  color: black;
+}
+
+.register {
+  background-color: #747373;
+  border-radius: 0.4rem;
+  color: black;
+}
+
+.slider > div {
+  height: 500px;
+  overflow: hidden;
+}
+
+.heading > h1,
+h2 {
+  padding-left: 2rem;
+}
+
+.prevnext {
+  display: flex;
+  justify-content: center;
+  /* overflow: hidden; */
+}
+
+/* .prevnext#slider-prev{
+  float: left;
+}
+.prevnext#slider-next{
+  float: right;
+} */
+
+.sub-heading {
+  margin: 3rem 0;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.sub-heading > div {
+  width: 280px;
+  /* background-color: #747373; */
+}

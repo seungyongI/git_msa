@@ -5,57 +5,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
-
-    * {
-      font-family: "Jua", sans-serif;
-      font-weight: 400;
-      font-style: normal;
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    .container {
-      width: 960px;
-      min-width: 960px;
-      margin: 0 auto;
-      background-color: #d9d9d9;
-    }
-
-    .header {
-      overflow: hidden;
-    }
-    .logo {
-      float: left; display: block; padding: 0.2rem; margin: 0.1rem;
-    }
-
-    ul {
-      float: right;
-    }
-
-    li {
-      list-style-type: none;
-      float: left;
-    }
-    a {
-      display: block;
-      padding: 0.4rem 1rem;
-      margin: 0.8rem 0.3rem;
-      text-decoration: none;
-      /* background-color: aqua; */
-      color: #000;
-    }
-    .sign{
-      background-color: #b9b7b7;
-      border-radius: 0.4rem;
-    }
-    .register {
-      background-color: #747373;
-      border-radius: 0.4rem;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bxslider@4.2.17/dist/jquery.bxslider.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bxslider@4.2.17/dist/jquery.bxslider.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $(".slider").bxSlider({
+        auto: true,
+        speed: 300,
+        nextSelector: '#slider-next',
+        prevSelector: '#slider-prev',
+        nextText: 'Go next →',
+        prevText: '← Go back'
+      });
+    });
+  </script>
 </head>
 
 <body>
@@ -66,22 +31,76 @@
       </div>
       <div>
         <ul>
-          <li><a href="#">Pricing</a></li>
-          <li><a href="#">Solution</a></li>
-          <li><a href="#">Community</a></li>
-          <li><a href="#">Resoureces</a></li>
+          <li><a href="#" style=" color: #ffffff;">Pricing</a></li>
+          <li><a href="#" style=" color: #ffffff;">Solution</a></li>
+          <li><a href="#" style=" color: #ffffff;">Community</a></li>
+          <li><a href="#" style=" color: #ffffff;">Resoureces</a></li>
           <li><a href="#" class="sign">Sign in</a></li>
           <li><a href="#" class="register">Register</a></li>
         </ul>
       </div>
     </div>
+    <div class="prevnext">
+      <span id="slider-prev"></span>
+      <span id="slider-next"></span>
+    </div>
     <div class="slide" style="background-color: white;">
-      <h1>slide</h1>
+      <div class="slider">
+
+        <div><img src="images/ddd.png">
+          I am a slide.</div>
+        <div>
+          <img src="images/aaa.png">
+          I am another slide.
+        </div>
+        <div>
+          <img src="images/bbb.png">
+          I am aaa slide.
+        </div>
+        <div>
+          <img src="images/ccc.png">
+          I am bbb slide.
+        </div>
+      </div>
     </div>
     <div class="heading">
-
+      <h1>Heading</h1>
+      <h2>SubHeading</h2>
+      <div class = "sub-heading">
+        <div>
+          <h1>홍길동</h1>
+          👨‍🌾 내사랑내곁에<br>
+          김현식
+        </div>
+        <div>
+          <h1>이승용</h1>
+          👨‍🌾 내사랑내곁에<br>
+          김현식
+        </div>
+        <div>
+          <h1>김길동</h1>
+          👨‍🌾 내사랑내곁에<br>
+          김현식
+        </div>
+      </div>
+      <div class = "sub-heading">
+        <div>
+          <h1>홍길동</h1>
+          👨‍🌾 내사랑내곁에<br>
+          김현식
+        </div>
+        <div>
+          <h1>이승용</h1>
+          👨‍🌾 내사랑내곁에<br>
+          김현식
+        </div>
+        <div>
+          <h1>김길동</h1>
+          👨‍🌾 내사랑내곁에<br>
+          김현식
+        </div>
+      </div>
     </div>
-
   </div>
 </body>
 
