@@ -15,8 +15,15 @@ import java.util.Scanner;
 
 public class Exam2 {
     public static void main(String[] args) {
+<<<<<<< HEAD
         Scanner scan = new Scanner(System.in);
         int[] a =new int[10];
+=======
+
+        int[] a = new int[10];
+        int[] b = new int[10];
+
+>>>>>>> 6793829ec657e258533b1deea8b6b313e9b638a7
 
 
     }
