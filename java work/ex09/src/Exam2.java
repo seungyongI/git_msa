@@ -12,14 +12,14 @@
 public class Exam2 {
     public static void main(String[] args) {
 
-//        int i = 0;
+//        int i = 1;
 //        int j = 1;
 //
 //        while (i < 100 && j < 100) {
 //            i += j;
 //            j += i;
 //
-//            if (i < 60) {
+//            if (j < 60) {
 //                System.out.println("i = " + i);
 //                System.out.println("j = " + j);
 //            }
@@ -31,11 +31,11 @@ public class Exam2 {
 //                System.out.println("start = " + start);
 //                break;
 //            }
-
+// 0 1 1 2 3 5 8
         int start = 0;
         int next = 1;
         int sum = 0;
-        for (int k = 2; k <= 11; k++) {
+        for (int i = 2; i <= 11; i++) {
             sum = start + next;
             start = next;
             next = sum;

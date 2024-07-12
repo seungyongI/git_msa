@@ -11,9 +11,11 @@
 //또 다른 배열을 만들어서
 //홀수면 0번부터, 짝수면 9번부터
 
+import java.util.Scanner;
+
 public class Exam2 {
     public static void main(String[] args) {
-
+        Scanner scan = new Scanner(System.in);
         int[] a =new int[10];
 
 
