@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    div {
+      box-sizing: border-box;
+      padding: 20px;
+      width: 200px;
+      height: 200px;
+      background-color: #ccc;
+      box-shadow: 20px 20px 10px 5px #333;
+      animation: aa 2s infinite;
+      border-radius: 10px 10px 100px 100px;
+      margin: 50px;
+    }
+
+    div:hover {
+      box-shadow: 50px 50px 5px 5px #333;
+    }
+
+    @keyframes aa {
+      0%{
+        box-shadow: 20px 20px 10px 5px #333;
+      }
+      25%{
+        box-shadow: 150px 150px 5px 5px #333;
+      }
+      50%{
+        box-shadow: 1000px 200px 5px 5px #333;
+      }
+      100%{
+        box-shadow: 50px 50px 5px 5px #333;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div></div>
+  <div></div>
+  <div></div>
+</body>
+
+</html>

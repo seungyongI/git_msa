@@ -14,7 +14,9 @@
 public class Exam2 {
     public static void main(String[] args) {
 
-        int[] a =new int[10];
+        int[] a = new int[10];
+        int[] b = new int[10];
+
 
 
     }
