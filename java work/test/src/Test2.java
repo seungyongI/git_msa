@@ -1,16 +1,21 @@
 public class Test2 {
 
+    public Test2() {
+        solution("aaaaa","bbbbb");
+    }
+
     public String solution(String str1, String str2) {
         String answer = "";
-        for (int i = 0; i < str1.length(); i++) {
-            for (int j = 0; j < str2.length(); j++) {
-                
-            }
-        }
+        String result = "";
+
+
+
+        answer = "dfdfd";
         return answer;
     }
 
     public static void main(String[] args) {
-//        String result = solution("dd","dd");
+        new Test2();
+
     }
 }
