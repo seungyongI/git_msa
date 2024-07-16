@@ -10,6 +10,7 @@ public class Exam {
         }
         System.out.println("배열에 속한 수의 총합을 구합니다.");
         System.out.println("총합 = " + sum);
+
         System.out.println("배열에 속한 수의 평균을 구합니다.");
         System.out.println("평균 = " + sum / a.length);
 //        딱 맞아 나눠지지 않는 수는 나누는 수를 더블로 형변환 하고 나눈 뒤 결과값을 int로 형변환
