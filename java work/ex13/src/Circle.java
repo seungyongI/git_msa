@@ -8,15 +8,16 @@ class Circle {
     /*
     private 변수는 setter getter 로 참조 가능하다.
     alt + insert 키로 setter getter constructor 생성 가능
-    but,
      */
     private int rad;
     private String name;
 
-    /*기본생성자는 생략가능
+    /*
+    기본생성자는 생략가능
     다른생성자 선언 시 기본생성자 생략불가
-     */
+    */
 
+    public Circle() {}
     //    rad = 반지름
     public Circle(int rad,String name) {
         this.rad = rad;
