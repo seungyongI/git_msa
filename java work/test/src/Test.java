@@ -17,6 +17,7 @@ public class Test {
             }
             System.out.print(chars[i]);
         }
+
 //        System.out.println((int) 'a');
 //        System.out.println((int) 'z');
 //
