@@ -10,6 +10,7 @@ public class Exam {
         }
         System.out.println("배열에 속한 수의 총합을 구합니다.");
         System.out.println("총합 = " + sum);
+
         System.out.println("배열에 속한 수의 평균을 구합니다.");
         System.out.println("평균 = " + sum / a.length);
 

@@ -8,14 +8,12 @@
 
 public class Exam2 {
     public static void main(String[] args) {
-        String str = new String();
+        String str = "12345";
         int sum = 0;
-        str = "12345";
         System.out.println(str);
         for (int i = 0; i < str.length(); i++) {
             sum += str.charAt(i) - '0';
             System.out.println(str.charAt(i));
-
         }
         System.out.println("sum = " + sum);
     }

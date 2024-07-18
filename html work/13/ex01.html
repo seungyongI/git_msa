@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    a {
+      color: white;
+      text-decoration: none;
+      padding: 15px 25px;
+      margin: 30px;
+      line-height: 100px;
+      text-transform: uppercase;
+    }
+
+    li {
+      list-style: none;
+      display: inline-block;
+    }
+
+    .container {
+      background-color: rgb(75, 141, 141);
+      width: 1140px;
+      margin: 0 auto;
+      height: 100px;
+    }
+/* 
+    .active {
+      /* border: 1px solid white; */
+    /* } */ 
+
+    a {
+      border: 1px solid rgb(75, 141, 141);
+    }
+
+    a:hover {
+      border: 1px solid white;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <ul>
+      <li><a href="#" class="active" id="menu1">MENU1</a></li>
+      <li><a href="#" id="menu2">abcdef</a></li>
+      <li><a href="#" id="menu3">newMenu</a></li>
+      <li><a href="#" id="menu4">SignIN</a></li>
+      <li><a href="#" id="menu5">SignUp</a></li>
+    </ul>
+    <div id="div1">
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus repellat, voluptate, distinctio eveniet vitae
+        nulla consequuntur dolorem odit obcaecati, eaque impedit. Reprehenderit accusamus necessitatibus illo excepturi
+        officia quas quis reiciendis.</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus repellat, voluptate, distinctio eveniet vitae
+        nulla consequuntur dolorem odit obcaecati, eaque impedit. Reprehenderit accusamus necessitatibus illo excepturi
+        officia quas quis reiciendis.</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus repellat, voluptate, distinctio eveniet vitae
+        nulla consequuntur dolorem odit obcaecati, eaque impedit. Reprehenderit accusamus necessitatibus illo excepturi
+        officia quas quis reiciendis.</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus repellat, voluptate, distinctio eveniet vitae
+        nulla consequuntur dolorem odit obcaecati, eaque impedit. Reprehenderit accusamus necessitatibus illo excepturi
+        officia quas quis reiciendis.</p>
+    </div>
+    <div id="div2">
+      <p>
+        (愛國歌)는 대한민국의 국가다.<br>
+        1919년 안창호에 의해 대한민국 임시정부에서 스코틀랜드 민요인 〈작별〉에 삽입해서 부르기 시작하다가<br>
+        1935년 한국의 작곡가 안익태가 지은 《한국환상곡》에 가사를 삽입해서 현재까지 부르고 있다.<br>
+        가사의 작사자는 윤치호 설, 안창호 설, 윤치호와 최병헌 합작설 등이 있다.<br>
+        윤치호의 작사설 때문에 대한민국 임시정부에서는 애국가를 바꾸려 했으나 대한민국 임시정부 주석 김구의 변호로
+        계속 애국가로 채택하게 됐다. 이후 1948년의 정부 수립 이후 국가로 사용되어 왔으며,
+        2010년 국민의례 규정에서 국민의례시 애국가를 부르거나 연주하도록 함으로써 국가로서의 역할을
+        간접적으로 규정하고 있다.
+      </p>
+    </div>
+  </div>
+</body>
+
+</html>
+<script>
+  $(document).ready(function () {
+    $('#menu1').mouseenter( function () { $('#div1').fadein(); })
+    $('#menu1').mouseleave( function () { $('#div1').fadeout(); })
+    $('#menu2').click( function () { $('#div2').fadeToggle(); })
+  });
+</script>

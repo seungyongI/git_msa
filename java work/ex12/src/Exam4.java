@@ -12,8 +12,10 @@ public class Exam4 {
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
+
         System.out.println("문자열을 입력하세요.");
         String a = scan.nextLine();
+
         System.out.println("문자열을 문자배열로 변환 중...");
         char[] chars = a.toCharArray();
         for (int i = 0; i < chars.length; i++) {
@@ -21,6 +23,7 @@ public class Exam4 {
         }
         System.out.println();
         System.out.println("거꾸로 변환 중...");
+
         for (int i = chars.length-1; i >= 0; i--) {
             System.out.print(chars[i]+" ");
         }
