@@ -15,21 +15,21 @@ public static void addOneDArr(int[] arr, int add){
 public static void addTwoDArr(int[][] arr, int add){
     // 이안에 addOneDArr 메소드를 호출한다.
 }
+*/
 
- */
 public class Exam2 {
 
     public static void addOneDArr(int[] arr, int add) {
 
         for (int i = 0; i < arr.length; i++) {
             arr[i] += add;
+
         }
     }
 
     public static void addTwoDArr(int[][] arr, int add) {
 
         for (int i = 0; i < arr.length; i++) {
-
             addOneDArr(arr[i], add);
         }
     }

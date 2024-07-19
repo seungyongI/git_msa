@@ -10,8 +10,7 @@ package org.example;
 1   2   3   //2행
 4   5   6   //3행
 물론 배열의 가로와 세로길이에 상관없이 위와 같이 동작하도록 메소드를 정의해야 한다.
-
- */
+*/
 
 import java.util.Arrays;
 

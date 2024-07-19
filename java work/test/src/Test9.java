@@ -20,5 +20,7 @@ public class Test9 {
     }
 
     public static void main(String[] args) {
+        int result = solution("<","=",58,70);
+        System.out.println(result);
     }
 }
