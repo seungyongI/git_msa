@@ -1,0 +1,15 @@
+public class Test26 {
+
+    public static int solution(String message){
+        int answer = 0;
+        for (int i = 0; i < message.length(); i++) {
+            answer+=2;
+        }
+        return answer;
+    }
+
+    public static void main(String[] args) {
+        int result = solution("happy hirthday!");
+        System.out.println(result);
+    }
+}

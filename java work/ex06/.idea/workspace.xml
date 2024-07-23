@@ -2,25 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3a3c9d07-bdb1-449e-9080-720c1c8efa69" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../ex15/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ex15/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ex15/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ex15/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ex15/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ex15/ex15.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ex15/src/Ex01.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ex15/src/Ex02.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ex15/src/Ex03.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ex15/src/Ex04.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ex15/src/Ex05.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ex15/src/Ex06.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ex15/src/Exam.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ex15/src/Exam2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ex15/src/Person.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ex15/src/aa/TV.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../test/src/Test1_1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../test/src/Test3.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ex13/src/Circle.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ex13/src/Circle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test/src/Test11.java" beforeDir="false" afterPath="$PROJECT_DIR$/../test/src/Test11.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,29 +20,14 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/work/java work/ex06&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/work/java work/ex05"
   }
-}</component>
-  <component name="RunManager">
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="ex06" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="ex06" />
-      <option name="filePath" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-  </component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
