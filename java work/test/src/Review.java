@@ -1,55 +1,55 @@
 public class Review {
 //    public static String solution(String code) {
-//        String answer = "";
+//        String ret = "";
 //        int mode = 0;
 //
-//        for (int i = 0; i < code.length(); i++) {
-//            if (code.charAt(i) == '1') {
+//        for (int idx = 0; idx < code.length(); idx++) {
+//            if (code.charAt(idx) == '1') {
 //                mode = 1-mode;
-//            } else if (i % 2 == mode) {
-//                answer += code.charAt(i);
+//            } else if (idx % 2 == mode) {
+//                ret += code.charAt(idx);
 //            }
 //        }
-//        if (answer.isEmpty()) {
-//            answer = "EMPTY";
+//        if (ret.isEmpty()) {
+//            ret = "EMPTY";
 //        }
-//        return answer;
+//        return ret;
 //    }
 
     public static String solution(String code) {
-        String answer = "";
+        String ret = "";
         int mode = 0;
         char[] codeChars = code.toCharArray();
 
-        for (int i = 0; i < codeChars.length; i++) {
+        for (int idx = 0; idx < codeChars.length; idx++) {
             int num = -1;
             try {
-                num = Integer.parseInt("" + codeChars[i]);
+                num = Integer.parseInt("" + codeChars[idx]);
             } catch (Exception e) {
             }
 
             if (mode == 0) {
                 if (num == 1) {
                     mode = 1;
-                } else if (i % 2 == 0) {
-                    answer += codeChars[i];
+                } else if (idx % 2 == 0) {
+                    ret += codeChars[idx];
                 }
             } else {
                 if (num == 1) {
                     mode = 0;
-                } else if (i % 2 == 1) {
-                    answer += codeChars[i];
+                } else if (idx % 2 == 1) {
+                    ret += codeChars[idx];
                 }
             }
         }
-        if (answer.isEmpty()) {
-            answer = "EMPTY";
+        if (ret.isEmpty()) {
+            ret = "EMPTY";
         }
-        return answer;
+        return ret;
     }
 
     public static void main(String[] args) {
-        String str = solution("abc1abc1abc");
-        System.out.println(str);
+        String result = solution("abc1abc1abc");
+        System.out.println(result);
     }
 }
