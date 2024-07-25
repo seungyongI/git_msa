@@ -8,9 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-//java c# SPRING
-
-namespace WindowsFormsApp1
+namespace WindowsFormsApp2
 {
     public partial class Form1 : Form
     {
@@ -21,8 +19,23 @@ namespace WindowsFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int a = 10;
-            MessageBox.Show("Test"+a);
+            Console.WriteLine("잘 나오니?");
+            label1.Text = "바뀜";
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
