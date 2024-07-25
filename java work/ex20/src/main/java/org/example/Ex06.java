@@ -8,15 +8,18 @@ public class Ex06 {
 
     public static void main(String[] args) {
 
-        try{
+        try {
+            //DB 연결 유지 클래스
             Connection conn
-                    = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/aaa","root","1234");
+                    = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/Lsy", "root", "1234");
             System.out.println("asdf");
-
+            //SQL 구문 담는 객체
             PreparedStatement pstmt
-                    = conn.prepareStatement("INSERT INTO student values ('김길동','100','100','100')");
+                    = conn.prepareStatement("INSERT INTO student values ('김길동',100,100,100)");
 
-        }catch (Exception e){
+            pstmt.executeUpdate();
+
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
