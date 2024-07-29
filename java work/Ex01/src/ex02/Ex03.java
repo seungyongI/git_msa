@@ -16,11 +16,11 @@ public class Ex03 {
 		System.out.println(a1);
 		System.out.println(a2);
 		
-/*		System.out.println(num1 + num2);
+		System.out.println(a1 + a2);
 		System.out.println(Math.ceil(num1));
-		System.out.println(Math.double(num2));
+		System.out.println(Math.);
 		System.out.println(Math.PI);
-		*/
+
 	}
 
 }

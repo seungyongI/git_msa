@@ -1,26 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="3a3c9d07-bdb1-449e-9080-720c1c8efa69" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../ex15/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ex15/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ex15/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ex15/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ex15/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ex15/ex15.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ex15/src/Ex01.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ex15/src/Ex02.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ex15/src/Ex03.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ex15/src/Ex04.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ex15/src/Ex05.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ex15/src/Ex06.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ex15/src/Exam.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ex15/src/Exam2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ex15/src/Person.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ex15/src/aa/TV.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../test/src/Test1_1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../test/src/Test3.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ex13/src/Circle.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ex13/src/Circle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Ex01/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Ex01/.idea/.name" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Ex01/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Ex01/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../day01/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../day01/day01.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ex02/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ex02/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ex02/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ex02/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ex02/classes/production/ex02/aa/Ex01.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ex02/classes/production/ex02/aa/Ex02.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ex02/classes/production/ex02/aa/Ex03.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ex02/classes/production/ex02/aa/Ex04.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ex02/classes/production/ex02/aa/Ex05.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ex02/classes/production/ex02/aa/Ex06.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ex02/classes/production/ex02/aa/Ex07.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ex02/classes/production/ex02/aa/Ex08.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ex03/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ex03/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ex03/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ex03/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ex04/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ex04/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ex04/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ex04/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ex01/ex01.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../Ex01/ex01.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ex01/src/ex02/Ex03.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Ex01/src/ex02/Ex03.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ex02/ex02.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../ex02/ex02.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ex02/src/aa/Ex08.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ex02/src/aa/Ex08.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ex03/ex03.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../ex03/ex03.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ex04/ex04.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../ex04/ex04.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ex04/src/ex04/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ex04/src/ex04/test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ex05/ex05.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../ex05/ex05.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,14 +55,14 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/work/java work/ex06&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/Yong/Coding/work/java work/ex07"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="ex06" />

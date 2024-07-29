@@ -12,6 +12,7 @@ public class Ex08 {
 		float d = 340955;
 		long e = 13;
 		System.out.println(d);
+		System.out.println(e);
 	}
 
 }
