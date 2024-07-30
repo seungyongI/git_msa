@@ -481,6 +481,17 @@ select name, sum(saleprice) from customer, orders where customer.custid = orders
 -- 16) 고객의 이름과 고객이 구매한 도서목록
 select customer.name, book.bookname from customer, orders, book where customer.custid = orders.custid && book.bookid = orders.bookid group by customer.name, book.bookname order by customer.name;
 
+select bookname, price from book
+where price = (select max(price) from book);
+
+-- 도서를 구매한 이력이 있는 고객명:서브쿼리
+select name from customer
+where customer.custid in (select custid from orders) order by name;
+
+-- 도서를 구매한 이력이 있는 고객명, 가격:join
+select distinct name, sum(saleprice) from customer, orders
+where customer.custid = orders.custid group by customer.name having sum(saleprice) order by name;
+
 
 
 select * from orders;
