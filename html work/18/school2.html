@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>미니언즈 대학교 학사관리 시스템</title>
+<style>
+body {
+    font-family: 'Bello', sans-serif; /* 미니언즈 글꼴 */
+    background-color: #f0f0f0;
+}
+
+.header {
+    background-color: #FFC300;
+    color: #fff;
+    padding: 15px;
+    text-align: center;
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex; /* Flexbox 사용 */
+}
+
+.profile-container {
+    width: 30%;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-right: 20px;
+}
+
+.profile-picture {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.profile-info {
+    text-align: center;
+}
+
+.profile-info h2 {
+    margin-bottom: 10px;
+}
+
+.profile-info p {
+    margin: 5px 0;
+}
+
+.tabs-container {
+    width: 70%;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.tab {
+    display: none; /* 기본적으로 탭 내용 숨김 */
+}
+
+.tab.active {
+    display: block; /* 활성화된 탭 내용 보이기 */
+}
+
+.tab-button {
+    background-color: #FFC300; /* 미니언즈 노란색 */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.tab-button.active {
+    background-color: #FFA500; /* 더 진한 노란색 */
+}
+
+.tab-content {
+    margin-top: 20px;
+}
+
+.tab-content ul {
+    list-style: none;
+    padding: 0;
+}
+
+.tab-content li {
+    margin-bottom: 10px;
+}
+</style>
+</head>
+<body>
+    <div class="header">
+        <h1>미니언즈 대학교 학사관리 시스템</h1>
+    </div>
+<div class="container">
+    <div class="profile-container">
+        <img class="profile-picture" src="images/bob.jpg" alt="미니언 프로필 사진">
+        <div class="profile-info">
+            <h2>밥</h2>
+            <p>소속: 바나나 학과</p>
+            <p>학번: 20230001</p>
+            <p>학년: 1학년</p>
+        </div>
+    </div>
+    <div class="tabs-container">
+        <button class="tab-button active" onclick="openTab('학생정보')">학생정보</button>
+        <button class="tab-button" onclick="openTab('학생서비스')">학생서비스</button>
+        <div id="학생정보" class="tab active">
+            <div class="tab-content">
+                <ul>
+                    <li>최근 접속시간: 2024-07-31 15:00</li>
+                    <li>학적상태: 재학</li>
+                    <li>ㅁㄴㅇㄹㅇㄴㅁㄹㄴㅁㅇㄹ</li>
+                </ul>
+            </div>
+        </div>
+        <div id="학생서비스" class="tab">
+            <div class="tab-content">
+                <ul>
+                    <li>학사행정 문의</li>
+                    <li>장학금 신청</li>
+                    <li>...</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="profile-container">
+        <img class="profile-picture" src="images/stuart.jpg" alt="미니언 프로필 사진">
+        <div class="profile-info">
+            <h2>스튜어트</h2>
+            <p>소속: 바나나 학과</p>
+            <p>학번: 20230002</p>
+            <p>학년: 1학년</p>
+        </div>
+    </div>
+    <div class="tabs-container">
+        <button class="tab-button active" onclick="openTab('학생정보')">학생정보</button>
+        <button class="tab-button" onclick="openTab('학생서비스')">학생서비스</button>
+        <div id="학생정보" class="tab active">
+            <div class="tab-content">
+                <ul>
+                    <li>최근 접속시간: 2024-07-31 15:00</li>
+                    <li>학적상태: 재학</li>
+                    <li>ㅁㄴㅇㄹㅇㄴㅁㄹㄴㅁㅇㄹ</li>
+                </ul>
+            </div>
+        </div>
+        <div id="학생서비스" class="tab">
+            <div class="tab-content">
+                <ul>
+                    <li>학사행정 문의</li>
+                    <li>장학금 신청</li>
+                    <li>...</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="profile-container">
+        <img class="profile-picture" src="images/dave.jpg" alt="미니언 프로필 사진">
+        <div class="profile-info">
+            <h2>데이브</h2>
+            <p>소속: 바나나 학과</p>
+            <p>학번: 20230003</p>
+            <p>학년: 1학년</p>
+        </div>
+    </div>
+    <div class="tabs-container">
+        <button class="tab-button active" onclick="openTab('학생정보')">학생정보</button>
+        <button class="tab-button" onclick="openTab('학생서비스')">학생서비스</button>
+        <div id="학생정보" class="tab active">
+            <div class="tab-content">
+                <ul>
+                    <li>최근 접속시간: 2024-07-31 15:00</li>
+                    <li>학적상태: 재학</li>
+                    <li>ㅁㄴㅇㄹㅇㄴㅁㄹㄴㅁㅇㄹ</li>
+                </ul>
+            </div>
+        </div>
+        <div id="학생서비스" class="tab">
+            <div class="tab-content">
+                <ul>
+                    <li>학사행정 문의</li>
+                    <li>장학금 신청</li>
+                    <li>...</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function openTab(tabName) {
+    var i;
+    var tabs = document.getElementsByClassName("tab");
+    var tabButtons = document.getElementsByClassName("tab-button");
+    for (i = 0; i < tabs.length; i++) {
+        tabs[i].style.display = "none";
+        tabButtons[i].classList.remove("active");
+    }
+    document.getElementById(tabName).style.display = "block";
+    event.currentTarget.classList.add("active");
+}
+</script>
+</body>
+</html>

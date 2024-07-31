@@ -83,28 +83,28 @@ SELECT
 FROM
     Book
 WHERE
-    bookname LIKE '%축구%'
+    bookname LIKE '%축구%';
 -- 축구의 역사만 찾음
 SELECT 
     bookname, publisher
 FROM
     Book
 WHERE
-    bookname LIKE '축구의 역사'
+    bookname LIKE '축구의 역사';
 -- 앞에 축구라는 단어가 있으면 찾음
 SELECT 
     bookname, publisher
 FROM
     Book
 WHERE
-    bookname LIKE '축구%'
+    bookname LIKE '축구%';
 -- 뒤에 축구라는 단어가 있으면 찾음
 SELECT 
     bookname, publisher
 FROM
     Book
 WHERE
-    bookname LIKE '%축구'
+    bookname LIKE '%축구';
 
 set global general_log = 1;
 set global log_output = 'table';
@@ -453,6 +453,8 @@ select name, bookname, price, saleprice, (price-saleprice) from orders, customer
 
 -- 7) 박지성이 구매하지 않은 도서의 이름
 select book.bookname from customer, orders, book where customer.custid = orders.custid && name not in ('박지성') && orders.bookid = book.bookid order by book.bookname;
+select book.bookname from customer, orders, book where customer.custid = orders.custid && name != '박지성' && orders.bookid = book.bookid order by book.bookname;
+select book.bookname from customer, orders, book where customer.custid = orders.custid && name <> '박지성' && orders.bookid = book.bookid order by book.bookname;
 
 -- 8) 마당서점 도서의 총 갯수
 select count(bookid) from book;
@@ -481,12 +483,13 @@ select name, sum(saleprice) from customer, orders where customer.custid = orders
 -- 16) 고객의 이름과 고객이 구매한 도서목록
 select customer.name, book.bookname from customer, orders, book where customer.custid = orders.custid && book.bookid = orders.bookid group by customer.name, book.bookname order by customer.name;
 
+
 select bookname, price from book
 where price = (select max(price) from book);
 
 -- 도서를 구매한 이력이 있는 고객명:서브쿼리
-select name from customer
-where customer.custid in (select custid from orders) order by name;
+select name from customer c
+where c.custid in (select custid from orders) order by name;
 
 -- 도서를 구매한 이력이 있는 고객명, 가격:join
 select distinct name, sum(saleprice) from customer, orders
