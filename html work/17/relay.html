@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>끝말잇기</title>
+  </head>
+  <body>
+    <div><span id="order">1</span>번째 참가자</div>
+    <div>제시어 : <span id="word"></span></div>
+    <input type="text" />
+    <button>입력</button>
+
+    <script>
+      const num = Number(prompt("참가자는 몇 명입니까"));
+      // console.log(num);
+      // console.log(typeof(num));
+
+      const $input = document.querySelector("input");
+      const $button = document.querySelector("button");
+      const $order = document.querySelector("#order");
+      const $word = document.querySelector("#word");
+
+      let newWord; // 현재 단어
+      let word; // 제시어
+
+      //   const onInput = (event) => {
+      //     newWord = event.target.value;
+      //   };
+
+      //   const onClickButton = () => {
+      //     /*
+      //     배열의 -1번째 인덱스는 가장 마지막 요소
+      //     배열의 0번째 인덱스는 가장 첫번째 요소
+      //     word.at(-1)
+      //     만약 word=가나, word.at(-1)은 나
+      //     newWord = 나다, newWord[0]은 나
+      //      case 1 제시어가 없을 때이므로, 첫 번째 참가자의 첫 번째 시도일 때 실행
+      //      case 2 입력한 단어가 맞을 때 실행
+      //      */
+      //     if (!word || word.at(-1) === newWord[0]) {
+      //     word = newWord; // 입력한 단어가 제시어가 됨
+      //       $word.textContent = word; //화면에 제시어를 표시함
+      //       //화면에 표시된 순서 가져오기
+      //       const order = Number($order.textContent);
+      //       //새로운 순서 표시하기
+      //       if (order + 1 > num) $order.textContent = 1;
+      //       else $order.textContent = order + 1;
+      //     } else {
+      //       alert("틀린 단어입니다.");
+      //     }
+      //     $input.value = "";
+      //     $input.focus();
+      //   };
+
+      // Event 이름, 콜백함수명
+      // input 이벤트 발생 시 onInput 함수 호출
+      //   $input.addEventListener("input", onInput);
+      $input.addEventListener("input", (event) => {
+        newWord = event.target.value; // 입력한 단어를 현재 단어로 저장);
+      });
+      
+      // click 이벤트 발생 시 onClickButton 함수 호출
+      $button.addEventListener("click", () => {
+        if (!word || word.at(-1) === newWord[0]) {
+          word = newWord; // 입력한 단어가 제시어가 됨
+          $word.textContent = word; //화면에 제시어를 표시함
+          //화면에 표시된 순서 가져오기
+          const order = Number($order.textContent);
+          //새로운 순서 표시하기
+          if (order + 1 > num) $order.textContent = 1;
+          else $order.textContent = order + 1;
+        } else {
+          alert("틀린 단어입니다.");
+        }
+        $input.value = "";
+        $input.focus();
+      });
+    </script>
+  </body>
+</html>
