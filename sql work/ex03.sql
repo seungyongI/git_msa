@@ -65,27 +65,20 @@ where c.custid = o.custid && b.bookid = o.bookid && b.publisher in(
 select b.publisher from customer c, book b, orders o
 where c.custid = o.custid && b.bookid = o.bookid && name like '박지성');
 
-select c.name from customer c inner join orders o on c.custid = o.custid inner join book b on b.bookid = o.bookid where b.publisher in 
-(select b.publisher from book b inner join orders o on b.bookid = o.bookid inner join customer c on o.custid = c.custid where name like '박지성');
-
 -- 2) 두 개 이상의 서로 다른 출판사에서 도서를 구매한 고객의 이름
--- 서로 다른 출판사 : custid와 비교해서 중복 없이 두 개 이상의 출판사의 책을 구매한 고객
-select c.name, count(distinct b.publisher) from customer c inner join orders o on c.custid = o.custid inner join book b on o.bookid = b.bookid group by c.name having count(distinct b.publisher) >=2;
-
- select c.name, b.publisher from customer c inner join orders o on c.custid = o.custid inner join book b on o.bookid = b.bookid where b.publisher in 
- (select b.publisher from book b inner join orders o on b.bookid = o.bookid inner join customer c on o.custid = c.custid group by b.publisher having count(distinct b.publisher) >= 2); 
-
-select b.publisher from book b inner join orders o on b.bookid = o.bookid inner join customer c on o.custid = c.custid group by b.publisher having count(distinct b.publisher) >= 2;
-select b.publisher from book b inner join orders o on b.bookid = o.bookid inner join customer c on o.custid = c.custid group by b.publisher having count(distinct b.publisher) >= 2;
-
 select c.name, count(distinct b.publisher) from book b
  inner join orders o on b.bookid = o.bookid
  inner join customer c on o.custid = c.custid group by c.name having count(distinct b.publisher) >= 2;
- 
- 
 
 -- 3) 전체 고객의 30% 이상이 구매한 도서
-
+SELECT b.bookname
+FROM book b
+INNER JOIN orders o ON b.bookid = o.bookid
+GROUP BY b.bookname
+HAVING COUNT(DISTINCT o.custid) >= (
+    SELECT 0.3 * COUNT(*)
+    FROM customer
+);
 
 
 
