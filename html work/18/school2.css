@@ -134,15 +134,25 @@
   th {
     background-color: #ffc300;
   }
+
+  fieldset {
+    margin-top: 15px;
+  }
+
   .tab-content ul {
-    /* list-style-image: url(../18/images/icon.jpg); */
-    position: absolute;
+    /* position: absolute; */
     list-style-type: none;
     padding: 0;
   }
+  
+  img {
+    width: 15px;
+    border-radius: 50%;
+  }
 
   .tab-content li {
-    margin-bottom: 10px;
+    height: 30px;
+    margin: 5px;
   }
 
   ul{
