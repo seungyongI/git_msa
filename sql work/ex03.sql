@@ -60,6 +60,7 @@ insert into book(bookid, bookname, publisher, price)
 values(11, '스포츠 의학', '한솔의학서적', 90000);
 
 -- 1) 박지성이 구매한 도서의 출판사와 같은 출판사에서 도서를 구매한 고객의 이름
+<<<<<<< HEAD
 SELECT 
     c.name
 FROM
@@ -137,6 +138,27 @@ select
 
 -- 문제 5: 가장 많은 도서를 주문한 고객의 이름과 주문한 도서의 개수를 출력하세요.
 
+=======
+select c.name, b.publisher from customer c, book b, orders o 
+where c.custid = o.custid && b.bookid = o.bookid && b.publisher in(
+select b.publisher from customer c, book b, orders o
+where c.custid = o.custid && b.bookid = o.bookid && name like '박지성');
+
+-- 2) 두 개 이상의 서로 다른 출판사에서 도서를 구매한 고객의 이름
+select c.name, count(distinct b.publisher) from book b
+ inner join orders o on b.bookid = o.bookid
+ inner join customer c on o.custid = c.custid group by c.name having count(distinct b.publisher) >= 2;
+
+-- 3) 전체 고객의 30% 이상이 구매한 도서
+SELECT b.bookname
+FROM book b
+INNER JOIN orders o ON b.bookid = o.bookid
+GROUP BY b.bookname
+HAVING COUNT(DISTINCT o.custid) >= (
+    SELECT 0.3 * COUNT(*)
+    FROM customer
+);
+>>>>>>> 96f28f1b9278e4596aa0912d64f408e84e8aea1f
 
 
 
