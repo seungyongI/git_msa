@@ -60,33 +60,82 @@ insert into book(bookid, bookname, publisher, price)
 values(11, '스포츠 의학', '한솔의학서적', 90000);
 
 -- 1) 박지성이 구매한 도서의 출판사와 같은 출판사에서 도서를 구매한 고객의 이름
-select c.name, b.publisher from customer c, book b, orders o 
-where c.custid = o.custid && b.bookid = o.bookid && b.publisher in(
-select b.publisher from customer c, book b, orders o
-where c.custid = o.custid && b.bookid = o.bookid && name like '박지성');
-
-select c.name from customer c inner join orders o on c.custid = o.custid inner join book b on b.bookid = o.bookid where b.publisher in 
-(select b.publisher from book b inner join orders o on b.bookid = o.bookid inner join customer c on o.custid = c.custid where name like '박지성');
+SELECT 
+    c.name
+FROM
+    customer c
+        INNER JOIN
+    orders o ON c.custid = o.custid
+        INNER JOIN
+    book b ON b.bookid = o.bookid
+WHERE
+    b.publisher IN (SELECT 
+            b.publisher
+        FROM
+            book b
+                INNER JOIN
+            orders o ON b.bookid = o.bookid
+                INNER JOIN
+            customer c ON o.custid = c.custid
+        WHERE
+            name LIKE '박지성');
 
 -- 2) 두 개 이상의 서로 다른 출판사에서 도서를 구매한 고객의 이름
--- 서로 다른 출판사 : custid와 비교해서 중복 없이 두 개 이상의 출판사의 책을 구매한 고객
-select c.name, count(distinct b.publisher) from customer c inner join orders o on c.custid = o.custid inner join book b on o.bookid = b.bookid group by c.name having count(distinct b.publisher) >=2;
-
- select c.name, b.publisher from customer c inner join orders o on c.custid = o.custid inner join book b on o.bookid = b.bookid where b.publisher in 
- (select b.publisher from book b inner join orders o on b.bookid = o.bookid inner join customer c on o.custid = c.custid group by b.publisher having count(distinct b.publisher) >= 2); 
-
-select b.publisher from book b inner join orders o on b.bookid = o.bookid inner join customer c on o.custid = c.custid group by b.publisher having count(distinct b.publisher) >= 2;
-select b.publisher from book b inner join orders o on b.bookid = o.bookid inner join customer c on o.custid = c.custid group by b.publisher having count(distinct b.publisher) >= 2;
-
-select c.name, count(distinct b.publisher) from book b
- inner join orders o on b.bookid = o.bookid
- inner join customer c on o.custid = c.custid group by c.name having count(distinct b.publisher) >= 2;
- 
- 
+SELECT 
+    c.name, COUNT(DISTINCT b.publisher)
+FROM
+    customer c
+        INNER JOIN
+    orders o ON c.custid = o.custid
+        INNER JOIN
+    book b ON o.bookid = b.bookid
+GROUP BY c.name
+HAVING COUNT(DISTINCT b.publisher) >= 2;
 
 -- 3) 전체 고객의 30% 이상이 구매한 도서
+SELECT 
+    bookname
+FROM
+    book b
+        INNER JOIN
+    orders o ON o.bookid = b.bookid
+GROUP BY bookname
+HAVING COUNT(DISTINCT o.custid) >= (SELECT 
+        0.3 * COUNT(*)
+    FROM
+        customer);
 
+-- group by 연습 문제
 
+-- 문제 1: 각 고객이 구매한 도서의 총 개수를 구하고, 구매한 도서 개수가 3개 이상인 고객의 이름과 구매 도서 개수를 출력하세요.
+SELECT 
+    c.name, COUNT(o.orderid) AS num_books
+FROM
+    customer c
+        INNER JOIN
+    orders o ON o.custid = c.custid
+GROUP BY name
+HAVING COUNT(o.orderid) >= 3;
+
+-- 문제 2: 각 출판사별로 출판된 도서 중 가장 비싼 도서의 이름과 가격을 출력하세요.
+SELECT 
+    b.bookname, b.price
+FROM
+    book b
+        INNER JOIN
+    (SELECT -- inner join 뒤에 나오는 서브쿼리는 임시 테이블 기능도 함.
+        b.publisher, MAX(b.price) AS max_price
+    FROM
+        book b
+    GROUP BY publisher) AS max_prices ON b.publisher = max_prices.publisher
+        AND b.price = max_prices.max_price; 
+        
+-- 문제 3: 가장 많은 고객이 구매한 도서의 이름과 구매 고객 수를 출력하세요. (단, 동일한 구매 고객 수를 가진 도서가 여러 권인 경우 모두 출력합니다.)
+select 
+
+-- 문제 4: 가장 많은 도서를 주문한 고객의 ID와 주문한 도서의 개수를 출력하세요.
+
+-- 문제 5: 가장 많은 도서를 주문한 고객의 이름과 주문한 도서의 개수를 출력하세요.
 
 
 
@@ -96,3 +145,5 @@ select c.name, count(distinct b.publisher) from book b
 
 
 select * from book;
+select * from orders;
+select * from customer;
