@@ -60,7 +60,6 @@ insert into book(bookid, bookname, publisher, price)
 values(11, '스포츠 의학', '한솔의학서적', 90000);
 
 -- 1) 박지성이 구매한 도서의 출판사와 같은 출판사에서 도서를 구매한 고객의 이름
-<<<<<<< HEAD
 SELECT 
     c.name
 FROM

@@ -1,10 +1,12 @@
 <!-- <li><label for="">최근 접속시간: </label> <input type="text" value=" 2024-07-31 15:00"></li>
 <li><label for="">학적상태: </label><input type="text" value="재학"></li> -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>미니언즈 대학교 학사관리 시스템</title>
-    <link rel="stylesheet" href="school2.css" />
+    <link rel="stylesheet" href="school2.css">
   </head>
   <body>
     <div class="header">
@@ -12,11 +14,25 @@
     </div>
     <div style="height: 100px"></div>
     <div class="sidenav">
-      <!-- <a href="#" style="text-align: left; margin-left: 23px; font-size: 1.3rem;">홈</a> -->
       <a href="#">학생정보</a>
       <a href="#">수강신청</a>
       <a href="#">성적조회</a>
       <a href="#">졸업관리</a>
+    </div>
+    <div class="professor-info">
+      <div class="profile-container1">
+        <img src="images/gru.png" alt="교수님 프로필 사진" class="gru">
+        <div class="profile-info">
+          <h2>그루 교수</h2>
+          <p>GRU_minions@gmail.com</p>
+          <a href="#" class="logout-button">로그아웃</a>
+        </div>
+      </div>
+      <div class="menu-container">
+        <a href="#">시작하기</a>
+        <a href="#">쪽지 21</a>
+        <a href="#">해피빈 10</a>
+      </div>
     </div>
     <div class="main">
       <div class="container" id="minion-container-1">
@@ -38,13 +54,13 @@
             class="tab-button active"
             onclick="openTab('minion-container-1', 'bob-tab-1')"
           >
-            학생정보
+            학적상태
           </button>
           <button
             class="tab-button"
             onclick="openTab('minion-container-1', 'bob-tab-2')"
           >
-            학생서비스
+            학생정보
           </button>
           <div id="bob-tab-1" class="tab active">
             <div class="tab-content">
@@ -88,22 +104,17 @@
                   <td>A</td>
                 </tr>
               </table>
-              <fieldset>
-                <ul>
-                    <li> <img src="images/icon.jpg" alt=""> asdfsdafsdafsdafsdafsadfsdafasdf</li>
-                    <li> <img src="images/icon.jpg" alt=""> asdfsdafsdafsdafsdafsadfsdafasdf</li>
-                    <li> <img src="images/icon.jpg" alt=""> asdfsdafsdafsdafsdafsadfsdafasdf</li>
-                </ul>
-              </fieldset>
             </div>
           </div>
           <div id="bob-tab-2" class="tab">
             <div class="tab-content">
-              <ul>
-                <li>학사행정 문의</li>
-                <li>장학금 신청</li>
-                <li>...</li>
-              </ul>
+              <fieldset>
+                <ul>
+                    <li> <img src="images/icon.jpg" alt=""> 학사행정 문의 </li>
+                    <li> <img src="images/icon.jpg" alt=""> 장학금 신청 </li>
+                    <li> <img src="images/icon.jpg" alt=""> </li>
+                </ul>
+              </fieldset>
             </div>
           </div>
         </div>
@@ -127,13 +138,13 @@
             class="tab-button active"
             onclick="openTab('minion-container-2', 'stuart-tab-1')"
           >
-            학생정보
+            학적상태
           </button>
           <button
             class="tab-button"
             onclick="openTab('minion-container-2', 'stuart-tab-2')"
           >
-            학생서비스
+            학생정보
           </button>
           <div id="stuart-tab-1" class="tab active">
             <div class="tab-content">
@@ -177,32 +188,25 @@
                   <td>A</td>
                 </tr>
               </table>
-              <fieldset>
-                <ul>
-                    <li> <img src="images/icon.jpg" alt=""> asdfsdafsdafsdafsdafsadfsdafasdf</li>
-                    <li> <img src="images/icon.jpg" alt=""> asdfsdafsdafsdafsdafsadfsdafasdf</li>
-                    <li> <img src="images/icon.jpg" alt=""> asdfsdafsdafsdafsdafsadfsdafasdf</li>
-                    <li> <img src="images/icon.jpg" alt=""> asdfsdafsdafsdafsdafsadfsdafasdf</li>
-                    <li> <img src="images/icon.jpg" alt=""> asdfsdafsdafsdafsdafsadfsdafasdf</li>
-                </ul>
-              </fieldset>
             </div>
           </div>
           <div id="stuart-tab-2" class="tab">
             <div class="tab-content">
-              <ul>
-                <li>학사행정 문의</li>
-                <li>장학금 신청</li>
-                <li>...</li>
-              </ul>
+              <fieldset>
+                <ul>
+                    <li> <img src="images/icon.jpg" alt=""> 학사행정 문의 </li>
+                    <li> <img src="images/icon.jpg" alt=""> 장학금 신청 </li>
+                    <li> <img src="images/icon.jpg" alt=""> </li>
+                </ul>
+              </fieldset>
             </div>
           </div>
         </div>
       </div>
       <div class="container" id="minion-container-3">
         <div class="profile-container">
-          <img
-            class="profile-picture"
+            <img
+            class="profile-picture1"
             src="images/dave.jpg"
             alt="미니언 프로필 사진"
           />
@@ -218,13 +222,13 @@
             class="tab-button active"
             onclick="openTab('minion-container-3', 'dave-tab-1')"
           >
-            학생정보
+            학적상태
           </button>
           <button
             class="tab-button"
             onclick="openTab('minion-container-3', 'dave-tab-2')"
           >
-            학생서비스
+            학생정보
           </button>
           <div id="dave-tab-1" class="tab active">
             <div class="tab-content">
@@ -252,43 +256,66 @@
                   <td>A</td>
                 </tr>
                 <tr>
-                  <td rowspan="3"><b>23학년 2학기</b></td>
-                  <td><b>세계 악당 역사</b></td>
+                  <td rowspan="3">23학년 2학기</td>
+                  <td>세계 악당 역사</td>
                   <td>3</td>
                   <td>A</td>
                 </tr>
                 <tr>
-                  <td><b>악당 심리학</b></td>
+                  <td>악당 심리학</td>
                   <td>3</td>
                   <td>A</td>
                 </tr>
                 <tr>
-                  <td><b>악당 패션 디자인</b></td>
+                  <td>악당 패션 디자인</td>
                   <td>3</td>
                   <td>A</td>
                 </tr>
               </table>
-              <fieldset>
-                <ul>
-                    <li> <img src="images/icon.jpg" alt=""> asdfsdafsdafsdafsdafsadfsdafasdf</li>
-                    <li> <img src="images/icon.jpg" alt=""> asdfsdafsdafsdafsdafsadfsdafasdf</li>
-                    <li> <img src="images/icon.jpg" alt=""> asdfsdafsdafsdafsdafsadfsdafasdf</li>
-                </ul>
-              </fieldset>
             </div>
           </div>
           <div id="dave-tab-2" class="tab">
             <div class="tab-content">
-              <ul>
-                <li>학사행정 문의</li>
-                <li>장학금 신청</li>
-                <li>...</li>
-              </ul>
+              <fieldset>
+                <ul>
+                    <li> <img src="images/icon.jpg" alt=""> 학사행정 문의 </li>
+                    <li> <img src="images/icon.jpg" alt=""> 장학금 신청 </li>
+                    <li> <img src="images/icon.jpg" alt=""> </li>
+                </ul>
+              </fieldset>
             </div>
           </div>
         </div>
       </div>
     </div>
+    <footer>
+      <div class="footer-content">
+          <div class="footer-logo">
+              <img src="images/minions_uni.png" alt="미니언즈 대학교 로고"> 
+          </div>
+          <div class="footer-address">
+              <p>
+                  (40404) 바나나시 바나나구 바나나대로 1234
+                  <br>
+                  TEL: 053-123-4567   FAX: 053-123-4568
+              </p>
+          </div>
+          <div class="copyright">
+              <p>Copyright © 2024 MINIONS UNIVERSITY. All rights reserved.</p>
+          </div>
+          <div class="footer-links">
+              <a href="#">개인정보처리방침</a> |
+              <a href="#">이메일무단수집거부</a> |
+              <a href="#">컴퓨터고장신고</a> |
+              <a href="#">전화번호안내</a> |
+              <a href="#">예산공고</a> |
+              <a href="#">결산공고</a> |
+              <a href="#">공시</a>
+          </div>
+      </div>
+  </footer>
+  </body>
+</html>
 
     <script>
       function openTab(containerId, tabName) {
@@ -305,5 +332,3 @@
         event.currentTarget.classList.add("active");
       }
     </script>
-  </body>
-</html>

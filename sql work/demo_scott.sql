@@ -22,7 +22,7 @@ INSERT INTO DEPT (DEPTNO, DNAME, LOC) VALUES(40, 'OPERATIONS', 'BOSTON');
 CREATE TABLE IF NOT EXISTS EMP (
   EMPNO integer NOT NULL PRIMARY KEY, #사원번호
   ENAME varchar(10), #사원이름
-  JOB varchar(9), #직위
+  JOB varchar(9), #직위,업무이름
   MGR integer, #팀장번호
   HIREDATE date, #고용날짜
   SAL integer, #월급
@@ -71,21 +71,40 @@ select empno, ename, sal, (sal*1.1) as '인상된 급여', (sal*0.1) as "증가�
 select e.ename, d.deptno from emp e, dept d where ename like 'S%' and dname like 'S%';
 
 -- 5) 모든 사원의 최대 및 최소 급여, 합계 및 평균 급여를 출력하세요. 열 이름은 각각 MAX, MIN, SUM, AVG로 합니다. 단, 소수점 이하는 반올림하여 정수로 출력하세요.
+select max(sal) MAX,min(sal) MIN, sum(sal) SUM, round(avg(sal)) SUM from emp;
 
 -- 6) 업무 이름과 업무별로 동일한 업무를 하는 사원의 수를 출력하세요. 열 이름은 각각 '업무'와 '업무별 사원수'로 합니다.
+select job as 업무, count(empno) as '업무별 사원수' from emp group by 업무;
+
 -- 7) 사원의 최대 급여와 최소 급여의 차액을 출력하세요.
+select (HISAL-LOSAL) 급여차액 from salgrade;
+
 -- 8) 30번 부서의 구성원 수와 사원들 급여의 합계와 평균을 출력하세요.
+select count(*) '부서 구성원 수', sum(sal) 합계, avg(sal) 평균 from emp where deptno = 30;
 
 -- 9) 평균 급여가 가장 높은 부서의 번호를 출력하세요.
+select deptno, round(avg(sal)) as avg_sal from emp group by deptno having round(avg(sal)) in (select max(round(avg(sal))) from emp);
 
 -- 10) 세일즈맨(SALESMAN)을 제외하고, 업무별 사원의 급여가 3,000 이상인 각 업무에 대해서, 업무명과 업무별 평균 급여를 출력하세요. 단 평균 급여는 내림차순으로 출력합니다.
+select job, avg(sal) from emp where job not in ('salesman') && sal >= 3000 group by job order by avg(sal) desc;
 
 -- 11) 전체 사원 가운데 직속상관이 있는 사원의 수를 출력하세요.
+select count(*) from emp ;
+
 -- 12) EMP테이블에서 이름, 겹여, 커미션(COMM)금액, 총액(SAL+COMM)을 구하여 총액이 많은 순서대로 출력하세요. 단 커미션이 NULL인 사람은 제외합니다.
+
+
 -- 13) 부서별로 같은 업무를 하는 사람의 인원수를 구하여 부서번호, 업무이름, 인원수를 출력하세요.
+
+
 -- 14) 사원이 한 명도 없는 부서의 이름을 출력하세요.
+
+
 -- 15) 같은 업무를 하는 사람의 수가 4명 이상인 업무와 인원수를 출력하세요.
+
+
 -- 16) 사원번호가 7400이상 7600이하인 사원의 이름을 출력하세요.
+
 
 select * from emp;
 select * from dept;
