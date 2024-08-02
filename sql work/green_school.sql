@@ -59,4 +59,3 @@ p.k: 연도+학년+학반+학번
 
 foreign key 수행.수업 references 수업(name)
 */
-
