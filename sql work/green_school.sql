@@ -32,30 +32,136 @@
 4) 테이블
 학생정보
 선생님
-수행평가
 수업
 수강생정보
+수행평가
 점수
 
 5) 학생테이블
 p.k: 연도+학년+학반+학번
-학생이름 : varchar(20)
-연도 : varchar(4)
-학년 : varchar(1)
-학번 : varchar(2)
-학반 : varchar(2)
-패스워드 : varchar(10)
+학생이름 : varchar(20), NN
+연도 : varchar(4), NN, default value(올해로)
+학년 : varchar(1), NN
+학번 : varchar(2), NN
+학반 : varchar(2), NN
+패스워드 : varchar(10), NN, default value(P.K / 1234 / 1111)
 
 6) 선생님테이블
-아이디 : P.K. varchar(10)
-패스워드 : varchar(20)
-이름 : varchar(20)
-과목 : varchar(20)
-교사상태 : char(1)
+아이디 : P.K. varchar(10), NN
+패스워드 : varchar(20), NN
+이름 : varchar(20), NN
+과목 : varchar(20), NN
+교사상태 : char(1) - 0: 정교사 / 1: 기간제교사 / 2: 방과후교사 / 3: 산학교사 / 4: 기타, N, default value(기타 등등)
 
-7) 수행평가
-일정 date
-수업 
+선생님 - 수업 - 수업 - 학생
+7) 수업테이블 : 체육 등 한 선생님이 모든 반 수업이 있는 경우 / 수학과목처럼 모든 요일에 수업이 있는 경우
+ID : 
+수업명 : 
+개설연도 : 
+개설학기 : 
+개설학년 : 
+개설학반 : 
+수업요일 : 
+수업시간 : 
+교실 : 
+F.K : 교사ID - 교사명 / 해당과목
 
-foreign key 수행.수업 references 수업(name)
+8) 수강생테이블
+F.K : 수업테이블ID
+F.K : 학생ID - 학생이름(수강생이름)
+
+9) 수행평가테이블
+ID : 
+-- 수행평가수업 : 
+수행평가제목 : 
+수행평가시작일시 : 
+수행평가종료일시 : 
+수행평가타입 : 과제형, 시험형 등등
+수행평가내용 : 
+-- 수행평가담당선생님 : 
+수행평가채점기준 : 
+
+F.K : 수업ID -> 수행평가수업, 수행평가 담당 선생님
+F.K : 수행평가에 해당된느 학생 정보(?)
+
+10) 점수 : 점수이의신청, 점수확정 -> 변동이력을 남길지 말지
+F.K : 수행평가 ID : 
+F.K : 학생 ID : 
+점수 : 
+확정여부 : 
+확정일시 : 
+
 */
+
+create database highschool;
+use highschool;
+
+CREATE TABLE Student (
+    s_id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(20) NOT NULL,
+    year INT DEFAULT 2024 NOT NULL,
+    grade TINYINT NOT NULL,
+    class TINYINT NOT NULL,
+    stu_num TINYINT NOT NULL,
+    password VARCHAR(10) DEFAULT 1111 NOT NULL
+);
+
+CREATE TABLE teacher (
+    tch_ID VARCHAR(10) NOT NULL PRIMARY KEY,
+    password VARCHAR(10) NOT NULL,
+    name VARCHAR(20) NOT NULL,
+    subject VARCHAR(20) NOT NULL,
+    role CHAR(1) DEFAULT '4'
+);
+
+CREATE TABLE class (
+    c_ID INT AUTO_INCREMENT PRIMARY KEY,
+    tch_ID VARCHAR(10) NOT NULL,
+    name VARCHAR(20) NOT NULL,
+    year INT NOT NULL,
+    semester CHAR(1) NOT NULL,
+    grade TINYINT NOT NULL,
+    class TINYINT NULL,
+    date CHAR(1) NOT NULL,
+    time VARCHAR(10) NOT NULL,
+    room VARCHAR(20) NULL,
+    FOREIGN KEY (tch_ID)
+        REFERENCES teacher(tch_ID)
+);
+
+CREATE TABLE chulsuk (
+    s_id INT NOT NULL,
+    c_ID INT NOT NULL,
+    PRIMARY KEY (s_id , C_ID),
+    FOREIGN KEY (s_id)
+        REFERENCES student (s_id),
+    FOREIGN KEY (C_ID)
+        REFERENCES class (C_ID)
+);
+
+CREATE TABLE perform (
+    p_id INT AUTO_INCREMENT PRIMARY KEY,
+    p_title VARCHAR(100) NOT NULL,
+    p_type CHAR(1) NULL,
+    p_content TINYINT NOT NULL,
+    p_kijun VARCHAR(100) NOT NULL,
+    p_startdate DATE NOT NULL,
+    p_enddate DATE NOT NULL,
+    c_ID INT NOT NULL,
+    FOREIGN KEY (c_ID)
+        REFERENCES class (c_ID)
+);
+
+CREATE TABLE evaluation (
+    s_id INT NOT NULL,
+    p_id INT NOT NULL,
+    e_score INT NOT NULL,
+    e_check char(1) null,
+    e_checkdate date null,
+    PRIMARY KEY (p_id , s_id),
+    FOREIGN KEY (s_id)
+        REFERENCES student (s_id),
+    FOREIGN KEY (p_id)
+        REFERENCES perform (p_id)
+);
+
