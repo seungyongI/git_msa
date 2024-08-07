@@ -1,0 +1,6 @@
+.hd { width: 100%; padding-right: 15px; padding-left: 15px; margin-right: auto; margin-left: auto;}
+.head { display: flex; justify-content: flex-end;align-items: center; padding-top: 5px;}
+.num { border-radius: 1000px; height: 25px; margin-left: 10px; min-width: 100px; padding-left: 10px; width: auto;}
+.bu { display: flex; align-items: center; margin-left: 10px;}
+.zum { display: flex; margin-left: 10px; margin-right: 10px;}
+.out {margin-right: 20px;}

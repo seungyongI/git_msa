@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>미니언즈 대학교 학사관리 시스템</title>
+    <link rel="stylesheet" href="minions_uni.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class="header">
+      <a href="minions_uni.html"><h1>미니언즈 대학교 학사관리 시스템</h1></a>
+    </div>
+    <div class="sidenav">
+      <a href="#">수업자료실</a>
+      <a href="#">시간표관리</a>
+      <a href="#">수업 Q&A</a>
+      <a href="#">공지사항</a>
+    </div>
+    <div style="height: 100px"></div>
+    <div class="professor-info">
+      <div class="profile-container1">
+        <img src="images/gru.png" alt="교수님 프로필 사진" class="gru" />
+        <div class="profile-info">
+          <h2>그루 교수</h2>
+          <p>GRU_minions@gmail.com</p>
+          <a href="../index.html" class="logout-button">로그아웃</a>
+        </div>
+      </div>
+      <div class="menu-container">
+        <hr style="width: 100%" />
+        <a href="#">강의관리</a>
+        <a href="#">출결관리</a>
+        <a href="#">학생상담</a>
+      </div>
+    </div>
+    <div class="main">
+      <div class="container" id="minion-container-1">
+        <div class="profile-container">
+          <img
+            class="profile-picture"
+            src="images/bob.jpg"
+            alt="미니언 프로필 사진"
+          />
+          <div class="profile-info">
+            <h2>밥</h2>
+            <p>전공: 바나나 학과</p>
+            <p>학번: 20230001</p>
+            <p>학년: 1학년</p>
+          </div>
+        </div>
+        <div class="tabs-container">
+          <button
+            class="tab-button active"
+            onclick="openTab('minion-container-1', 'bob-tab-1')"
+          >
+            학적상태
+          </button>
+          <button
+            class="tab-button"
+            onclick="openTab('minion-container-1', 'bob-tab-2')"
+          >
+            학생정보
+          </button>
+          <div id="bob-tab-1" class="tab active">
+            <div class="tab-content">
+              <table>
+                <tr>
+                  <th style="width: 120px">학기</th>
+                  <th style="width: 100px">과목코드</th>
+                  <th style="width: 180px">과목명</th>
+                  <th style="width: 50px">학점</th>
+                  <th style="width: 50px">점수</th>
+                  <th style="width: 50px">등급</th>
+                  <th style="width: 50px">취득<br />학점</th>
+                </tr>
+                <tr>
+                  <td rowspan="3">23학년 1학기</td>
+                  <td>BAN101</td>
+                  <td>바나나 재배학</td>
+                  <td>3</td>
+                  <td>95</td>
+                  <td>A</td>
+                  <td>3</td>
+                </tr>
+                <tr>
+                  <td>BAN102</td>
+                  <td>바나나 요리학</td>
+                  <td>3</td>
+                  <td>92</td>
+                  <td>A</td>
+                  <td>3</td>
+                </tr>
+                <tr>
+                  <td>BAN103</td>
+                  <td>바나나 심리학</td>
+                  <td>3</td>
+                  <td>88</td>
+                  <td>A</td>
+                  <td>3</td>
+                </tr>
+                <tr>
+                  <td rowspan="3">23학년 2학기</td>
+                  <td>VIL201</td>
+                  <td>세계 악당 역사</td>
+                  <td>3</td>
+                  <td>98</td>
+                  <td>A</td>
+                  <td>3</td>
+                </tr>
+                <tr>
+                  <td>VIL202</td>
+                  <td>악당 심리학</td>
+                  <td>3</td>
+                  <td>90</td>
+                  <td>A</td>
+                  <td>3</td>
+                </tr>
+                <tr>
+                  <td>VIL203</td>
+                  <td>악당 패션 디자인</td>
+                  <td>3</td>
+                  <td>85</td>
+                  <td>A</td>
+                  <td>3</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div id="bob-tab-2" class="tab">
+            <div class="tab-content">
+              <fieldset>
+                <ul>
+                  <li><img src="images/icon.jpg" alt="" /> 학사행정 문의</li>
+                  <li><img src="images/icon.jpg" alt="" /> 장학금 신청</li>
+                  <li><img src="images/icon.jpg" alt="" /></li>
+                </ul>
+              </fieldset>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container" id="minion-container-2">
+        <div class="profile-container">
+          <img
+            class="profile-picture"
+            src="images/stuart.jpg"
+            alt="미니언 프로필 사진"
+          />
+          <div class="profile-info">
+            <h2>스튜어트</h2>
+            <p>전공: 바나나 학과</p>
+            <p>학번: 20230002</p>
+            <p>학년: 1학년</p>
+          </div>
+        </div>
+        <div class="tabs-container">
+          <button
+            class="tab-button active"
+            onclick="openTab('minion-container-2', 'stuart-tab-1')"
+          >
+            학적상태
+          </button>
+          <button
+            class="tab-button"
+            onclick="openTab('minion-container-2', 'stuart-tab-2')"
+          >
+            학생정보
+          </button>
+          <div id="stuart-tab-1" class="tab active">
+            <div class="tab-content">
+              <table>
+                <tr>
+                  <th style="width: 120px">학기</th>
+                  <th style="width: 100px">과목코드</th>
+                  <th style="width: 180px">과목명</th>
+                  <th style="width: 50px">학점</th>
+                  <th style="width: 50px">점수</th>
+                  <th style="width: 50px">등급</th>
+                  <th style="width: 50px">취득<br />학점</th>
+                </tr>
+                <tr>
+                  <td rowspan="3">23학년 1학기</td>
+                  <td>BAN101</td>
+                  <td>바나나 재배학</td>
+                  <td>3</td>
+                  <td>95</td>
+                  <td>A</td>
+                  <td>3</td>
+                </tr>
+                <tr>
+                  <td>BAN102</td>
+                  <td>바나나 요리학</td>
+                  <td>3</td>
+                  <td>92</td>
+                  <td>A</td>
+                  <td>3</td>
+                </tr>
+                <tr>
+                  <td>BAN103</td>
+                  <td>바나나 심리학</td>
+                  <td>3</td>
+                  <td>88</td>
+                  <td>A</td>
+                  <td>3</td>
+                </tr>
+                <tr>
+                  <td rowspan="3">23학년 2학기</td>
+                  <td>VIL201</td>
+                  <td>세계 악당 역사</td>
+                  <td>3</td>
+                  <td>98</td>
+                  <td>A</td>
+                  <td>3</td>
+                </tr>
+                <tr>
+                  <td>VIL202</td>
+                  <td>악당 심리학</td>
+                  <td>3</td>
+                  <td>90</td>
+                  <td>A</td>
+                  <td>3</td>
+                </tr>
+                <tr>
+                  <td>VIL203</td>
+                  <td>악당 패션 디자인</td>
+                  <td>3</td>
+                  <td>85</td>
+                  <td>A</td>
+                  <td>3</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div id="stuart-tab-2" class="tab">
+            <div class="tab-content">
+              <fieldset>
+                <ul>
+                  <li><img src="images/icon.jpg" alt="" /> 학사행정 문의</li>
+                  <li><img src="images/icon.jpg" alt="" /> 장학금 신청</li>
+                  <li><img src="images/icon.jpg" alt="" /></li>
+                </ul>
+              </fieldset>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container" id="minion-container-3">
+        <div class="profile-container">
+          <img
+            class="profile-picture1"
+            src="images/dave.jpg"
+            alt="미니언 프로필 사진"
+          />
+          <div class="profile-info">
+            <h2>데이브</h2>
+            <p>전공: 바나나 학과</p>
+            <p>학번: 20230003</p>
+            <p>학년: 1학년</p>
+          </div>
+        </div>
+        <div class="tabs-container">
+          <button
+            class="tab-button active"
+            onclick="openTab('minion-container-3', 'dave-tab-1')"
+          >
+            학적상태
+          </button>
+          <button
+            class="tab-button"
+            onclick="openTab('minion-container-3', 'dave-tab-2')"
+          >
+            학생정보
+          </button>
+          <div id="dave-tab-1" class="tab active">
+            <div class="tab-content">
+              <table>
+                <tr>
+                  <th style="width: 120px">학기</th>
+                  <th style="width: 100px">과목코드</th>
+                  <th style="width: 180px">과목명</th>
+                  <th style="width: 50px">학점</th>
+                  <th style="width: 50px">점수</th>
+                  <th style="width: 50px">등급</th>
+                  <th style="width: 50px">취득<br />학점</th>
+                </tr>
+                <tr>
+                  <td rowspan="3">23학년 1학기</td>
+                  <td>BAN101</td>
+                  <td>바나나 재배학</td>
+                  <td>3</td>
+                  <td>95</td>
+                  <td>A</td>
+                  <td>3</td>
+                </tr>
+                <tr>
+                  <td>BAN102</td>
+                  <td>바나나 요리학</td>
+                  <td>3</td>
+                  <td>92</td>
+                  <td>A</td>
+                  <td>3</td>
+                </tr>
+                <tr>
+                  <td>BAN103</td>
+                  <td>바나나 심리학</td>
+                  <td>3</td>
+                  <td>88</td>
+                  <td>A</td>
+                  <td>3</td>
+                </tr>
+                <tr>
+                  <td rowspan="3">23학년 2학기</td>
+                  <td>VIL201</td>
+                  <td>세계 악당 역사</td>
+                  <td>3</td>
+                  <td>98</td>
+                  <td>A</td>
+                  <td>3</td>
+                </tr>
+                <tr>
+                  <td>VIL202</td>
+                  <td>악당 심리학</td>
+                  <td>3</td>
+                  <td>90</td>
+                  <td>A</td>
+                  <td>3</td>
+                </tr>
+                <tr>
+                  <td>VIL203</td>
+                  <td>악당 패션 디자인</td>
+                  <td>3</td>
+                  <td>85</td>
+                  <td>A</td>
+                  <td>3</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div id="dave-tab-2" class="tab">
+            <div class="tab-content">
+              <fieldset>
+                <ul>
+                  <li><img src="images/icon.jpg" alt="" /> 학사행정 문의</li>
+                  <li><img src="images/icon.jpg" alt="" /> 장학금 신청</li>
+                  <li><img src="images/icon.jpg" alt="" /> asdfasdfda</li>
+                </ul>
+              </fieldset>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <div class="footer-content">
+        <div class="footer-logo">
+          <a href="https://www.instagram.com/minions/" target="_blank"
+            ><img src="images/minions_uni.png" alt="미니언즈 대학교 로고"
+          /></a>
+        </div>
+        <div class="footer-address">
+          <p>
+            (40404) 바나나시 바나나구 바나나대로 1234 Copyright © 2024 MINIONS
+            UNIVERSITY. All rights reserved.
+            <br />
+            TEL: 053-123-4567 FAX: 053-123-4568
+          </p>
+        </div>
+        <div class="footer-links">
+          <a href="#">개인정보처리방침</a>
+          <a href="#">이메일무단수집거부</a>
+          <a href="#">컴퓨터고장신고</a>
+          <a href="#">전화번호안내</a>
+          <a href="#">예산공고</a>
+          <a href="#">결산공고</a>
+          <a href="#">공시</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<script>
+  function openTab(containerId, tabName) {
+    let container = document.getElementById(containerId);
+    let tabs = container.getElementsByClassName("tab");
+    let tabButtons = container.getElementsByClassName("tab-button");
+
+    for (let i = 0; i < tabs.length; i++) {
+      tabs[i].style.display = "none";
+      tabButtons[i].classList.remove("active");
+    }
+
+    container.querySelector("#" + tabName).style.display = "block";
+    event.currentTarget.classList.add("active");
+  }
+
+  let footer = document.querySelectorAll(".footer-links a");
+  for (let i = 0; i < footer.length; i++) {
+    if (i < footer.length-1){
+      footer[i].textContent += " | ";
+    }
+  }
+</script>
