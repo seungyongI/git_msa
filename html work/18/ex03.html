@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com">
+          tailwind.config = {
+        theme: {
+            container: {
+                padding: {
+            DEFAULT: '1rem',
+            sm: '20rem',
+            lg: '40rem',
+            xl: '50rem',
+            '2xl': '70rem',
+          },
+        },
+          extend: {
+            colors: {
+              clifford: '#da373d',
+            }
+          }
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div
+      class="md:container md:mx-auto bg-blue-500 hover:bg-blue-700 cursor-pointer active:bg-red-300">
+      <h1>heading</h1>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium
+        culpa quibusdam, aliquam doloribus iusto ea, magni eaque nostrum
+        voluptates repudiandae necessitatibus. Asperiores id tempora doloribus
+        est in quo nemo cupiditate?
+      </p>
+    </div>
+    <h1 class="text-5xl font-bold underline text-clifford lg:text-center">Hello world!</h1>
+    <h1 class="text-5xl font-bold underline text-clifford hover:text-center">Hello world!</h1>
+    <div class="flex text-5xl my-3 mx-3">
+        <div class="flex bg-blue-500">01</div>
+        <div class="flex-1 bg-yellow-500">02</div>
+        <div class="flex bg-red-300">03</div>
+    </div>
+  </body>
+</html>

@@ -1,5 +1,4 @@
-
-
+-- 푸드코트 ERD
 create table corner(
 	corner_id int primary key,
     corner_name varchar(20) not null
@@ -18,5 +17,9 @@ create table orders(
 	order_id int not null,
     menu_id int not null,
     corner_id int not null,
-    status char(1) not null default '0'
+    count int not null,
+    orderdate date not null,
+    status char(1) not null default '0', -- 접수중, 픽업대기, 픽업완료
+    foreign key (menu_id) references menu(menu_id),
+    primary key(order_id, menu_id, corner_id)
 );
