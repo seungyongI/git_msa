@@ -19,7 +19,7 @@ body { background:rgb(255, 255, 255); }
 /* 공지사항 */
 .title { font-size:25px; font-weight:600; text-transform:uppercase; color:#ffc300; }
 .notice_wrap { margin-top:10px; }
-.notice_wrap li { line-height:39px; }
+.notice_wrap li { line-height:40px; }
 .notice_wrap li:last-child { margin-bottom:0px; }
 .notice_wrap li a:hover { text-decoration:underline; }
 
@@ -33,9 +33,7 @@ body { background:rgb(255, 255, 255); }
 
 /* 왼쪽 푸터 */
 .footer { position:relative; display:block; margin-top:60px; color:#555555; }
-.footer address { margin-bottom:6px; }
-.footer ul { display:flex; justify-content:flex-start; }
-.footer p { margin-top:20px; }
+.footer p { margin-top:70px; }
 
 /* 언어 */
 .version { position:relative; width: 30%; float:right; margin:20px 0 10px 0; }
@@ -72,5 +70,5 @@ body { background:rgb(255, 255, 255); }
 .join { margin-left:25px;}
 
 /* 오른쪽 푸터 */
-.fot { margin-top:50px; line-height:25px; }
+.fot { margin-top:110px; line-height:25px; font-size: 14px;}
 

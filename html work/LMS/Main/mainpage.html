@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            /*바디는 텍스트만 건들기로!!*/
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 15px;
+            word-break: break-all;
+            /*텍스트 자동 줄바꿈, 사이드는 별도라서 따로 지정*/
+        }
+
+        .wrap {
+            margin: 0 auto;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            /*전체의 부모, 전체 화면 너비 높이 지정용*/
+            margin: 0 auto;
+            background-color: rgb(102 149 185);
+            border-radius: 40px 40px 40px 40px;
+        }
+
+        .header {
+            /* container 자식, float시작점, 로고, 가이드블록*/
+
+            background-color: rgb(255, 223, 110);
+            border-radius: 35px 35px 0 0;
+            width: 1200px;
+            height: 200px;
+            position: relative;
+
+
+        }
+
+        .guide1 {
+            background-color: rgb(102 149 185);
+            
+            width: 1200px;
+            border-radius: 25px 5px 0 0;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translate(-50%);
+            z-index: 0;
+            margin: 0;
+        }
+
+        .listt1 {
+            /* background-color: chocolate; */
+            /*이거 색깔이 보이면 안됨*/
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: table;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .qq1,
+        .ww1,
+        .ee1,
+        .rr1 {
+            font-size: 20px;
+            text-align: center;
+            /* border: 1px solid black; */
+            width: 200px;
+            height: 50px;
+            padding: 10px;
+            /* line-height: 50px; */
+            float: left;
+            background-color: rgb(102 149 185);
+            cursor: pointer;
+            z-index: 2;
+
+        }
+
+        .qq2,
+        .ww2,
+        .ee2,
+        .rr2 {
+            font-size: 20px;
+            text-align: center;
+            /* border: 1px solid black; */
+            width: 200px;
+            height: 50px;
+            padding: 10px;
+            /* line-height: 50px; */
+            float: left;
+            background-color: rgb(4, 79, 135);
+            background: linear-gradient(180deg, rgb(4, 79, 135), rgba(251, 251, 251, 1));
+            cursor: pointer;
+            z-index: 2;
+        }
+
+        .qq1:hover,
+        .ww1:hover,
+        .ee1:hover,
+        .rr1:hover {
+            background-color: rgb(4, 79, 135);
+        }
+
+        .qq1:active,
+        .ww1:active,
+        .ee1:active,
+        .rr1:active {
+            background-color:  rgb(4, 79, 135);
+            background: linear-gradient(180deg,  rgb(4, 79, 135), rgba(251, 251, 251, 1));
+        }
+
+        .QQ,
+        .WW,
+        .EE,
+        .RR {
+            display: none;
+            padding: 10px;
+
+        }
+
+        /* .hidden {
+            background-color: antiquewhite;
+            width: 1000px;
+            height: 500px;
+
+
+        } */
+
+       
+
+        .side1 {
+            /*부모없음, z-index 가장 우선권을 가지게 할것, 필요없으면 주석처리*/
+            margin: 0 auto;
+            background-color: rgb(37, 21, 21);
+            
+            position: fixed;
+            top: 200px;
+            right: 200px;
+            line-height: 100px;
+
+            cursor: pointer;
+            
+            width: 100px;
+            height: 100px;
+            border-radius: 50% 50% 50% 50%;
+            word-break: break-all;
+            z-index: 2;
+            /*숫자가 높을수록 위에 표시
+                         만들생각 없었는데 그리드가 자꾸 가림 ㅡㅡ*/
+        }
+
+        .side1 b:hover{
+            color: tomato;
+        }
+
+
+        .main {
+            /*container 자식, base 부모, 그리드AA 부모, 헤더 다음 float,
+              베이스와 그리드 내용 추가시 높이 늘려줄것 */
+            background-image: url(Image/pngegg.png);
+            background-repeat: no-repeat;
+            background-position: right top;
+            float: left;
+            width: 1200px;
+            height: 1000px;
+            position: relative;
+            /* display 그리드 클래스 위치 지정을 위하여
+                                               main을포지션 relative지정*/
+        }
+
+        .base {
+            /*main 자식, 주요내용 입력공간*/
+            margin: 50px auto ;
+            /*귀찮아서 일단 마진오토로 가운데 정렬*/
+            width: 1000px;
+            background-color: rgba(238, 238, 238, 50%);
+            border-radius: 5px 5px 5px 5px;
+        }
+
+        .footer {
+            /*container 자식, float이 끝나는 clear 지점, 로고, 가이드블록*/
+            margin: 0 auto;
+            clear: both;
+            background-color: rgb(4, 79, 135);
+            border-radius: 0 0 25px 25px;
+            width: 1200px;
+            height: 150px;
+        }
+
+        .AA {
+            /*main 자식, abcd 부모, 그리드 전용 div, side가려서 z-index 1로 표기,
+             이 구역에 내용넣지 말것...그리드 위치 일그러짐,
+            생성한 그리드 너비 높이 조절만, 위치 조절은 취향것*/
+
+            width: 800px;
+
+            /* background-color: bisque; */
+            display: grid;
+            grid-template-columns: 500px 500px;
+                                                /*두개 합쳐 1000px이지만
+                                                 소문자abcd클래스들의 마진때문에 축소됨*/
+            grid-template-rows: 280px 280px;
+
+            /* border: 1px solid black; */
+
+            position: absolute;
+            top: 85%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            /*센터 조절시 top letf50%에 50% 50% 셋팅*/
+            z-index: 1;
+            justify-content: center;
+            /*가로정렬*/
+        }
+
+        .aa,
+        .bb,
+        .cc,
+        .dd {
+            /*AA자식, 그리드 본체 마진은 요기서 줄것, 내용 오버시 스크롤 오토 
+             base랑 내용 겹치므로 메인크기 조절 알아서 */
+
+            background-color: #eee;
+            border: 1px solid black;
+            overflow-y: auto;
+            margin: 10px 20px 10px 20px;
+            /* position: relative;
+            top : 50%;
+            left: 50%; */
+            /* transform: translate(25%, 0); */
+        }
+
+        ul {
+            list-style: none;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .stu{
+            cursor: pointer;
+        }
+        .stu p:hover{
+            font-size: 30px;
+               color: rgb(223, 99, 17);
+        }
+
+        .footer-links a { text-decoration:none; color:#000; }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="side1">
+           <p style="color: #eee; font-size: 13px; text-align: center;" onclick="location.href='/Login/LMS1/index.html'
+            " class="side11"><b>로그인 페이지로</b></p> 
+            <!-- <caption>사이드</caption> -->
+        </div>
+
+        <div class="container">
+            <div class="header">
+<h1 style="text-align: center; line-height: 150px;"><img src="Image/images/minions_uni.png" style="width: 100px; position: absolute; top: 30px; left: 550px;" alt=""></h1>
+                <div class="guide1">
+                    <ul class="listt1">
+                        <li class="qq1" onclick="openqq1()"><b>조원소개</b></li>
+                        <li class="qq2" onclick="openqq2()" style="display: none;"><b>조원소개</b></li>
+
+                        <li class="ww1" onclick="openww1()"><b>학사소개</b></li>
+                        <li class="ww2" onclick="openww2()" style="display: none;"><b>학사소개</b></li>
+
+                        <li class="ee1" onclick="openee1()"><b>학생정보</b></li>
+                        <li class="ee2" onclick="openee2()" style="display: none;"><b>학생정보</b></li>
+
+                        <li class="rr1" onclick="openrr1()"><b>공사중</b></li>
+                        <li class="rr2" onclick="openrr2()" style="display: none;"><b>공사중</b></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="main">
+                <!-- <caption>메인</caption> -->
+
+                <div class="base">
+                    <div class="PP" style="padding: 10px; height: auto; text-align: center;">
+                   <h1>-방문을 환영합니다-</h1>
+                   <br>
+                   <img src="Image/minion-biz-featured.webp" alt="" style="width: 400px; 
+                                  border-radius: 10px 10px 10px 10px; margin-left: 5px;">
+                                                                                       
+                                                                                      
+                   </div>
+                    <div class="hidden">
+        <div class="QQ">
+            <ul class="listqq" style="font-size: 20px;">
+                <h2>-조원소개-</h2>
+                <br>
+           
+                <li class="listqqq" style="padding: 20px;"><strong>[팀장] 이동현</strong></li>
+                <li class="listqqq" style="padding: 10px;">[팀원] 이승용 </li>
+                <li class="listqqq" style="padding: 10px;">[팀원] 이상진 </li>
+                <li class="listqqq" style="padding: 10px;">[팀원] 정세엽 </li>
+            </ul>
+        </div>
+        <div class="WW">
+            <ul class="listww">
+                <li class="listwww">ww하나</li>
+                <li class="listwww">ww둘</li>
+                <li class="listwww">ww셋</li>
+                <li class="listwww">ww야!</li>
+            </ul>
+        </div>
+        <div class="EE">
+            <ul class="listee">
+                <div class="stu">
+                <p onclick="location.href='../Stu_Info/minions_uni.html'">학생정보 사이트 링크 ㄱㄱ
+                    
+                </p>
+                </div>
+
+                 <!-- <li class="listeee">ee하나</li>
+                // <li class="listeee">ee둘</li>
+                // <li class="listeee">ee셋</li>
+                // <li class="listeee">ee야!</li> -->
+            </ul>
+        </div>
+        <div class="RR">
+            <ul class="listrr">
+                <h1 style="text-align: center;">-공사중-</h1>
+                <br>
+               <div style="text-align: center;"><img src="Image/e12d65350729e75591e886b91a724de184f0a62ca0c0c36a3fca9bf76f0213f6.jpg" alt="" 
+                     style="width: 500px; border-radius: 10px 10px 10px 10px; "></div> 
+                <!-- <li class="listrrr">rr하나</li>
+                <li class="listrrr">rr둘</li>
+                <li class="listrrr">rr셋</li>
+                <li class="listrrr">rr야!</li> -->
+            </ul>
+        </div>
+                </div>
+
+                <div class="AA">
+
+                    <div class="aa">
+                        <caption>그리드 div aa</caption>
+                        <ul>
+                            <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </li>
+                            <li> Ducimus, totam quos, vitae laborum possimus iure, sapiente aspernaturDucimus, totam
+                                quos, vitae laborum possimus iure, sapiente aspernaturDucimus, totam quos, vitae laborum
+                                possimus iure, sapiente aspernaturDucimus, totam quos, vitae laborum possimus iure,
+                                sapiente aspernatur </li>
+                            <li> dolore est mollitia rem doloribus tempore laudantium. Consequuntur porro </li>
+                            <li> dolore est mollitia rem doloribus tempore laudantium. Consequuntur porro </li>
+                            <li> dolore est mollitia rem doloribus tempore laudantium. Consequuntur porro </li>
+                            <li> dolore est mollitia rem doloribus tempore laudantium. Consequuntur porro </li>
+                            <li> dolore est mollitia rem doloribus tempore laudantium. Consequuntur porro </li>
+                            <li> dolore est mollitia rem doloribus tempore laudantium. Consequuntur porro </li>
+                            <li> dolore est mollitia rem doloribus tempore laudantium. Consequuntur porro </li>
+                            <li> dolore est mollitia rem doloribus tempore laudantium. Consequuntur porro </li>
+                        </ul>
+                    </div>
+                    <div class="bb">
+                        <caption>그리드 div bb</caption><br>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.Sint magnam ullam soluta veniam quam
+                        vero ut, quasi facere dolorem,Sint magnam ullam soluta veniam quam vero ut, quasi facere
+                        dolorem,Sint magnam ullam soluta veniam quam vero ut, quasi facere dolorem,
+                        Sint magnam ullam soluta veniam quam vero ut, quasi facere dolorem,
+                        veritatis aperiam quaerat, voluptatum quos ab debitis inventore
+                    </div>
+                    <!-- <div class="cc">
+                        <caption>그리드 div cc</caption>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Possimus quod, sed consectetur at doloremque, enim quaerat, odit quia
+                        architecto numquam hic officiis iusto cupiditate iure. Rem pariatur
+                    </div>
+                    <div class="dd">
+                        <caption>그리드 div dd</caption>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Possimus quod, sed consectetur at doloremque, enim quaerat, odit quia
+                        architecto numquam hic officiis iusto cupiditate iure. Rem pariatur
+                    </div> -->
+                </div>
+            </div>
+        </div>
+        <div class="footer" style=" font-size: 18px;" >
+            <div style="text-align: center; line-height: 40px; ">
+            <p>
+                <b>(40404) 바나나시 바나나구 바나나대로 1234 Copyright © 2024 MINIONS
+                UNIVERSITY. All rights reserved.
+                <br />
+                TEL: 053-123-4567 FAX: 053-123-4568
+            </b></p>
+            </div>
+              <div class="footer-links" style="text-align: center; font-size: 18px; line-height: 80px;">
+                <b><a href="#">개인정보처리방침</a>
+                <a href="#">이메일무단수집거부</a>
+                <a href="#">컴퓨터고장신고</a>
+                <a href="#">전화번호안내</a>
+                <a href="#">예산공고</a>
+                <a href="#">결산공고</a>
+                <a href="#">공시</a></b>
+              </div>
+            <!-- <caption>푸터</caption> -->
+        </div>
+    </div>
+    </div>
+
+</body>
+
+</html>
+
+<script>
+
+
+
+    function openqq1() {
+        document.querySelector('.QQ').style.display = 'block';
+        document.querySelector('.WW').style.display = 'none';
+        document.querySelector('.EE').style.display = 'none';
+        document.querySelector('.RR').style.display = 'none';
+        document.querySelector('.PP').style.display = 'none';
+
+        document.querySelector('.qq1').style.display = 'none';
+        document.querySelector('.qq2').style.display = 'block';
+
+        document.querySelector('.ww1').style.display = 'block';
+        document.querySelector('.ww2').style.display = 'none';
+
+        document.querySelector('.ee1').style.display = 'block';
+        document.querySelector('.ee2').style.display = 'none';
+
+        document.querySelector('.rr1').style.display = 'block';
+        document.querySelector('.rr2').style.display = 'none';
+
+    }
+    function openqq2() {
+        document.querySelector('.QQ').style.display = 'none';
+        document.querySelector('.WW').style.display = 'none';
+        document.querySelector('.EE').style.display = 'none';
+        document.querySelector('.RR').style.display = 'none';
+        document.querySelector('.PP').style.display = 'block';
+
+        document.querySelector('.QQ').style.display = 'none';
+        document.querySelector('.qq1').style.display = 'block';
+        document.querySelector('.qq2').style.display = 'none';
+    }
+    function openww1() {
+        document.querySelector('.QQ').style.display = 'none';
+        document.querySelector('.WW').style.display = 'block';
+        document.querySelector('.EE').style.display = 'none';
+        document.querySelector('.RR').style.display = 'none';
+        document.querySelector('.PP').style.display = 'none';
+
+        document.querySelector('.WW').style.display = 'block';
+        document.querySelector('.ww1').style.display = 'none';
+        document.querySelector('.ww2').style.display = 'block';
+
+        document.querySelector('.qq1').style.display = 'block';
+        document.querySelector('.qq2').style.display = 'none';
+
+        document.querySelector('.ee1').style.display = 'block';
+        document.querySelector('.ee2').style.display = 'none';
+
+        document.querySelector('.rr1').style.display = 'block';
+        document.querySelector('.rr2').style.display = 'none';
+    }
+    function openww2() {
+        document.querySelector('.QQ').style.display = 'none';
+        document.querySelector('.WW').style.display = 'none';
+        document.querySelector('.EE').style.display = 'none';
+        document.querySelector('.RR').style.display = 'none';
+        document.querySelector('.PP').style.display = 'block';
+
+        document.querySelector('.WW').style.display = 'none';
+        document.querySelector('.ww1').style.display = 'block';
+        document.querySelector('.ww2').style.display = 'none';
+    }
+    function openee1() {
+        document.querySelector('.QQ').style.display = 'none';
+        document.querySelector('.WW').style.display = 'none';
+        document.querySelector('.EE').style.display = 'block';
+        document.querySelector('.RR').style.display = 'none';
+        document.querySelector('.PP').style.display = 'none';
+
+        document.querySelector('.EE').style.display = 'block';
+        document.querySelector('.ee1').style.display = 'none';
+        document.querySelector('.ee2').style.display = 'block';
+
+        document.querySelector('.qq1').style.display = 'block';
+        document.querySelector('.qq2').style.display = 'none';
+
+        document.querySelector('.ww1').style.display = 'block';
+        document.querySelector('.ww2').style.display = 'none';
+
+        document.querySelector('.rr1').style.display = 'block';
+        document.querySelector('.rr2').style.display = 'none';
+    }
+    function openee2() {
+        document.querySelector('.QQ').style.display = 'none';
+        document.querySelector('.WW').style.display = 'none';
+        document.querySelector('.EE').style.display = 'none';
+        document.querySelector('.RR').style.display = 'none';
+        document.querySelector('.PP').style.display = 'block';
+
+        document.querySelector('.EE').style.display = 'none';
+        document.querySelector('.ee1').style.display = 'block';
+        document.querySelector('.ee2').style.display = 'none';
+    }
+    function openrr1() {
+        document.querySelector('.QQ').style.display = 'none';
+        document.querySelector('.WW').style.display = 'none';
+        document.querySelector('.EE').style.display = 'none';
+        document.querySelector('.RR').style.display = 'block';
+        document.querySelector('.PP').style.display = 'none';
+
+        document.querySelector('.RR').style.display = 'block';
+        document.querySelector('.rr1').style.display = 'none';
+        document.querySelector('.rr2').style.display = 'block';
+
+        document.querySelector('.qq1').style.display = 'block';
+        document.querySelector('.qq2').style.display = 'none';
+
+        document.querySelector('.ww1').style.display = 'block';
+        document.querySelector('.ww2').style.display = 'none';
+
+        document.querySelector('.ee1').style.display = 'block';
+        document.querySelector('.ee2').style.display = 'none';
+
+
+    }
+    function openrr2() {
+        document.querySelector('.QQ').style.display = 'none';
+        document.querySelector('.WW').style.display = 'none';
+        document.querySelector('.EE').style.display = 'none';
+        document.querySelector('.RR').style.display = 'none';
+        document.querySelector('.PP').style.display = 'block';
+
+        document.querySelector('.RR').style.display = 'none';
+        document.querySelector('.rr1').style.display = 'block';
+        document.querySelector('.rr2').style.display = 'none';
+    }
+</script>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="left">
+      <h1 class="logo">
+        <a href="/메인페이지/mainpage.html"><img src="image/minions_uni.png" alt="미니언즈 대학"></a>
+        <!-- <span>미니언즈대학</span> -->
+      </h1>
+      <p class="title notice">notice</p>
+      <ul class="notice_wrap">
+        <li><a href="#">2024학년도 2학기 수업시간표 공고</a></li>
+        <li><a href="#">2024학년도 2학기 수강신청 안내</a></li>
+        <li><a href="#">2024학년도 학생포트폴리오 경진대회 개최 안내(~8/30(금)</a></li>
+        <li><a href="#">2024학년도 2학기 수강꾸러미 신청 결과 공고</a></li>
+        <li><a href="#">2024학년도 2학기 재학생 등록금 분할납부 신청 안내</a></li>
+        <li><a href="#">교양과목 수강꾸러미 가능 추가과목 안내</a></li>
+      </ul>
+      <div class="page">
+        <ul>
+          <li><a href="#">학과 홈페이지</a></li>
+          <li><a href="#">기관 홈페이지</a></li>
+        </ul>
+      </div>
+      <div class="footer">
+        <p>
+          (40404) 바나나시 바나나구 바나나대로 1234
+          <br>
+          TEL: 053-123-4567 FAX: 053-123-4568
+           <br />
+           Copyright © 2024 MINIONS
+           UNIVERSITY. All rights reserved.
+        </p>
+      </div>
+    </div>
+    <div class="right">
+      <div class="version">
+        <ul>
+          <li><a href="#">ENGLISH</a></li>
+          <li><a href="#">한국어</a></li>
+        </ul>
+      </div>
+      <div class="login">
+        <p class="title">LOGIN</p>
+        <p class="txt">미니언즈대학 통합인증 시스템 방문을 환영합니다.</span>
+      </div>
+      <div class="log">
+        <ul>
+          <li><a href="#">아이디 로그인</a></li>
+          <li><a href="#">인증서 로그인</a></li>
+          <li><a href="#">간편인증 로그인</a></li>
+        </ul>
+      </div>
+      <div class="container">
+        <div class="input_wrap">
+          <input class="in" type="text" name="id" id="id" placeholder="Login ID">
+          <input class="in" type="password" name="password" id="password" placeholder="Password">
+        </div>
+        <button type="button" id="btn-login" class="btn_login" style="cursor: pointer;">
+          <span><a class="a_login" href="./school/minions_uni.html">로그인</a></span>
+        </button>
+      </div>
+      <div class="login_bottom">
+        <div class="check">
+          <div class="check_wrap">
+            <label class="checkbox">
+              <input type="checkbox">
+              <span class="checkbox_icon"></span>
+              <span class="checkbox_text">아이디 저장</span>
+            </label>
+          </div>
+        </div>
+        <a class="join" href="link-join-user">회원가입</a>
+        <a class="join" href="link-find-password">비밀번호 분실/변경</a>
+        <a class="join" href="link-find-loginid">아이디 찾기</a>
+      </div>
+      <div class="fot">
+        <span>*신입생 로그인 안내</span><br>
+        <span>개강전 이용가능: 통합정보시스템(일부 메뉴),IT교육센터,어학교육원,생활관</span><br>
+        <span>개강후 이용가능: 포털,통합정보시스템(모든 메뉴),도서관,WI-FI등</span><br>
+        <span>* 미니언즈대학 관련 시스템은 통합아이디로 이용하실 수 있습니다.</span><br>
+        <span>* 개인정보 보호를 위해 비밀번호는 주기적으로 변경하시기 바랍니다.</span><br>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
+<script>
+document.addEventListener('keydown', function(event) {
+  if (event.key === 'Enter') {
+    // 엔터키가 눌렸을 때
+    const loginButton = document.querySelector('.btn_login'); // 로그인 버튼 가져오기
+    const loginLink = loginButton.querySelector('.a_login'); // 버튼 내부의 링크 가져오기
+
+    if (loginLink) {
+      // 링크가 존재하는지 확인
+      loginLink.click(); // 링크 클릭
+    }
+  }
+});
+</script>

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            font-size: 15px;
+        }
+
+        .header {
+            background-color: rgba(123, 213, 423, 50%);
+            width: 1200px;
+            height: 100px;
+            position: relative;
+            
+        }
+
+        .guide1 {
+            background-color: rgb(253, 224, 0);
+            width: 1000px;
+            border-radius: 25px 5px 5px 5px;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translate(-50%);
+            z-index: 0;
+            margin: 0;
+        }
+
+        .listt1 {
+            background-color: chocolate;
+            /*이거 색깔이 보이면 안됨*/
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: table;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .qq1,
+        .ww1,
+        .ee1,
+        .rr1 {
+            font-size: 20px;
+            text-align: center;
+            /* border: 1px solid black; */
+            width: 200px;
+            height: 50px;
+            padding: 10px;
+            line-height: 50px;
+            float: left;
+            background-color: rgb(253, 224, 0);
+            cursor: pointer;
+            z-index: 2;
+
+        }
+
+        .qq2,
+        .ww2,
+        .ee2,
+        .rr2 {
+            font-size: 20px;
+            text-align: center;
+            /* border: 1px solid black; */
+            width: 200px;
+            height: 50px;
+            padding: 10px;
+            line-height: 50px;
+            float: left;
+            background-color: darkorange;
+            background: linear-gradient(180deg, darkorange, rgba(251, 251, 251, 1));
+            cursor: pointer;
+            z-index: 2;
+        }
+
+        .qq1:hover,
+        .ww1:hover,
+        .ee1:hover,
+        .rr1:hover {
+            background-color: darkorange;
+        }
+
+        .qq1:active,
+        .ww1:active,
+        .ee1:active,
+        .rr1:active {
+            background-color: darkorange;
+            background: linear-gradient(180deg, darkorange, rgba(251, 251, 251, 1));
+        }
+
+        .QQ,
+        .WW,
+        .EE,
+        .RR {
+            display: none;
+            
+        }
+.hidden{
+    background-color: antiquewhite;
+    width: 1000px;
+    height: 500px;
+    
+    
+}
+
+        .listqq {
+            width: 200px;
+            height: 100px;
+            border: 1px solid black;
+            list-style: none;
+        }
+
+        .listqqq {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <div class="header">
+
+        <div class="guide1">
+            <ul class="listt1">
+                <li class="qq1" onclick="openqq1()"><b>첫번째</b></li>
+                <li class="qq2" onclick="openqq2()" style="display: none;"><b>첫번째</b></li>
+
+                <li class="ww1" onclick="openww1()"><b>두번째</b></li>
+                <li class="ww2" onclick="openww2()" style="display: none;"><b>두번째</b></li>
+
+                <li class="ee1" onclick="openee1()"><b>세번째</b></li>
+                <li class="ee2" onclick="openee2()" style="display: none;"><b>세번째</b></li>
+
+                <li class="rr1" onclick="openrr1()"><b>네번째</b></li>
+                <li class="rr2" onclick="openrr2()" style="display: none;"><b>네번째</b></li>
+            </ul>
+        </div>
+
+    </div>
+    <div class="hidden">
+        <div class="QQ">
+            <ul class="listqq">
+                <li class="listqqq">qq하나</li>
+                <li class="listqqq">qq둘</li>
+                <li class="listqqq">qq셋</li>
+                <li class="listqqq">qq야!</li>
+            </ul>
+        </div>
+        <div class="WW">
+            <ul class="listww">
+                <li class="listwww">ww하나</li>
+                <li class="listwww">ww둘</li>
+                <li class="listwww">ww셋</li>
+                <li class="listwww">ww야!</li>
+            </ul>
+        </div>
+        <div class="EE">
+            <ul class="listee">
+                <li class="listeee">ee하나</li>
+                <li class="listeee">ee둘</li>
+                <li class="listeee">ee셋</li>
+                <li class="listeee">ee야!</li>
+            </ul>
+        </div>
+        <div class="RR">
+            <ul class="listrr">
+                <li class="listrrr">rr하나</li>
+                <li class="listrrr">rr둘</li>
+                <li class="listrrr">rr셋</li>
+                <li class="listrrr">rr야!</li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+<script>
+    function openqq1() {
+        document.querySelector('.QQ').style.display = 'block';
+        document.querySelector('.WW').style.display = 'none';
+        document.querySelector('.EE').style.display = 'none';
+        document.querySelector('.RR').style.display = 'none';
+
+        document.querySelector('.qq1').style.display = 'none';
+        document.querySelector('.qq2').style.display = 'block';
+
+        document.querySelector('.ww1').style.display = 'block';
+        document.querySelector('.ww2').style.display = 'none';
+
+        document.querySelector('.ee1').style.display = 'block';
+        document.querySelector('.ee2').style.display = 'none';
+
+        document.querySelector('.rr1').style.display = 'block';
+        document.querySelector('.rr2').style.display = 'none';
+
+    }
+    function openqq2() {
+        document.querySelector('.QQ').style.display = 'none';
+        document.querySelector('.WW').style.display = 'none';
+        document.querySelector('.EE').style.display = 'none';
+        document.querySelector('.RR').style.display = 'none';
+
+        document.querySelector('.QQ').style.display = 'none';
+        document.querySelector('.qq1').style.display = 'block';
+        document.querySelector('.qq2').style.display = 'none';
+    }
+    function openww1() {
+        document.querySelector('.QQ').style.display = 'none';
+        document.querySelector('.WW').style.display = 'block';
+        document.querySelector('.EE').style.display = 'none';
+        document.querySelector('.RR').style.display = 'none';
+
+        document.querySelector('.WW').style.display = 'block';
+        document.querySelector('.ww1').style.display = 'none';
+        document.querySelector('.ww2').style.display = 'block';
+
+        document.querySelector('.qq1').style.display = 'block';
+        document.querySelector('.qq2').style.display = 'none';
+
+        document.querySelector('.ee1').style.display = 'block';
+        document.querySelector('.ee2').style.display = 'none';
+
+        document.querySelector('.rr1').style.display = 'block';
+        document.querySelector('.rr2').style.display = 'none';
+    }
+    function openww2() {
+        document.querySelector('.QQ').style.display = 'none';
+        document.querySelector('.WW').style.display = 'none';
+        document.querySelector('.EE').style.display = 'none';
+        document.querySelector('.RR').style.display = 'none';
+
+        document.querySelector('.WW').style.display = 'none';
+        document.querySelector('.ww1').style.display = 'block';
+        document.querySelector('.ww2').style.display = 'none';
+    }
+    function openee1() {
+        document.querySelector('.QQ').style.display = 'none';
+        document.querySelector('.WW').style.display = 'none';
+        document.querySelector('.EE').style.display = 'block';
+        document.querySelector('.RR').style.display = 'none';
+
+        document.querySelector('.EE').style.display = 'block';
+        document.querySelector('.ee1').style.display = 'none';
+        document.querySelector('.ee2').style.display = 'block';
+
+        document.querySelector('.qq1').style.display = 'block';
+        document.querySelector('.qq2').style.display = 'none';
+
+        document.querySelector('.ww1').style.display = 'block';
+        document.querySelector('.ww2').style.display = 'none';
+
+        document.querySelector('.rr1').style.display = 'block';
+        document.querySelector('.rr2').style.display = 'none';
+    }
+    function openee2() {
+        document.querySelector('.QQ').style.display = 'none';
+        document.querySelector('.WW').style.display = 'none';
+        document.querySelector('.EE').style.display = 'none';
+        document.querySelector('.RR').style.display = 'none';
+
+        document.querySelector('.EE').style.display = 'none';
+        document.querySelector('.ee1').style.display = 'block';
+        document.querySelector('.ee2').style.display = 'none';
+    }
+    function openrr1() {
+        document.querySelector('.QQ').style.display = 'none';
+        document.querySelector('.WW').style.display = 'none';
+        document.querySelector('.EE').style.display = 'none';
+        document.querySelector('.RR').style.display = 'block';
+
+        document.querySelector('.RR').style.display = 'block';
+        document.querySelector('.rr1').style.display = 'none';
+        document.querySelector('.rr2').style.display = 'block';
+
+        document.querySelector('.qq1').style.display = 'block';
+        document.querySelector('.qq2').style.display = 'none';
+
+        document.querySelector('.ww1').style.display = 'block';
+        document.querySelector('.ww2').style.display = 'none';
+
+        document.querySelector('.ee1').style.display = 'block';
+        document.querySelector('.ee2').style.display = 'none';
+
+
+    }
+    function openrr2() {
+        document.querySelector('.QQ').style.display = 'none';
+        document.querySelector('.WW').style.display = 'none';
+        document.querySelector('.EE').style.display = 'none';
+        document.querySelector('.RR').style.display = 'none';
+
+        document.querySelector('.RR').style.display = 'none';
+        document.querySelector('.rr1').style.display = 'block';
+        document.querySelector('.rr2').style.display = 'none';
+    }
+</script>

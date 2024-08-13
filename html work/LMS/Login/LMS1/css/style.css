@@ -1,0 +1,74 @@
+@charset "UTF-8";
+body { background:rgb(255, 255, 255); }
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+
+* {
+  font-family: "NotoSans";
+  font-weight: 400;
+  font-style: normal;
+}
+
+/*전체*/
+.wrap { /*position: relative; display: block;*/ width:980px; margin:0 auto; margin-top:150px; }
+.left { float:left; width:50%; }
+.right { float:right; width:50%; }
+
+.logo > a > img { width:130px; }
+
+/* 공지사항 */
+.title { font-size:25px; font-weight:600; text-transform:uppercase; color:#ffc300; }
+.notice_wrap { margin-top:10px; }
+.notice_wrap li { line-height:40px; }
+.notice_wrap li:last-child { margin-bottom:0px; }
+.notice_wrap li a:hover { text-decoration:underline; }
+
+/* 학과홈페이지 */
+.page { position:relative; width:100%; max-width:450px; margin:50px 0 10px 0; }
+.page ul { position:relative; display:flex; flex-wrap:wrap; justify-content:space-between; width:100%;  border:1px solid #000; }
+.page ul li { position:relative; float:left; width:50%; text-align:center; }
+.page ul li a { position:relative; display:block; padding:12px; }
+.page ul li a:hover{ background:#555; color: #fff; transition:0.4s; }
+.page ul li:first-child { border-right:1px solid #000; }
+
+/* 왼쪽 푸터 */
+.footer { position:relative; display:block; margin-top:60px; color:#555555; }
+.footer p { margin-top:70px; }
+
+/* 언어 */
+.version { position:relative; width: 30%; float:right; margin:20px 0 10px 0; }
+.version ul { position:relative; display:flex; flex-wrap:wrap; justify-content:space-between; width:100%; border:1px solid black; }
+.version ul li { position:relative; float:right; width: 50%; text-align:center; }
+.version ul li a { position:relative; display:block; padding:5px; }
+.version ul li a:hover { background:#555; color:#fff; transition:0.4s; }
+.version ul li:first-child::before { content:''; position: absolute; right:0; top:0; width:1px; height:100%; background:#000; }
+
+
+/* 로그인 */
+.login { margin-top:142px; }
+.txt { font-size:17px; margin-bottom:0; color:#878787; }
+.log { position:relative; width:100%; max-width:800px; margin:20px 0 15px 0; }
+.log ul { position:relative; width:100%; display:flex; border:1px solid #000; flex-wrap:wrap; justify-content:space-between; }
+/* .log li:hover {background: rgb(179, 177, 177);} */
+.log li { position:relative; background:#fff; width:calc(100% / 3); text-align:center; }
+.log li a { position:relative; display:block; padding:12px; color:#555; }
+.log li a:hover { background:#555; color:#fff; transition:0.4s; }
+.log ul li:first-child::before,
+.log ul li:nth-child(2n)::before { content:''; position:absolute; right:0; top:0; width:1px; height:100%; background:#000; }
+/* .log ul li:last-child {border-left: 1px solid black;} */
+
+.container { position:relative; display:flex; justify-content:space-between; width:100%; margin-bottom:15px; }
+.input_wrap { position: relative; display:flex; flex-wrap: wrap; justify-content: space-between; width:75%; }
+.input_wrap > .in:first-child {margin-bottom: 10px;}
+.btn_login { position:relative; width:20%; background:#ffc300; text-align:center; border-radius:10px;}
+.btn_login a {padding: 25px;}
+
+
+.login_bottom { position:relative; display:flex; justify-content:flex-start; align-items:center;  }
+.check { margin-top:10px;}
+.check a:hover{text-decoration:underline;}
+.join { margin-left:25px;}
+
+/* 오른쪽 푸터 */
+.fot { margin-top:110px; line-height:25px; font-size: 14px;}
+
