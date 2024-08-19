@@ -27,13 +27,13 @@ public class DBRepository {
             Class.forName("com.mysql.cj.jdbc.Driver");
             // 2. connection 연결
             Connection conn = DriverManager
-                    .getConnection("jdbc:mysql://localhost:3306/Lsy",
+                    .getConnection("jdbc:mysql://localhost:3307/Lsy",
                             "root",
-                            "1234");
+                            "0309");
             System.out.println("연결성공");
             // 3. sql 문 작성
             PreparedStatement pstmt
-                    = conn.prepareStatement("INSERT INTO aa (name,age) VALUES (?,?)");
+                    = conn.prepareStatement("INSERT INTO student (name,age) VALUES (?,?)");
             pstmt.setString(1, name);
             pstmt.setInt(2, age);
             // 4. sql 문 실행

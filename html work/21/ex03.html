@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    span {
+      font-size: 4rem;
+    }
+
+    .box1 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 200px;
+      background-color: yellow;
+    }
+
+    #wrapper {
+      display: flex;
+      height: 400px;
+    }
+
+    .box2 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 200px;
+      background-color: red;
+    }
+    
+    .box3 {
+      display: flex;
+      flex-grow: 1;
+      background-color: blue;
+      flex-direction: column;
+    }
+    
+    .box3-sub1 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: aquamarine;
+      height: 100px;
+    }
+    
+    .box3-sub2 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: yellowgreen;
+      flex: 1;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box1"><span>box1</span></div>
+  <div id="wrapper">
+    <div class="box2">
+      <span>box2</span>
+    </div>
+    <div class="box3">
+      <div class="box3-sub1"><span>box3</span></div>
+      <div class="box3-sub2"><span>box4</span></div>
+    </div>
+  </div>
+</body>
+
+</html>

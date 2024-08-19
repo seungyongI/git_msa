@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    #wrapper {
+      /* width: 600px; */
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, auto));
+      grid-template-rows: minmax(100px, auto);
+      grid-gap: 20px;
+    }
+
+    .items {
+      padding: 10px;
+    }
+
+    .items:nth-child(even) {
+      background-color: #bbb;
+    }
+
+    .items:nth-child(odd) {
+      background-color: #eee;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="wrapper">
+    <div class="items">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit sint eaque consequatur, fugit quod
+      facere quas quidem facilis. Ea culpa dicta tenetur nisi, dolores repudiandae? Eligendi natus laudantium maxime
+      facere!</div>
+    <div class="items">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit sint eaque consequatur, fugit quod
+      facere quas quidem facilis. Ea culpa dicta tenetur nisi, dolores repudiandae? Eligendi natus laudantium maxime
+      facere!</div>
+    <div class="items">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit sint eaque consequatur, fugit quod
+      facere quas quidem facilis. Ea culpa dicta tenetur nisi, dolores repudiandae? Eligendi natus laudantium maxime
+      facere!</div>
+    <div class="items">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit sint eaque consequatur, fugit quod
+      facere quas quidem facilis. Ea culpa dicta tenetur nisi, dolores repudiandae? Eligendi natus laudantium maxime
+      facere!</div>
+    <div class="items">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit sint eaque consequatur, fugit quod
+      facere quas quidem facilis. Ea culpa dicta tenetur nisi, dolores repudiandae? Eligendi natus laudantium maxime
+      facere!</div>
+  </div>
+</body>
+
+</html>

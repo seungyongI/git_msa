@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    #wrapper {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(3, 200px);
+    }
+
+    .items {
+      padding: 10px;
+    }
+
+    .box1 {
+      grid-column: 1/4;
+      background-color: antiquewhite;
+    }
+
+    .box2 {
+      grid-row: 2/4;
+      background-color: bisque;
+    }
+
+    .box3 {
+      grid-column: 2/4;
+      grid-row-start: 2;
+      background-color: blanchedalmond;
+    }
+
+    .box4 {
+      grid-column-start: 3;
+      grid-row-start: 3;
+      background-color: beige;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="wrapper">
+    <div class="items box1">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit sint eaque consequatur, fugit
+      quod
+      facere quas quidem facilis. Ea culpa dicta tenetur nisi, dolores repudiandae? Eligendi natus laudantium maxime
+      facere!</div>
+    <div class="items box2">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit sint eaque consequatur, fugit
+      quod
+      facere quas quidem facilis. Ea culpa dicta tenetur nisi, dolores repudiandae? Eligendi natus laudantium maxime
+      facere!</div>
+    <div class="items box3">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit sint eaque consequatur, fugit
+      quod
+      facere quas quidem facilis. Ea culpa dicta tenetur nisi, dolores repudiandae? Eligendi natus laudantium maxime
+      facere!</div>
+    <div class="items box4">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit sint eaque consequatur, fugit
+      quod
+      facere quas quidem facilis. Ea culpa dicta tenetur nisi, dolores repudiandae? Eligendi natus laudantium maxime
+      facere!</div>
+    <div class="items">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit sint eaque consequatur, fugit quod
+      facere quas quidem facilis. Ea culpa dicta tenetur nisi, dolores repudiandae? Eligendi natus laudantium maxime
+      facere!</div>
+  </div>
+</body>
+
+</html>
