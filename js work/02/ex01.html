@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    var now = new Date();
+    var display1 = now.toLocaleDateString();
+    var display2 = now.toLocaleTimeString();
+    document.write('날짜 ' + display1 + "<br>");
+    document.write('시간 ' + display2);
+    console.log('/^O^/');
+
+    var a;
+    console.log(typeof(a));
+    var b = "asd";
+    console.log(typeof(b));
+    var c = 10;
+    console.log(typeof(c));
+
+    //0은 false 0이 아닌 모든 수는 true
+    //javascript는 형변환을 함수호출처럼 함
+    console.log(Boolean(a=0));
+    if(a=10) {
+      console.log('실행');
+    }
+  </script>
+</head>
+
+<body>
+  <div class="">
+    <h1 class="text-red-500">Heading</h1>
+  </div>
+</body>
+
+</html>
