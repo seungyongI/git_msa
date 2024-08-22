@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div>
+    <div>
+      num1 = <input type="text" name="" id="num1">
+    </div>
+    <div>
+      num2 = <input type="text" name="" id="num2">
+    </div>
+    <button id="btn">Less than 50</button>
+    <div id="print"></div>
+  </div>
+  <script>
+    var num1 = document.getElementById('num1');
+    var num2 = document.getElementById('num2');
+    var btn = document.getElementById('btn');
+    var print = document.getElementById('print');
+
+    // btn.onclick = function(){
+    //   this.style.fontSize = '100px';
+    //   alert('push');
+    // }
+
+    btn.onclick = () => {
+      // this.style.fontSize = '100px';
+      num1.value = "1234";
+      console.log(num1.value);
+      console.log(num2.value);
+      console.log(Boolean(num2.value));
+      console.log(num2.value<20);
+      if (num1.value < 50 || num2.value < 50)
+        print.innerHTML = "there is less than 50";
+    };
+  </script>
+</body>
+
+</html>

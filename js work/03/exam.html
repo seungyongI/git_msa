@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #print{
+      text-align: left;
+      margin-top: 20px;
+      padding: 5px;
+      border: 1px solid black;
+      width: 120px;
+      
+    }
+    #print:hover{
+      cursor: pointer;
+      animation: spin 1s infinite linear;
+    }
+    @keyframes spin{
+      0%{
+        transform: rotate(0deg) scale(1) translate(10px, 30px);
+      }
+      50%{
+        transform: rotate(3600deg) scale(5) translate(50px, 100px);
+      }
+      100%{
+        transform: rotate(7200deg) scale(1) translate(100px, 30px);
+      }
+    }
+
+    #center{
+      width: 50vw;
+      margin: 0 auto;
+
+    }
+  </style>
+</head>
+
+<body>
+  <div id="center">
+  <div id="div">
+  <input type="text" name="" id="input">
+  <button id="btn">구구단</button>
+</div>
+<div id="print"></div>
+</div>
+  <script>
+    var input = document.getElementById('input');
+    var btn = document.getElementById('btn');
+    var print = document.getElementById('print');
+    input.value = 1;
+
+    btn.onclick = function () {
+      input.value = Number(input.value) + 1;
+      var i = input.value;
+      print.innerHTML = "";
+      for (var j = 1; j < 10; j++) {
+        print.innerHTML += i + " * " + j + " = " + i * j + `</br>`;
+      }
+    }
+  </script>
+</body>
+
+</html>
