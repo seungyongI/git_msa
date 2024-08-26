@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+  <div class="flex flex-col bg-red-200 p-5 space-y-2">
+    <label for="">총 몇 명입니까?</label>
+    <input type="text" name="" id="total" class="border border-black ring-1 focus:outline-none p1-2"
+      placeholder="총 수를 입력하세요.">
+    <label for="">한 줄에 몇 명입니까?</label>
+    <input type="text" name="" id="colcount" class="border border-black ring-1 focus:outline-none p1-2"
+      placeholder="한 줄에 수를 입력하세요.">
+    <div class="flex justify-center items-center">
+      <button id="submit" class="px-5 py-1 bg-amber-800 hover:bg-amber-600 text-white">확인</button>
+    </div>
+  </div>
+  <div class="flex justify-center items-center flex-col">
+    <h1>좌석</h1>
+    <div id="print"></div>
+  </div>
+  <script>
+    var total = document.getElementById('total');
+    var colcount = document.getElementById('colcount');
+    var print = document.getElementById('print');
+
+    let start = "<table class='border border-gray-200'>";
+    let end = '</table>';
+
+    document.getElementById('submit').onclick = () => {
+      if (total.value > 100) {
+        alert('총 인원수는 100명보다 적어야 합니다.');
+      }
+      if (colcount.value > 10) {
+        alert('한 줄에 10명보다 적어야 합니다.');
+      }
+      console.log(`total.value = ${total.value} colcount.value = ${colcount.value}`);
+
+      const arr = ["김길동","이길동","홍길동","이승용","ㅂㅈㄷ","ㅁㄴㅇㄹ","ㅐㅑㅑ","ㅎㅇㄹㅇ"];
+      
+      let lineNum = total.value / colcount.value;
+      let row = "";
+      let num = 1;
+
+      for (let i = 0; i < lineNum; i++) {
+
+        row += '<tr>';
+        for (let j = 0; j < colcount.value; j++) {
+          row += `<td class = "border border-gray-300 px-3">좌석 ${num}</td>`;
+          if (num == total.value) {
+            break;
+          }
+          num++;
+        }
+        row += '</tr>';
+      }
+
+      print.innerHTML = `${start}${row}${end}`;
+    }
+  </script>
+</body>
+
+</html>
