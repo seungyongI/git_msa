@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>랜덤 좌석 배치도</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="flex flex-col items-center bg-gray-100">
+  <button id="generateButton" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+    좌석 배치도 생성
+  </button>
+  <div id="seatMap" class="grid grid-cols-10 gap-2 mt-4"></div>
+  <script>
+    const generateButton = document.getElementById('generateButton');
+    const seatMap = document.getElementById('seatMap');
+
+    generateButton.addEventListener('click', () => {
+      seatMap.innerHTML = '';
+
+      const totalSeats = parseInt(prompt('좌석 수를 입력하세요:')) || 50; // 프롬프트 사용
+      const occupiedSeats = new Set();
+
+      while (occupiedSeats.size < totalSeats) {
+        const randomRow = Math.floor(Math.random() * 10);
+        const randomCol = Math.floor(Math.random() * 10);
+
+        const seatId = randomRow * 10 + randomCol;
+        if (!occupiedSeats.has(seatId)) {
+          occupiedSeats.add(seatId);
+
+          const seat = document.createElement('div');
+          seat.classList.add('w-6', 'h-6', 'bg-gray-300');
+          if (Math.random() < 0.3) {
+            seat.classList.add('bg-red-500');
+          }
+          seatMap.appendChild(seat);
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>

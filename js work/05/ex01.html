@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+
+  <script>
+    // var 변수, 재선언 되고 전역변수로 선언하는 거(옛날)
+    // const 상수, 객체와 배열에서는 상수 X
+    // let 변수, 선언 값의 변경 가능
+
+    var a = 10;
+
+    function doA() {
+      console.log(a);
+    }
+    doA();
+
+    var a = 20;
+    console.log(a);
+
+    let b = 20;
+    console.log(b);
+
+    b = 30;
+    console.log(b);
+
+    const c = 30;
+    console.log(c);
+
+    const d = [];
+    // unshift, shift, push, pop
+    d.push(5);
+    d.push(6);
+    d.push(7);
+    d.push(8);
+    console.log(d);
+
+    const e = {};
+    e.a = 10;
+    console.log(e.a);
+
+    e.b = () => {
+      console.log('function b');
+    }
+
+    console.log(typeof e.a);
+    console.log(typeof e.b);
+    console.log(e.b);
+    e.b();
+
+  </script>
+</body>
+
+</html>
