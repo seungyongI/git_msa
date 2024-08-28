@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // 1. var(재선언 가능) 2. let(재선언 X, 변수) 3. const(상수) 4. 예약어 없이 선언(전역변수 처리)
+    let c = 0;
+
+    function doA() {
+      var k = 5;
+      console.log('k = ' + k);
+
+      a = 10;
+      b = 20;
+      c = 30;
+      var k = 40;
+      console.log('k = ' + k);
+    }
+    doA();
+    console.log(a);
+    console.log(b);
+    console.log(c);
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
