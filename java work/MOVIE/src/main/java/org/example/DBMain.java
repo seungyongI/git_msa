@@ -6,8 +6,8 @@ public class DBMain {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         MovieDB movieDB = new MovieDB();
-        
-        while(true) {
+
+        while (true) {
             System.out.println("""
                     1. 입력
                     2. 조회
@@ -20,8 +20,7 @@ public class DBMain {
                 movieDB.insert();
             } else if (cho == 2) {
                 movieDB.select();
-            }
-            else {
+            } else {
                 break;
             }
         }
