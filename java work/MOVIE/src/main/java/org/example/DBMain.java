@@ -1,5 +1,7 @@
 package org.example;
 
+import org.example.repository.MovieDB;
+
 import java.util.Scanner;
 
 public class DBMain {

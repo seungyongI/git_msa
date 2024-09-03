@@ -1,7 +1,9 @@
-package org.example;
+package org.example.repository;
 
 import java.sql.*;
 import java.util.Scanner;
+
+import static org.example.repository.connection.DBConnectionUtil.getConnection;
 
 public class MovieDB {
 
@@ -11,11 +13,12 @@ public class MovieDB {
         Scanner scan = new Scanner(System.in);
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            conn = DriverManager.getConnection(
-                    "jdbc:mysql://127.0.0.1:3307/Mymh",
-                    "root",
-                    "1234"
-            );
+//            conn = DriverManager.getConnection(
+//                    "jdbc:mysql://127.0.0.1:3307/Mymh",
+//                    "root",
+//                    "1234"
+//            );
+            conn = getConnection();
             pstmt = conn.prepareStatement(
                     "INSERT INTO movie(M_name, genre, release_date, Synopsis) VALUES (?, ?, ?, ?)");
 
@@ -45,11 +48,12 @@ public class MovieDB {
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            conn = DriverManager.getConnection(
-                    "jdbc:mysql://127.0.0.1:3307/Mymh",
-                    "root",
-                    "1234"
-            );
+//            conn = DriverManager.getConnection(
+//                    "jdbc:mysql://127.0.0.1:3307/Mymh",
+//                    "root",
+//                    "1234"
+//            );
+            conn = getConnection();
             pstmt = conn.prepareStatement("select * from movie where M_name like (?)");
 
             while (true) {
@@ -87,7 +91,7 @@ public class MovieDB {
                                 다시 입력해주시길 바랍니다.
                                 """);
                     }
-                } else if (cho == 2){
+                } else if (cho == 2) {
                     System.out.println("뒤로 돌아갑니다.");
                     break;
                 }
