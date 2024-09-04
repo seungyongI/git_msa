@@ -54,7 +54,7 @@ public class MovieDB {
 //                    "1234"
 //            );
             conn = getConnection();
-            pstmt = conn.prepareStatement("select * from movie where M_name like (?)");
+            pstmt = conn.prepareStatement("select * from movie where genre like (?)");
 
             while (true) {
                 System.out.println("입력하시겠습니까?");
@@ -65,9 +65,9 @@ public class MovieDB {
                 int cho = scan.nextInt();
                 scan.nextLine(); // 입력 버퍼 비우기
                 if (cho == 1) {
-                    System.out.println("영화 제목을 입력하세요.");
-                    String name = scan.nextLine();
-                    pstmt.setString(1, name);
+                    System.out.println("영화 장르를 입력하세요.");
+                    String genre = scan.nextLine();
+                    pstmt.setString(1, genre);
 
                     rs = pstmt.executeQuery();
 
