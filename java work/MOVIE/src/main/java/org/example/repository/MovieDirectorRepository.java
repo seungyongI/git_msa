@@ -1,44 +1,18 @@
 package org.example.repository;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.Scanner;
 
 import static org.example.repository.connection.DBConnectionUtil.getConnection;
 
-public class MovieDB {
-
-    public void insert() {
-        Connection conn = null;
-        PreparedStatement pstmt = null;
-        Scanner scan = new Scanner(System.in);
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            conn = getConnection();
-            pstmt = conn.prepareStatement(
-                    "INSERT INTO movie(M_name, genre, release_date, Synopsis) VALUES (?, ?, ?, ?)");
-
-            String M_name = scan.next();
-            pstmt.setString(1, M_name);
-            String genre = scan.next();
-            pstmt.setString(2, genre);
-            String release_Date = scan.next();
-            pstmt.setString(3, release_Date);
-            String synopsis = scan.next();
-            pstmt.setString(4, synopsis);
-
-            pstmt.executeUpdate();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-
-        }
-    }
+public class MovieDirectorRepository {
 
     public void select() {
-        Connection conn = null;
-        PreparedStatement pstmt = null;
-        ResultSet rs = null;
+        Connection conn;
+        PreparedStatement pstmt;
+        ResultSet rs;
         Scanner scan = new Scanner(System.in);
 
         try {
@@ -49,7 +23,7 @@ public class MovieDB {
 //                    "1234"
 //            );
             conn = getConnection();
-            pstmt = conn.prepareStatement("select * from movie where genre like (?)");
+            pstmt = conn.prepareStatement("select * from MovieDirector where genre like (?)");
 
             while (true) {
                 System.out.println("입력하시겠습니까?");
@@ -91,6 +65,35 @@ public class MovieDB {
                     break;
                 }
             }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+
+        }
+    }
+
+    public void update() {
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        Scanner scan = new Scanner(System.in);
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            conn = getConnection();
+            pstmt = conn.prepareStatement(
+                    "UPDATE MovieDirector SET m_name = ?, d_name = ? where m_id = ?");
+            System.out.print("영화 이름 : ");
+            String m_name = scan.next();
+            pstmt.setString(1, m_name);
+            System.out.println();
+            System.out.print("감독 이름 : ");
+            String d_name = scan.next();
+            pstmt.setString(2, d_name);
+            System.out.println();
+            int m_id = scan.nextInt();
+            pstmt.setInt(3, m_id);
+
+            pstmt.executeUpdate();
+
         } catch (Exception e) {
             e.printStackTrace();
         } finally {

@@ -1,9 +1,12 @@
 package org.example.service;
 
+import org.example.repository.MovieDirectorRepository;
+
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        MovieDirectorRepository movieDirectorRepository = new MovieDirectorRepository();
         Scanner scan = new Scanner(System.in);
 
         System.out.println("영화 추천 서비스 목요명회입니다.\n");
@@ -22,7 +25,7 @@ public class Main {
                 break;
             } else if (cho == 2) {
                 System.out.println("원하시는 감독의 이름을 입력해주세요.");
-                break;
+                movieDirectorRepository.select();
             } else if (cho == 3) {
                 System.out.println("원하시는 장르를 입력해주세요.");
                 break;
