@@ -2,14 +2,13 @@ package org.example.repository;
 
 import org.example.service.AdminMain;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import javax.swing.*;
+import java.sql.*;
 import java.util.Scanner;
 
 import static org.example.repository.connection.DBConnectionUtil.getConnection;
 
-public class MovieDirectorRepository {
+public class MovieRepository {
     AdminMain adminMain = new AdminMain();
 
     public void insert() {
@@ -20,12 +19,16 @@ public class MovieDirectorRepository {
             Class.forName("com.mysql.cj.jdbc.Driver");
             conn = getConnection();
             pstmt = conn.prepareStatement(
-                    "INSERT INTO movieDirector(m_name, d_name) VALUES (?, ?)");
+                    "INSERT INTO movie(m_name, m_genre, o_date, outline) VALUES (?, ?, ?, ?)");
 
             String m_name = scan.next();
             pstmt.setString(1, m_name);
-            String d_name = scan.next();
-            pstmt.setString(2, d_name);
+            String m_genre = scan.next();
+            pstmt.setString(2, m_genre);
+            String o_date = scan.next();
+            pstmt.setString(3, o_date);
+            String outline = scan.next();
+            pstmt.setString(4, outline);
 
             pstmt.executeUpdate();
             adminMain.start();
@@ -38,16 +41,15 @@ public class MovieDirectorRepository {
     }
 
     public void select() {
-        Connection conn;
-        PreparedStatement pstmt;
-        ResultSet rs;
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
         Scanner scan = new Scanner(System.in);
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             conn = getConnection();
-            pstmt = conn.prepareStatement
-                    ("select md.m_name, md.d_name, m.m_genre, m.o_date, m.outline from MovieDirector md inner join Movie m on (md.m_id = m.m_id) where d_name like (?)");
+            pstmt = conn.prepareStatement("select * from Movie where m_genre like (?)");
 
             while (true) {
                 System.out.println("입력하시겠습니까?");
@@ -58,10 +60,10 @@ public class MovieDirectorRepository {
                 int cho = scan.nextInt();
                 scan.nextLine(); // 입력 버퍼 비우기
                 if (cho == 1) {
-                    System.out.println("원하시는 감독 이름을 입력하세요.");
-                    System.out.print("감독 이름 : ");
-                    String d_name = scan.nextLine();
-                    pstmt.setString(1, d_name);
+                    System.out.println("원하시는 장르를 입력하세요.");
+                    System.out.print("장르 : ");
+                    String m_genre = scan.nextLine();
+                    pstmt.setString(1, m_genre);
 
                     rs = pstmt.executeQuery();
 
@@ -69,12 +71,10 @@ public class MovieDirectorRepository {
                     while (rs.next()) {
                         row = false;
                         System.out.printf("""
-                                        제목 : %s, 감독 : %s, 장르 : %s, 개봉일 : %s
+                                        제목 : %s, 장르 : %s, 개봉일 : %s
                                         설명 : %s
                                         %n""",
-
                                 rs.getString("m_name"),
-                                rs.getString("d_name"),
                                 rs.getString("m_genre"),
                                 rs.getString("o_date"),
                                 rs.getString("outline"));
@@ -82,7 +82,7 @@ public class MovieDirectorRepository {
                     if (row) {
                         System.out.println("""
                                 죄송합니다.
-                                검색하신 영화는 없는 영화입니다.
+                                검색하신 장르는 없는 장르입니다.
                                 다시 입력해주시길 바랍니다.
                                 """);
                     }
@@ -115,21 +115,29 @@ public class MovieDirectorRepository {
             cho = scan.nextInt();
             if (cho == 1) {
                 pstmt = conn.prepareStatement(
-                        "UPDATE MovieDirector SET m_name = ?, d_name = ? where m_id = ?");
+                        "UPDATE Movie SET m_name = ?, m_genre = ?, o_date = ?, outline =? where a_id = ?");
                 System.out.print("영화 이름 : ");
                 String m_name = scan.next();
                 pstmt.setString(1, m_name);
                 System.out.println();
-                System.out.print("감독 이름 : ");
-                String d_name = scan.next();
-                pstmt.setString(2, d_name);
+                System.out.print("영화 장르 : ");
+                String m_genre = scan.next();
+                pstmt.setString(2, m_genre);
+                System.out.println();
+                System.out.print("개봉일 : ");
+                String o_date = scan.next();
+                pstmt.setString(3, o_date);
+                System.out.println();
+                System.out.print("설명 : ");
+                String outline = scan.next();
+                pstmt.setString(4, outline);
                 System.out.println();
                 System.out.print("영화 아이디 : ");
-                int m_id = scan.nextInt();
-                pstmt.setInt(3, m_id);
+                int a_id = scan.nextInt();
+                pstmt.setInt(5, a_id);
 
                 pstmt.executeUpdate();
-                adminMain.start();
+                AdminMain.start();
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -148,10 +156,10 @@ public class MovieDirectorRepository {
             conn = getConnection();
 
             pstmt = conn.prepareStatement(
-                    "delete from MovieDirector where m_id = ?");
+                    "delete from Movie where m_id = ?");
 
-            int idx = scan.nextInt();
-            pstmt.setInt(1, idx);
+            int m_id = scan.nextInt();
+            pstmt.setInt(1, m_id);
 
             pstmt.executeUpdate();
 

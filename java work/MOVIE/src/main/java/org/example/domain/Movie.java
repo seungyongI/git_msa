@@ -3,57 +3,57 @@ package org.example.domain;
 import java.util.Date;
 
 public class Movie {
-    private int M_id;
-    private String M_name;
-    private String genre;
-    private Date release_date;
-    private String Synopsis;
+    private int m_id;
+    private String m_name;
+    private String m_genre;
+    private String o_date;
+    private String outline;
 
-    public Movie(int m_id, String m_name, String genre, Date release_date, String synopsis) {
-        M_id = m_id;
-        M_name = m_name;
-        this.genre = genre;
-        this.release_date = release_date;
-        Synopsis = synopsis;
+    public Movie(int m_id, String m_name, String m_genre, String o_date, String outline) {
+        this.m_id = m_id;
+        this.m_name = m_name;
+        this.m_genre = m_genre;
+        this.o_date = o_date;
+        this.outline = outline;
     }
 
     public int getM_id() {
-        return M_id;
+        return m_id;
     }
 
     public void setM_id(int m_id) {
-        M_id = m_id;
+        this.m_id = m_id;
     }
 
     public String getM_name() {
-        return M_name;
+        return m_name;
     }
 
     public void setM_name(String m_name) {
-        M_name = m_name;
+        this.m_name = m_name;
     }
 
-    public String getGenre() {
-        return genre;
+    public String getM_genre() {
+        return m_genre;
     }
 
-    public void setGenre(String genre) {
-        this.genre = genre;
+    public void setM_genre(String m_genre) {
+        this.m_genre = m_genre;
     }
 
-    public Date getRelease_date() {
-        return release_date;
+    public String getO_date() {
+        return o_date;
     }
 
-    public void setRelease_date(Date release_date) {
-        this.release_date = release_date;
+    public void setO_date(String o_date) {
+        this.o_date = o_date;
     }
 
-    public String getSynopsis() {
-        return Synopsis;
+    public String getOutline() {
+        return outline;
     }
 
-    public void setSynopsis(String synopsis) {
-        Synopsis = synopsis;
+    public void setOutline(String outline) {
+        this.outline = outline;
     }
 }
