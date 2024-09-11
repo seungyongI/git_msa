@@ -2,7 +2,7 @@ package org.example.service;
 
 import java.util.Scanner;
 
-public class Log_in {
+public class LogIn {
     public static void main(String[] args) {
         start();
     }
