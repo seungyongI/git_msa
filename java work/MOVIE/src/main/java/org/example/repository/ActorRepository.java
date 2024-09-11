@@ -28,7 +28,7 @@ public class ActorRepository {
             pstmt.setString(4, a_gender);
 
             pstmt.executeUpdate();
-            adminMain.start();
+            adminMain.admin();
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -120,7 +120,7 @@ public class ActorRepository {
                 pstmt.setInt(3, a_id);
 
                 pstmt.executeUpdate();
-                adminMain.start();
+                adminMain.admin();
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -128,6 +128,7 @@ public class ActorRepository {
 
         }
     }
+
     public void delete() {
         Connection conn = null;
         PreparedStatement pstmt = null;

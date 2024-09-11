@@ -7,22 +7,11 @@ import org.example.repository.MovieRepository;
 import java.util.Scanner;
 
 public class UserMain {
-    public UserMain() {
+    public void user() {
         MovieRepository movieRepository = new MovieRepository();
         MovieDirectorRepository movieDirectorRepository = new MovieDirectorRepository();
         MovieActorRepository movieActorRepository = new MovieActorRepository();
         Scanner scan = new Scanner(System.in);
-
-        System.out.print("영화 조회 서비스 목요명회입니다.\n");
-        System.out.print("""
-                 💗💗⠀ ⠀ 💗💗
-                💗🍬🍬💗🍬🍬💗
-                💗🍬🍬🏠🍬🍬💗
-                💗 SWEET MYMH 💗
-                ⠀ 💗🍬🍬🍬💗
-                ⠀ ⠀ 💗🍬💗
-                ⠀ ⠀ ⠀ ⠀💗
-                """);
 
         while (true) {
             System.out.println("""
@@ -30,7 +19,8 @@ public class UserMain {
                     1. 배우
                     2. 감독
                     3. 장르
-                    0. 종료
+                    4. 제목
+                    0. 로그아웃
                     """);
             int cho = scan.nextInt();
             if (cho == 1) {
@@ -39,14 +29,20 @@ public class UserMain {
                 movieDirectorRepository.select();
             } else if (cho == 3) {
                 movieRepository.select();
+            } else if (cho == 4) {
+                movieRepository.select2();
             } else if (cho == 0) {
-                System.out.println("이용해 주셔서 감사합니다.");
+                System.out.println("""
+                        이용해 주셔서 감사합니다.
+                        로그아웃 합니다.
+                        """);
                 break;
+            } else {
+                System.out.println("""
+                        없는 선택지입니다.
+                        다시 입력해주시기 바랍니다.
+                        """);
             }
         }
-    }
-
-    public static void main(String[] args) {
-        new UserMain();
     }
 }

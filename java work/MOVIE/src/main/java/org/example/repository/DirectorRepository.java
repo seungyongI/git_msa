@@ -28,7 +28,7 @@ public class DirectorRepository {
             pstmt.setString(2, d_name);
 
             pstmt.executeUpdate();
-            adminMain.start();
+            adminMain.admin();
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -121,7 +121,7 @@ public class DirectorRepository {
                 pstmt.setString(2, d_gender);
 
                 pstmt.executeUpdate();
-                adminMain.start();
+                adminMain.admin();
             }
         } catch (Exception e) {
             e.printStackTrace();

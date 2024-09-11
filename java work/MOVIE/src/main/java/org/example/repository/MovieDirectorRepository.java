@@ -28,7 +28,7 @@ public class MovieDirectorRepository {
             pstmt.setString(2, d_name);
 
             pstmt.executeUpdate();
-            adminMain.start();
+            adminMain.admin();
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -46,8 +46,13 @@ public class MovieDirectorRepository {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             conn = getConnection();
-            pstmt = conn.prepareStatement
-                    ("select md.m_name, md.d_name, m.m_genre, m.o_date, m.outline from MovieDirector md inner join Movie m on (md.m_id = m.m_id) where d_name like (?)");
+            pstmt = conn.prepareStatement("select m.m_name, a.a_name, d.d_name, m.m_genre, m.o_date, m.outline " +
+                    "from Movie m " +
+                    "inner join MovieActor ma on (ma.m_id = m.m_id) " +
+                    "inner join Actor a on (ma.a_id = a.a_id)" +
+                    "inner join MovieDirector md on (m.m_id = md.m_id)" +
+                    "inner join Director d on (md.d_id = d.d_id) " +
+                    "where d.d_name like (?) ");
 
             while (true) {
                 System.out.println("입력하시겠습니까?");
@@ -69,11 +74,13 @@ public class MovieDirectorRepository {
                     while (rs.next()) {
                         row = false;
                         System.out.printf("""
-                                        제목 : %s, 감독 : %s, 장르 : %s, 개봉일 : %s
-                                        설명 : %s
+                                        제목 : %s
+                                        배우 이름 : %s
+                                        감독 이름 : %s
+                                        장르 : %s, 개봉일 : %s, 설명 : %s
                                         %n""",
-
                                 rs.getString("m_name"),
+                                rs.getString("a_name"),
                                 rs.getString("d_name"),
                                 rs.getString("m_genre"),
                                 rs.getString("o_date"),
@@ -129,7 +136,7 @@ public class MovieDirectorRepository {
                 pstmt.setInt(3, m_id);
 
                 pstmt.executeUpdate();
-                adminMain.start();
+                adminMain.admin();
             }
         } catch (Exception e) {
             e.printStackTrace();

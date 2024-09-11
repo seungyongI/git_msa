@@ -2,7 +2,6 @@ package org.example.repository;
 
 import org.example.service.AdminMain;
 
-import javax.swing.*;
 import java.sql.*;
 import java.util.Scanner;
 
@@ -31,7 +30,7 @@ public class MovieRepository {
             pstmt.setString(4, outline);
 
             pstmt.executeUpdate();
-            adminMain.start();
+            adminMain.admin();
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -49,7 +48,13 @@ public class MovieRepository {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             conn = getConnection();
-            pstmt = conn.prepareStatement("select * from Movie where m_genre like (?)");
+            pstmt = conn.prepareStatement("select m.m_name, a.a_name, d.d_name, m.m_genre, m.o_date, m.outline " +
+                    "from Movie m " +
+                    "inner join MovieActor ma on (ma.m_id = m.m_id) " +
+                    "inner join Actor a on (ma.a_id = a.a_id)" +
+                    "inner join MovieDirector md on (m.m_id = md.m_id)" +
+                    "inner join Director d on (md.d_id = d.d_id) " +
+                    "where m.m_genre like (?)");
 
             while (true) {
                 System.out.println("입력하시겠습니까?");
@@ -71,10 +76,14 @@ public class MovieRepository {
                     while (rs.next()) {
                         row = false;
                         System.out.printf("""
-                                        제목 : %s, 장르 : %s, 개봉일 : %s
-                                        설명 : %s
+                                        제목 : %s
+                                        배우 이름 : %s
+                                        감독 이름 : %s
+                                        장르 : %s, 개봉일 : %s, 설명 : %s
                                         %n""",
                                 rs.getString("m_name"),
+                                rs.getString("a_name"),
+                                rs.getString("d_name"),
                                 rs.getString("m_genre"),
                                 rs.getString("o_date"),
                                 rs.getString("outline"));
@@ -82,7 +91,75 @@ public class MovieRepository {
                     if (row) {
                         System.out.println("""
                                 죄송합니다.
-                                검색하신 장르는 없는 장르입니다.
+                                해당하는 영화가 없습니다.
+                                다시 입력해주시길 바랍니다.
+                                """);
+                    }
+                } else if (cho == 2) {
+                    System.out.println("뒤로 돌아갑니다.");
+                    break;
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+
+        }
+    }
+
+    public void select2() {
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        Scanner scan = new Scanner(System.in);
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            conn = getConnection();
+            pstmt = conn.prepareStatement("select m.m_name, a.a_name, d.d_name, m.m_genre, m.o_date, m.outline " +
+                    "from Movie m " +
+                    "inner join MovieActor ma on (ma.m_id = m.m_id) " +
+                    "inner join Actor a on (ma.a_id = a.a_id)" +
+                    "inner join MovieDirector md on (m.m_id = md.m_id)" +
+                    "inner join Director d on (md.d_id = d.d_id) " +
+                    "where m.m_name like (?)");
+
+            while (true) {
+                System.out.println("입력하시겠습니까?");
+                System.out.println("""
+                        1. 예
+                        2. 아니오.
+                        """);
+                int cho = scan.nextInt();
+                scan.nextLine(); // 입력 버퍼 비우기
+                if (cho == 1) {
+                    System.out.println("원하시는 제목을 입력하세요.");
+                    System.out.print("제목 : ");
+                    String m_name = scan.nextLine();
+                    pstmt.setString(1, "%" + m_name + "%");
+
+                    rs = pstmt.executeQuery();
+
+                    boolean row = true;
+                    while (rs.next()) {
+                        row = false;
+                        System.out.printf("""
+                                        제목 : %s
+                                        배우 이름 : %s
+                                        감독 이름 : %s
+                                        장르 : %s, 개봉일 : %s, 설명 : %s
+                                        %n""",
+                                rs.getString("m_name"),
+                                rs.getString("a_name"),
+                                rs.getString("d_name"),
+                                rs.getString("m_genre"),
+                                rs.getString("o_date"),
+                                rs.getString("outline"));
+                    }
+                    if (row) {
+                        System.out.println("""
+                                죄송합니다.
+                                해당하는 영화가 없습니다.
                                 다시 입력해주시길 바랍니다.
                                 """);
                     }
@@ -137,7 +214,7 @@ public class MovieRepository {
                 pstmt.setInt(5, a_id);
 
                 pstmt.executeUpdate();
-                AdminMain.start();
+                adminMain.admin();
             }
         } catch (Exception e) {
             e.printStackTrace();

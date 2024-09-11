@@ -12,6 +12,31 @@ import static org.example.repository.connection.DBConnectionUtil.getConnection;
 public class MovieActorRepository {
     AdminMain adminMain = new AdminMain();
 
+    public void insert() {
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        Scanner scan = new Scanner(System.in);
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            conn = getConnection();
+            pstmt = conn.prepareStatement(
+                    "INSERT INTO movieActor(m_name, a_name) VALUES (?, ?)");
+
+            String m_name = scan.next();
+            pstmt.setString(1, m_name);
+            String a_name = scan.next();
+            pstmt.setString(2, a_name);
+
+            pstmt.executeUpdate();
+            adminMain.admin();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+
+        }
+    }
+
     public void select() {
         Connection conn;
         PreparedStatement pstmt;
@@ -22,7 +47,13 @@ public class MovieActorRepository {
             Class.forName("com.mysql.cj.jdbc.Driver");
             conn = getConnection();
             pstmt = conn.prepareStatement
-                    ("select ma.m_name, ma.a_name, m.m_genre, m.o_date, m.outline from MovieActor ma inner join Movie m on (ma.m_id = m.m_id) where ma.a_name like (?)");
+                    ("select m.m_name, a.a_name, d.d_name, m.m_genre, m.o_date, m.outline" +
+                            "from Actor a" +
+                            "inner join MovieActor ma on (ma.a_id = a.a_id)" +
+                            "inner join Movie m on (ma.m_id = m.m_id)" +
+                            "inner join MovieDirector md on (m.m_id = md.m_id)" +
+                            "inner join Director d on (md.d_id = d.d_id) " +
+                            "where a.a_name like (?)");
 
             while (true) {
                 System.out.println("입력하시겠습니까?");
@@ -44,12 +75,14 @@ public class MovieActorRepository {
                     while (rs.next()) {
                         row = false;
                         System.out.printf("""
-                                        제목 : %s, 배우 : %s, 장르 : %s, 개봉일 : %s
-                                        설명 : %s
+                                        제목 : %s
+                                        배우 이름 : %s
+                                        감독 이름 : %s
+                                        장르 : %s, 개봉일 : %s, 설명 : %s
                                         %n""",
-
                                 rs.getString("m_name"),
                                 rs.getString("a_name"),
+                                rs.getString("d_name"),
                                 rs.getString("m_genre"),
                                 rs.getString("o_date"),
                                 rs.getString("outline"));
@@ -107,7 +140,7 @@ public class MovieActorRepository {
                 pstmt.setInt(4, a_id);
 
                 pstmt.executeUpdate();
-                adminMain.start();
+                adminMain.admin();
             }
         } catch (Exception e) {
             e.printStackTrace();
