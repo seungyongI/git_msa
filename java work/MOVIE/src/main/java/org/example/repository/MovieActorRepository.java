@@ -48,8 +48,8 @@ public class MovieActorRepository {
             conn = getConnection();
             pstmt = conn.prepareStatement
                     ("select m.m_name, a.a_name, d.d_name, m.m_genre, m.o_date, m.outline" +
-                            "from Actor a" +
-                            "inner join MovieActor ma on (ma.a_id = a.a_id)" +
+                            "from MovieActor ma" +
+                            "inner join Actor a on (ma.a_id = a.a_id)" +
                             "inner join Movie m on (ma.m_id = m.m_id)" +
                             "inner join MovieDirector md on (m.m_id = md.m_id)" +
                             "inner join Director d on (md.d_id = d.d_id) " +
