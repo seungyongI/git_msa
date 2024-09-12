@@ -42,22 +42,28 @@ public class MovieRepository {
     public void genreSelect() {
         Connection conn = null;
         PreparedStatement pstmt = null;
+        PreparedStatement pstmt2 = null;
         ResultSet rs = null;
+        ResultSet rs2 = null;
         Scanner scan = new Scanner(System.in);
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             conn = getConnection();
-            pstmt = conn.prepareStatement("select m.m_name, a.a_name, d.d_name, m.m_genre, m.o_date, m.outline " +
-                    "from Movie m " +
-                    "inner join MovieActor ma on (ma.m_id = m.m_id) " +
-                    "inner join Actor a on (ma.a_id = a.a_id) " +
-                    "inner join MovieDirector md on (m.m_id = md.m_id) " +
-                    "inner join Director d on (md.d_id = d.d_id) " +
-                    "where m.m_genre like (?)");
+
+            pstmt = conn.prepareStatement("SELECT m.m_id, m.m_name, d.d_name, m.m_genre, m.o_date, m.outline " +
+                    "FROM Movie m " +
+                    "INNER JOIN MovieDirector md ON (m.m_id = md.m_id) " +
+                    "INNER JOIN Director d ON (md.d_id = d.d_id) " +
+                    "WHERE m.m_genre LIKE ?");
+
+            pstmt2 = conn.prepareStatement("SELECT a.a_name " +
+                    "FROM MovieActor ma " +
+                    "INNER JOIN Actor a ON (ma.a_id = a.a_id) " +
+                    "WHERE ma.m_id = ?");
 
             while (true) {
-                System.out.println("입력하시겠습니까?");
+                System.out.println("\n입력하시겠습니까?");
                 System.out.println("""
                         1. 예
                         2. 아니오.
@@ -66,29 +72,45 @@ public class MovieRepository {
                 scan.nextLine(); // 입력 버퍼 비우기
                 if (cho == 1) {
                     System.out.println("원하시는 장르를 입력하세요.");
-                    System.out.print("장르 : ");
+                    System.out.print("📽️장르 : ");
                     String m_genre = scan.nextLine();
-                    pstmt.setString(1, m_genre);
+                    pstmt.setString(1, "%" + m_genre + "%");
 
                     rs = pstmt.executeQuery();
 
-                    boolean row = true;
+                    boolean movieFound = false;
                     while (rs.next()) {
-                        row = false;
+                        movieFound = true;
+                        int movieId = rs.getInt("m_id");
+
                         System.out.printf("""
-                                        제목 : %s
-                                        배우 이름 : %s
-                                        감독 이름 : %s
-                                        장르 : %s, 개봉일 : %s, 설명 : %s
+                                        🍿 제목 : %s
+                                        \uD83E\uDDD4\uD83C\uDFFB\uD83C\uDFAC감독 이름 : %s
+                                        📽️ 장르 : %s, 개봉일 : %s, 설명 : %s
                                         %n""",
                                 rs.getString("m_name"),
-                                rs.getString("a_name"),
                                 rs.getString("d_name"),
                                 rs.getString("m_genre"),
                                 rs.getString("o_date"),
                                 rs.getString("outline"));
+
+                        pstmt2.setInt(1, movieId);
+                        rs2 = pstmt2.executeQuery();
+                        System.out.print("\uD83D\uDC69\uD83C\uDFFC 출연 배우 : ");
+                        boolean firstActor = true;
+                        while (rs2.next()) {
+                            if (!firstActor) {
+                                System.out.print(", ");
+                            }
+                            System.out.print(rs2.getString("a_name"));
+                            firstActor = false;
+                        }
+                        System.out.print("\n\n" + "\uD83C\uDF9E\uFE0F\uD83C\uDF9E\uFE0F\uD83C\uDF9E\uFE0F\uD83C\uDF9E\uFE0F\uD83C\uDF9E\uFE0F\uD83C\uDF9E\uFE0F\uD83C\uDF9E\uFE0F\uD83C\uDF9E\uFE0F\uD83C\uDF9E\uFE0F\uD83C\uDF9E\uFE0F");
+                        System.out.print("\uD83C\uDF9E\uFE0F\uD83C\uDF9E\uFE0F\uD83C\uDF9E\uFE0F\uD83C\uDF9E\uFE0F\uD83C\uDF9E\uFE0F\uD83C\uDF9E\uFE0F\uD83C\uDF9E\uFE0F\uD83C\uDF9E\uFE0F\uD83C\uDF9E\uFE0F\uD83C\uDF9E\uFE0F");
+                        System.out.print("\uD83C\uDF9E\uFE0F\uD83C\uDF9E\uFE0F\uD83C\uDF9E\uFE0F\uD83C\uDF9E\uFE0F\uD83C\uDF9E\uFE0F\uD83C\uDF9E\uFE0F\uD83C\uDF9E\uFE0F\uD83C\uDF9E\uFE0F\uD83C\uDF9E\uFE0F\uD83C\uDF9E\uFE0F"+"\n");
                     }
-                    if (row) {
+
+                    if (!movieFound) {
                         System.out.println("""
                                 죄송합니다.
                                 해당하는 영화가 없습니다.
@@ -103,35 +125,43 @@ public class MovieRepository {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-
         }
     }
 
     public void titleSelect() {
         Connection conn = null;
         PreparedStatement pstmt = null;
+        PreparedStatement pstmt2 = null;
         ResultSet rs = null;
+        ResultSet rs2 = null;
         Scanner scan = new Scanner(System.in);
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             conn = getConnection();
-            pstmt = conn.prepareStatement("select m.m_name, a.a_name, d.d_name, m.m_genre, m.o_date, m.outline " +
-                    "from Movie m " +
-                    "inner join MovieActor ma on (ma.m_id = m.m_id) " +
-                    "inner join Actor a on (ma.a_id = a.a_id) " +
-                    "inner join MovieDirector md on (m.m_id = md.m_id) " +
-                    "inner join Director d on (md.d_id = d.d_id) " +
-                    "where m.m_name like (?)");
+
+            // 영화 조회 쿼리
+            pstmt = conn.prepareStatement("SELECT m.m_id, m.m_name, d.d_name, m.m_genre, m.o_date, m.outline " +
+                    "FROM Movie m " +
+                    "INNER JOIN MovieDirector md ON (m.m_id = md.m_id) " +
+                    "INNER JOIN Director d ON (md.d_id = d.d_id) " +
+                    "WHERE m.m_name LIKE ?");
+
+            // 배우 조회 쿼리
+            pstmt2 = conn.prepareStatement("SELECT a.a_name " +
+                    "FROM MovieActor ma " +
+                    "INNER JOIN Actor a ON (ma.a_id = a.a_id) " +
+                    "WHERE ma.m_id = ?");
 
             while (true) {
-                System.out.println("입력하시겠습니까?");
+                System.out.println("\n입력하시겠습니까?");
                 System.out.println("""
                         1. 예
                         2. 아니오.
                         """);
                 int cho = scan.nextInt();
                 scan.nextLine(); // 입력 버퍼 비우기
+
                 if (cho == 1) {
                     System.out.println("원하시는 제목을 입력하세요.");
                     System.out.print("제목 : ");
@@ -140,23 +170,40 @@ public class MovieRepository {
 
                     rs = pstmt.executeQuery();
 
-                    boolean row = true;
+                    boolean movieFound = false;
                     while (rs.next()) {
-                        row = false;
+                        movieFound = true;
+                        int movieId = rs.getInt("m_id");
+                        System.out.println();
                         System.out.printf("""
-                                        제목 : %s
-                                        배우 이름 : %s
-                                        감독 이름 : %s
-                                        장르 : %s, 개봉일 : %s, 설명 : %s
+                                        🍿제목 : %s
+                                        \uD83E\uDDD4\uD83C\uDFFB\uD83C\uDFAC감독 이름 : %s
+                                        📽️장르 : %s, 개봉일 : %s, 설명 : %s
                                         %n""",
                                 rs.getString("m_name"),
-                                rs.getString("a_name"),
                                 rs.getString("d_name"),
                                 rs.getString("m_genre"),
                                 rs.getString("o_date"),
                                 rs.getString("outline"));
+
+                        pstmt2.setInt(1, movieId);
+                        rs2 = pstmt2.executeQuery();
+                        System.out.print("\uD83D\uDC69\uD83C\uDFFC 출연 배우 : ");
+                        boolean firstActor = true;
+                        while (rs2.next()) {
+                            if (!firstActor) {
+                                System.out.print(", ");
+                            }
+                            System.out.print(rs2.getString("a_name"));
+                            firstActor = false;
+                        }
+
+                        System.out.print("\n\n\uD83C\uDF9E\uFE0F\uD83C\uDF9E\uFE0F\uD83C\uDF9E\uFE0F\uD83C\uDF9E\uFE0F\uD83C\uDF9E\uFE0F\uD83C\uDF9E\uFE0F\uD83C\uDF9E\uFE0F\uD83C\uDF9E\uFE0F\uD83C\uDF9E\uFE0F\uD83C\uDF9E\uFE0F");
+                        System.out.print("\uD83C\uDF9E\uFE0F\uD83C\uDF9E\uFE0F\uD83C\uDF9E\uFE0F\uD83C\uDF9E\uFE0F\uD83C\uDF9E\uFE0F\uD83C\uDF9E\uFE0F\uD83C\uDF9E\uFE0F\uD83C\uDF9E\uFE0F\uD83C\uDF9E\uFE0F\uD83C\uDF9E\uFE0F");
+                        System.out.print("\uD83C\uDF9E\uFE0F\uD83C\uDF9E\uFE0F\uD83C\uDF9E\uFE0F\uD83C\uDF9E\uFE0F\uD83C\uDF9E\uFE0F\uD83C\uDF9E\uFE0F\uD83C\uDF9E\uFE0F\uD83C\uDF9E\uFE0F\uD83C\uDF9E\uFE0F\uD83C\uDF9E\uFE0F"+"\n");
                     }
-                    if (row) {
+
+                    if (!movieFound) {
                         System.out.println("""
                                 죄송합니다.
                                 해당하는 영화가 없습니다.
@@ -171,7 +218,6 @@ public class MovieRepository {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-
         }
     }
 

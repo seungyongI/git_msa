@@ -4,22 +4,24 @@ import org.example.repository.MovieActorRepository;
 import org.example.repository.MovieDirectorRepository;
 import org.example.repository.MovieRepository;
 
+import java.sql.SQLException;
 import java.util.Scanner;
 
 public class UserMain {
+
     public void user() {
         MovieRepository movieRepository = new MovieRepository();
         MovieDirectorRepository movieDirectorRepository = new MovieDirectorRepository();
         MovieActorRepository movieActorRepository = new MovieActorRepository();
         Scanner scan = new Scanner(System.in);
-
+        System.out.println("환영합니다 사용자님.");
         while (true) {
             System.out.println("""
                     원하시는 카테고리의 번호를 입력해주세요.
-                    1. 배우
-                    2. 감독
-                    3. 장르
-                    4. 제목
+                    1. \uD83D\uDC69\uD83C\uDFFC배우
+                    2. \uD83E\uDDD4\uD83C\uDFFB\uD83C\uDFAC 감독
+                    3. 📽️장르
+                    4. 🍿제목
                     0. 로그아웃
                     """);
             int cho = scan.nextInt();

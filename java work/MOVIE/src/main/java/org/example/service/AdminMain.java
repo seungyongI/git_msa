@@ -2,6 +2,7 @@ package org.example.service;
 
 import org.example.repository.*;
 
+import java.sql.SQLException;
 import java.util.Scanner;
 
 public class AdminMain {
