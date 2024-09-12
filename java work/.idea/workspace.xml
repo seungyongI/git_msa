@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="30eefe70-6903-48e9-82cd-765168c15d3f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/ex08/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ex08/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ex08/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ex08/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ex08/ex08.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ex08/src/Ex01.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ex08/src/Ex02.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ex07/src/GG.java" beforeDir="false" afterPath="$PROJECT_DIR$/ex07/src/GG.java" afterDir="false" />
-    </list>
+    <list default="true" id="30eefe70-6903-48e9-82cd-765168c15d3f" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,9 +10,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 6
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
   <component name="ProjectId" id="2iwXWNUtVv00WRCZRRrS5CGCjYC" />
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
@@ -31,6 +22,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/Yong/Coding/work/java work/ex21",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2"

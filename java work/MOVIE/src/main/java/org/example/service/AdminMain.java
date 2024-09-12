@@ -41,10 +41,10 @@ public class AdminMain {
                         """);
                 break;
             } else {
-                    System.out.println("""
-                            없는 선택지입니다.
-                            다시 입력해주시기 바랍니다.
-                            """);
+                System.out.println("""
+                        없는 선택지입니다.
+                        다시 입력해주시기 바랍니다.
+                        """);
             }
         }
     }
@@ -55,22 +55,30 @@ public class AdminMain {
         while (true) {
             System.out.println("""
                     1. 입력
-                    2. 조회
-                    3. 수정
-                    4. 삭제
+                    2. 제목 조회
+                    3. 장르 조회
+                    4. 수정
+                    5. 삭제
                     0. 종료
                     """);
             int cho = scan.nextInt();
             if (cho == 1) {
                 movieRepository.insert();
             } else if (cho == 2) {
-                movieRepository.select();
+                movieRepository.titleSelect();
             } else if (cho == 3) {
-                movieRepository.update();
+                movieRepository.genreSelect();
             } else if (cho == 4) {
+                movieRepository.update();
+            } else if (cho == 5) {
                 movieRepository.delete();
             } else if (cho == 0) {
                 break;
+            } else {
+                System.out.println("""
+                        없는 선택지입니다.
+                        다시 입력해주시기 바랍니다.
+                        """);
             }
         }
     }
@@ -97,6 +105,11 @@ public class AdminMain {
                 actorRepository.delete();
             } else if (cho == 0) {
                 break;
+            } else {
+                System.out.println("""
+                        없는 선택지입니다.
+                        다시 입력해주시기 바랍니다.
+                        """);
             }
         }
     }
@@ -123,6 +136,11 @@ public class AdminMain {
                 directorRepository.delete();
             } else if (cho == 0) {
                 break;
+            } else {
+                System.out.println("""
+                        없는 선택지입니다.
+                        다시 입력해주시기 바랍니다.
+                        """);
             }
         }
     }
@@ -149,6 +167,11 @@ public class AdminMain {
                 movieActorRepository.delete();
             } else if (cho == 0) {
                 break;
+            } else {
+                System.out.println("""
+                        없는 선택지입니다.
+                        다시 입력해주시기 바랍니다.
+                        """);
             }
         }
     }
@@ -175,6 +198,11 @@ public class AdminMain {
                 movieDirectorRepository.delete();
             } else if (cho == 0) {
                 break;
+            } else {
+                System.out.println("""
+                        없는 선택지입니다.
+                        다시 입력해주시기 바랍니다.
+                        """);
             }
         }
     }

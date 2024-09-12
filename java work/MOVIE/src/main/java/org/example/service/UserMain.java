@@ -28,9 +28,9 @@ public class UserMain {
             } else if (cho == 2) {
                 movieDirectorRepository.select();
             } else if (cho == 3) {
-                movieRepository.select();
+                movieRepository.genreSelect();
             } else if (cho == 4) {
-                movieRepository.select2();
+                movieRepository.titleSelect();
             } else if (cho == 0) {
                 System.out.println("""
                         이용해 주셔서 감사합니다.
