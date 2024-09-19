@@ -4,11 +4,25 @@ import { RouterLink, RouterView } from 'vue-router'
 
 <template>
   <header>
-    <div class="wrapper">
-      <nav class="flex justify-center">
-        <RouterLink class="p-3 text-2xl text-amber-700" to="/">Home</RouterLink>
-        <RouterLink class="p-3 text-2xl text-amber-700" to="/user">User</RouterLink>
-        <RouterLink class="p-3 text-2xl text-amber-700" to="/freeboard">FreeBoard</RouterLink>
+    <div class="p-5 bg-slate-500 text-white text-3xl">
+      <nav class="flex space-x-5">
+        <div>
+          <RouterLink to="/">Home</RouterLink>
+        </div>
+        <div>
+          <RouterLink to="/user">User</RouterLink>
+        </div>
+        <div class="group relative">
+          <RouterLink to="/freeboard">FreeBoard</RouterLink>
+          <div class="opacity-0 group-hover:opacity-100 transition absolute bg-slate-700 p-3 top-14 -left-5 rounded">
+            <div>
+              <RouterLink to="/freeboardlist">FreeBoardList</RouterLink>
+            </div>
+            <div>
+              <RouterLink to="/freeboardinput">FreeBoardInput</RouterLink>
+            </div>
+          </div>
+        </div>
       </nav>
     </div>
     <RouterView />

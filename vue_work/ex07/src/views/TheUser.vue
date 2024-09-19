@@ -1,6 +1,6 @@
 <template>
   <div class="flex justify-center">
-    <h1 class="h1-red">HOME</h1>
+    <h1>User</h1>
   </div>
 </template>
 
@@ -8,6 +8,4 @@
 
 </script>
 
-<style scoped>
-
-</style>
+<style lang="scss" scoped></style>
