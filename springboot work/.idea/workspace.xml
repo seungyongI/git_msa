@@ -5,8 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9ea163d3-e7c0-4f35-8948-68e4bae5c630" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/ex07/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ex07/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ex07/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ex07/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ex07/gradlew" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ex07/gradlew.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ex07/settings.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ex07/src/main/java/com/lsy/ex06/Ex06Application.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ex07/src/main/java/com/lsy/ex06/error/BizException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ex07/src/main/java/com/lsy/ex06/error/ErrorCode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ex07/src/main/java/com/lsy/ex06/error/ErrorController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ex07/src/main/java/com/lsy/ex06/error/ErrorResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ex07/src/main/java/com/lsy/ex06/user/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ex07/src/main/java/com/lsy/ex06/user/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ex07/src/main/java/com/lsy/ex06/user/UserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ex07/src/main/java/com/lsy/ex06/user/UserReqDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ex07/src/main/java/com/lsy/ex06/user/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ex07/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ex07/src/main/resources/static/aa.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ex07/src/main/resources/static/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ex07/src/test/java/com/lsy/ex06/Ex06ApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java work/MOVIE/src/main/java/org/example/repository/ActorRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java work/MOVIE/src/main/java/org/example/repository/ActorRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java work/MOVIE/src/main/java/org/example/repository/MovieDirectorRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java work/MOVIE/src/main/java/org/example/repository/MovieDirectorRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../java work/MOVIE/src/main/java/org/example/repository/connection/ConnectionConst.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java work/MOVIE/src/main/java/org/example/repository/connection/ConnectionConst.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ex01/src/main/java/com/lsy/ex01/Ex01Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/ex01/src/main/java/com/lsy/ex01/Ex01Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java work/MOVIE/src/main/java/org/example/service/UserMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java work/MOVIE/src/main/java/org/example/service/UserMain.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,9 +39,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 0
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
   <component name="ProjectId" id="2lotvUkxpdgRzTAPIPatUVayCoX" />
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
@@ -28,7 +51,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/work/springboot work"
+    "last_opened_file_path": "D:/work/springboot work/ex07"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />

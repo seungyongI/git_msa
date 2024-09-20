@@ -1,13 +1,11 @@
 package org.example.service;
 
+import java.sql.SQLException;
 import java.util.Scanner;
 
 public class LogIn {
-    public static void main(String[] args) {
-        start();
-    }
 
-    public static void start() {
+    public void start() {
         UserMain userMain = new UserMain();
         AdminMain adminMain = new AdminMain();
         Scanner scan = new Scanner(System.in);
@@ -16,16 +14,16 @@ public class LogIn {
             System.out.print("""
                      💗💗⠀ ⠀ 💗💗
                     💗🍬🍬💗🍬🍬💗
-                    💗🍬🍬🏠🍬🍬💗
+                   💗 🍬🍬🏠🍬🍬 💗
                     💗 SWEET MYMH 💗
-                    ⠀ 💗🍬🍬🍬💗
+                    ⠀💗 🍬🍬🍬 💗
                     ⠀ ⠀ 💗🍬💗
-                    ⠀ ⠀ ⠀ ⠀💗
+                    ⠀ ⠀ ⠀ 💗
                     """);
             System.out.println("""
                     로그인 할 아이디를 입력해주세요.
-                    1. 사용자
-                    2. 관리자
+                    1. 👱🏻 사용자
+                    2. 👩🏻‍🦱 관리자
                     0. 종료
                     """);
 

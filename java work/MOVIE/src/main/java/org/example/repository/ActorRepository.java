@@ -47,8 +47,8 @@ public class ActorRepository {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             conn = getConnection();
-            pstmt = conn.prepareStatement("select * from Actor where d_name like (?)");
-
+            pstmt = conn.prepareStatement("select * from Actor where a_name like (?)");
+            System.out.println("환영합니다 관리자님.");
             while (true) {
                 System.out.println("입력하시겠습니까?");
                 System.out.println("""
