@@ -26,7 +26,7 @@
 <script setup>
 import axios from 'axios';
 import { ref } from 'vue';
-import { useRoute, useRouter } from 'vue-router';
+import { useRouter } from 'vue-router';
 
 const title = ref('');
 const content = ref('');
@@ -62,7 +62,7 @@ const save = () => {
     .then(res => {
       console.log(res);
       alert('저장하였습니다.');
-      router.push({name:'freeboardlist',params:{aa:10, bb:'Hello'}});
+      router.push({name:'freeboardlist'});
     })
     .catch(e => {
       console.log(e);

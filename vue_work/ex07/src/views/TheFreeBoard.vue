@@ -38,7 +38,7 @@ const save = () => {
     .catch(e => {
       console.log(e);
       alert('에러'+e.response.data.message);
-    });``
+    });
 };
 </script>
 
