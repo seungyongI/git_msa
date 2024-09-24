@@ -1,5 +1,5 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterLink, RouterView } from 'vue-router';
 </script>
 
 <template>
@@ -14,7 +14,9 @@ import { RouterLink, RouterView } from 'vue-router'
         </div>
         <div class="group relative">
           <h1 class="text-3xl cursor-pointer">FreeBoard</h1>
-          <div class="opacity-0 group-hover:opacity-100 transition absolute bg-slate-700 p-3 top-14 -left-5 rounded">
+          <div
+            class="opacity-0 group-hover:opacity-100 transition absolute bg-slate-700 p-3 top-14 -left-5 rounded"
+          >
             <div>
               <RouterLink to="/freeboardlist">FreeBoardList</RouterLink>
             </div>
@@ -23,11 +25,13 @@ import { RouterLink, RouterView } from 'vue-router'
             </div>
           </div>
         </div>
+        <div>
+          <RouterLink to="/fileupload">FileUpload</RouterLink>
+        </div>
       </nav>
     </div>
     <RouterView />
   </header>
-
 </template>
 
 <style scoped></style>

@@ -5,54 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9ea163d3-e7c0-4f35-8948-68e4bae5c630" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/ex09_freeboard.main.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ex10/src/main/java/com/lsy/ex10/file/FileController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ex10/src/main/resources/data.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WaguWagu/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WaguWagu/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WaguWagu/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WaguWagu/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WaguWagu/gradlew" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WaguWagu/gradlew.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WaguWagu/settings.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WaguWagu/src/main/java/com/example/WaguWagu/WaguWaguApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WaguWagu/src/main/java/com/example/WaguWagu/domain/Board.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WaguWagu/src/main/java/com/example/WaguWagu/domain/Comments.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WaguWagu/src/main/java/com/example/WaguWagu/domain/Member.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WaguWagu/src/main/java/com/example/WaguWagu/domain/Receipe.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WaguWagu/src/main/java/com/example/WaguWagu/domain/ReceipeImages.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WaguWagu/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WaguWagu/src/test/java/com/example/WaguWagu/WaguWaguApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ex09_freeboard/src/main/java/com/lsy/ex09/Ex09Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/ex09_freeboard/src/main/java/com/lsy/ex10/Ex09Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ex09_freeboard/src/main/java/com/lsy/ex09/conf/JpaAuditConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/ex09_freeboard/src/main/java/com/lsy/ex10/conf/JpaAuditConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ex09_freeboard/src/main/java/com/lsy/ex09/error/BizException.java" beforeDir="false" afterPath="$PROJECT_DIR$/ex09_freeboard/src/main/java/com/lsy/ex10/error/BizException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ex09_freeboard/src/main/java/com/lsy/ex09/error/ErrorCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/ex09_freeboard/src/main/java/com/lsy/ex10/error/ErrorCode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ex09_freeboard/src/main/java/com/lsy/ex09/error/ErrorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ex09_freeboard/src/main/java/com/lsy/ex10/error/ErrorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ex09_freeboard/src/main/java/com/lsy/ex09/error/ErrorResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/ex09_freeboard/src/main/java/com/lsy/ex10/error/ErrorResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ex09_freeboard/src/main/java/com/lsy/ex09/freeboard/FreeBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/ex09_freeboard/src/main/java/com/lsy/ex10/freeboard/FreeBoard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ex09_freeboard/src/main/java/com/lsy/ex09/freeboard/FreeBoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ex09_freeboard/src/main/java/com/lsy/ex10/freeboard/FreeBoardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ex09_freeboard/src/main/java/com/lsy/ex09/freeboard/FreeBoardRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/ex09_freeboard/src/main/java/com/lsy/ex10/freeboard/FreeBoardRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ex09_freeboard/src/main/java/com/lsy/ex09/freeboard/FreeBoardReqDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/ex09_freeboard/src/main/java/com/lsy/ex10/freeboard/FreeBoardReqDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ex09_freeboard/src/main/java/com/lsy/ex09/freeboard/FreeBoardResponseDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/ex09_freeboard/src/main/java/com/lsy/ex10/freeboard/FreeBoardResponseDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ex09_freeboard/src/main/java/com/lsy/ex09/freeboard/FreeBoardResponsePageDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/ex09_freeboard/src/main/java/com/lsy/ex10/freeboard/FreeBoardResponsePageDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ex09_freeboard/src/main/java/com/lsy/ex09/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/ex09_freeboard/src/main/java/com/lsy/ex10/user/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ex09_freeboard/src/main/java/com/lsy/ex09/user/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ex09_freeboard/src/main/java/com/lsy/ex10/user/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ex09_freeboard/src/main/java/com/lsy/ex09/user/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/ex09_freeboard/src/main/java/com/lsy/ex10/user/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ex09_freeboard/src/main/java/com/lsy/ex09/user/UserReqDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/ex09_freeboard/src/main/java/com/lsy/ex10/user/UserReqDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ex09_freeboard/src/main/java/com/lsy/ex09/user/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ex09_freeboard/src/main/java/com/lsy/ex10/user/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ex09_freeboard/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/ex09_freeboard/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ex09_freeboard/src/test/java/com/lsy/ex09/Ex09ApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/ex09_freeboard/src/test/java/com/lsy/ex10/Ex09ApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ex09_freeboard/src/test/java/com/lsy/ex09/freeboard/FreeBoardRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/ex09_freeboard/src/test/java/com/lsy/ex10/freeboard/FreeBoardRepositoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_work/ex06/.prettierrc.json" beforeDir="false" afterPath="$PROJECT_DIR$/../vue_work/ex06/.prettierrc.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_work/ex06/src/views/freeboard/TheFreeBoardInput.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../vue_work/ex06/src/views/freeboard/TheFreeBoardInput.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_work/ex06/src/views/freeboard/TheFreeBoardList.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../vue_work/ex06/src/views/freeboard/TheFreeBoardList.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue_work/ex07/src/views/TheFreeBoard.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../vue_work/ex07/src/views/TheFreeBoard.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ex10/src/main/java/com/lsy/ex10/freeboard/FreeBoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ex10/src/main/java/com/lsy/ex10/freeboard/FreeBoardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ex10/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ex10/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,10 +68,15 @@
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/work/project/waguwagu",
+    "last_opened_file_path": "D:/work/springboot work",
     "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\work\springboot work\ex10" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="Ex10Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.lsy.ex10.Ex10Application" />

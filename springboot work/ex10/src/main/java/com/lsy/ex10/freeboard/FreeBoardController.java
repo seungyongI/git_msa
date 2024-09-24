@@ -25,7 +25,6 @@ import java.util.List;
 @Slf4j
 public class FreeBoardController {
 
-
     private final FreeBoardRepository freeBoardRepository;
     private final ModelMapper modelMapper;
 
