@@ -31,11 +31,19 @@ const save = () => {
 
   const formData = new FormData();
   formData.append('file', myfile.value);
-  formData.append('fileDto', new Blob({ name: 'filename' }, { type: 'application/json' }));
+  formData.append(
+    'fileDto',
+    new Blob([JSON.stringify({ name: 'filename', fileDesc: 'aValue' })], { type: 'application/json' })
+  );
 
-  axios.post('http://localhost:8080/file/upload', formData, {
-    headers: { 'content-Type': 'multipart/form-data' }
-  });
+  axios
+    .post('http://localhost:8080/file/upload', formData, {
+      headers: { 'Content-Type': 'multipart/form-data' }
+    })
+    .then((res) => {
+      console.log(res);
+    })
+    .catch((e) => console.log(e));
 };
 
 const onFileChange = (e) => {

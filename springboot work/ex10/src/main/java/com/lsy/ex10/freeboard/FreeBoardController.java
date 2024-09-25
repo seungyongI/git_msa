@@ -2,6 +2,8 @@ package com.lsy.ex10.freeboard;
 
 import com.lsy.ex10.error.BizException;
 import com.lsy.ex10.error.ErrorCode;
+import com.lsy.ex10.file.FileEntity;
+import com.lsy.ex10.file.FileRepository;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -11,9 +13,13 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.nio.file.Paths;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +32,7 @@ import java.util.List;
 public class FreeBoardController {
 
     private final FreeBoardRepository freeBoardRepository;
+    private final FileRepository fileRepository;
     private final ModelMapper modelMapper;
 
     @Value("${my.value}")
@@ -37,10 +44,33 @@ public class FreeBoardController {
 
     }
 
-    @PostMapping("insert")
-    private ResponseEntity<FreeBoard> save(@Valid @RequestBody FreeBoardReqDto freeBoardReqDto) {
+    @PostMapping(
+            produces = MediaType.APPLICATION_JSON_VALUE,
+            consumes = MediaType.MULTIPART_FORM_DATA_VALUE
+    )
+    private ResponseEntity<FreeBoard> save(@Valid @RequestPart(name = "data") FreeBoardReqDto freeBoardReqDto,
+                                           @RequestPart(name = "file", required = false) MultipartFile file) {
+
+        System.out.println(freeBoardReqDto);
+        if (file != null) {
+            String myFilePath = Paths.get("images/file/").toAbsolutePath() + "\\" + file.getOriginalFilename();
+            try {
+                File destFile = new File(myFilePath);
+                file.transferTo(destFile);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
         FreeBoard freeBoard = new ModelMapper().map(freeBoardReqDto, FreeBoard.class);
         freeBoardRepository.save(freeBoard);
+
+        FileEntity fileEntity = new FileEntity();
+        fileEntity.setName(file.getOriginalFilename());
+        fileEntity.setPath(Paths.get("images/file/").toAbsolutePath().toString());
+        fileEntity.setFreeBoard(freeBoard);
+        fileRepository.save(fileEntity);
+
         return ResponseEntity.status(200).body(freeBoard);
     }
 
@@ -83,6 +113,8 @@ public class FreeBoardController {
     public ResponseEntity<FreeBoardResponseDto> findOne(@PathVariable(name = "idx") long idx) {
 
         FreeBoard freeBoard = freeBoardRepository.findById(idx).orElseThrow(() -> new BizException(ErrorCode.NOT_FOUND));
+
+        System.out.println(freeBoard.getList());
 
         FreeBoardResponseDto freeBoardResponseDto = modelMapper.map(freeBoard, FreeBoardResponseDto.class);
 

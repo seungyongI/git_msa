@@ -5,11 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9ea163d3-e7c0-4f35-8948-68e4bae5c630" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/ex10/src/main/java/com/lsy/ex10/file/FileController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ex10/src/main/resources/data.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ex10/src/main/java/com/lsy/ex10/file/FileReqDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ex10/src/main/java/com/lsy/ex10/freeboard/FreeBoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ex10/src/main/java/com/lsy/ex10/freeboard/FreeBoardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ex10/src/main/java/com/lsy/ex10/file/FileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ex10/src/main/java/com/lsy/ex10/file/FileController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ex10/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ex10/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_work/ex06/src/views/TheFileUpload.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../vue_work/ex06/src/views/TheFileUpload.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue_work/ex06/src/views/freeboard/TheFreeBoardInput.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../vue_work/ex06/src/views/freeboard/TheFreeBoardInput.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,6 +48,13 @@
       </state>
     </system>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
@@ -54,24 +62,27 @@
   &quot;associatedIndex&quot;: 0
 }</component>
   <component name="ProjectId" id="2lotvUkxpdgRzTAPIPatUVayCoX" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Ex10Application.executor": "Run",
-    "Gradle.FreeBoardRepositoryTest.updateTest.executor": "Run",
-    "Gradle.ex09_freeboard [:com.lsy.ex09.Ex09Application.main()].executor": "Run",
-    "Gradle.ex10 [:com.lsy.ex10.Ex10Application.main()].executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/work/springboot work",
-    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Ex10Application.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.FreeBoardRepositoryTest.updateTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.ex09_freeboard [:com.lsy.ex09.Ex09Application.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.ex10 [:com.lsy.ex10.Ex10Application.main()].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/work/springboot work&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\work\springboot work\ex10" />
