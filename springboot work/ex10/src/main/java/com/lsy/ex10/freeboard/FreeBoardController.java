@@ -51,7 +51,9 @@ public class FreeBoardController {
     private ResponseEntity<FreeBoard> save(@Valid @RequestPart(name = "data") FreeBoardReqDto freeBoardReqDto,
                                            @RequestPart(name = "file", required = false) MultipartFile file) {
 
-        System.out.println(freeBoardReqDto);
+        FreeBoard freeBoard = new ModelMapper().map(freeBoardReqDto, FreeBoard.class);
+        freeBoardRepository.save(freeBoard);
+
         if (file != null) {
             String myFilePath = Paths.get("images/file/").toAbsolutePath() + "\\" + file.getOriginalFilename();
             try {
@@ -60,16 +62,13 @@ public class FreeBoardController {
             } catch (Exception e) {
                 e.printStackTrace();
             }
+
+            FileEntity fileEntity = new FileEntity();
+            fileEntity.setName(file.getOriginalFilename());
+            fileEntity.setPath(Paths.get("images/file/").toAbsolutePath().toString());
+            fileEntity.setFreeBoard(freeBoard);
+            fileRepository.save(fileEntity);
         }
-
-        FreeBoard freeBoard = new ModelMapper().map(freeBoardReqDto, FreeBoard.class);
-        freeBoardRepository.save(freeBoard);
-
-        FileEntity fileEntity = new FileEntity();
-        fileEntity.setName(file.getOriginalFilename());
-        fileEntity.setPath(Paths.get("images/file/").toAbsolutePath().toString());
-        fileEntity.setFreeBoard(freeBoard);
-        fileRepository.save(fileEntity);
 
         return ResponseEntity.status(200).body(freeBoard);
     }
@@ -111,16 +110,15 @@ public class FreeBoardController {
 
     @GetMapping("view/{idx}")
     public ResponseEntity<FreeBoardResponseDto> findOne(@PathVariable(name = "idx") long idx) {
-
+        // 해당되는 행 읽기
         FreeBoard freeBoard = freeBoardRepository.findById(idx).orElseThrow(() -> new BizException(ErrorCode.NOT_FOUND));
-
-        System.out.println(freeBoard.getList());
+        // 수정
+        freeBoard.setView_count(freeBoard.getView_count() + 1);
+        freeBoardRepository.save(freeBoard);
 
         FreeBoardResponseDto freeBoardResponseDto = modelMapper.map(freeBoard, FreeBoardResponseDto.class);
 
-        DateTimeFormatter dateTimeFormatter
-                = DateTimeFormatter.ofPattern("yyyy/MM/dd hh:mm");
-
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy/MM/dd hh:mm");
         freeBoardResponseDto.setRegDate(dateTimeFormatter.format(freeBoard.getRegDate()));
         freeBoardResponseDto.setModDate(dateTimeFormatter.format(freeBoard.getModDate()));
 

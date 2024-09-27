@@ -1,11 +1,14 @@
 package com.lsy.ex10.user;
 
+import com.lsy.ex10.freeboard.FreeBoard;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 /*
     @Configuraion -> 객체 담는통 정의
@@ -28,13 +31,13 @@ import java.time.LocalDateTime;
 @ToString
 @Getter
 @Setter
-// Table 정의...
+// Table
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // AUTOINCREMENT 이거 설정해줘...
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // AUTOINCREMENT
     private Long idx;
-    @Column(name = "username",nullable = false,length = 50)
+    @Column(name = "username", nullable = false, length = 50)
     private String name;
 
     private int age;
@@ -48,4 +51,8 @@ public class User {
 
     private LocalDateTime wdate;
 
+    @OneToMany(mappedBy = "user",
+            fetch = FetchType.EAGER,
+            cascade = CascadeType.ALL)
+    private List<FreeBoard> list = new ArrayList<>();
 }

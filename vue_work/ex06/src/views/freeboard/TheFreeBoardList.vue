@@ -8,24 +8,38 @@
             <tr>
               <th class="border">IDX</th>
               <th class="border">title</th>
+              <th class="border">content</th>
               <th class="border">author</th>
               <th class="border">regdate</th>
               <th class="border">viewcount</th>
             </tr>
           </thead>
           <tbody>
-            <tr
-              v-for="item in arr"
-              :key="item.idx"
-              class="cursor-pointer hover:bg-slate-200"
-              @click="viewPage(item.idx)"
-            >
-              <td class="border text-center text-lg p-1">{{ item.idx }}</td>
-              <td class="border text-center text-lg p-1">{{ item.title }}</td>
-              <td class="border text-center text-lg p-1">{{ item.creAuthor }}</td>
-              <td class="border text-center text-lg p-1">{{ item.regDate }}</td>
-              <td class="border text-center text-lg p-1">{{ item.view_count }}</td>
-            </tr>
+            <template v-if="arr && arr.length > 0">
+              <tr
+                v-for="item in arr"
+                :key="item.idx"
+                class="cursor-pointer hover:bg-slate-200"
+                @click="viewPage(item.idx)"
+              >
+                <td class="border text-center text-lg p-1">{{ item.idx }}</td>
+                <td class="border text-center text-lg p-1">{{ item.title }}</td>
+                <td class="border text-center text-lg p-1">{{ item.content }}</td>
+                <td class="border text-center text-lg p-1">{{ item.creAuthor }}</td>
+                <td class="border text-center text-lg p-1">{{ item.regDate }}</td>
+                <td class="border text-center text-lg p-1">{{ item.view_count }}</td>
+                <template v-if="item.list[0]">
+                  <td class="border text-center text-lg p-1">
+                    <img
+                      :src="`http://localhost:8080/file/download/${item.list[0].name}`"
+                      alt=""
+                      srcset=""
+                      width="150"
+                    />
+                  </td>
+                </template>
+              </tr>
+            </template>
           </tbody>
         </table>
       </div>
@@ -42,6 +56,12 @@
         </li>
       </ul>
     </div>
+    <div v-if="temp">
+      <h1>나오나?</h1>
+    </div>
+    <div>
+      <button @click="changeTemp">나오게 하기</button>
+    </div>
   </div>
 </template>
 
@@ -49,6 +69,11 @@
 import axios from 'axios';
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
+
+const temp = ref(false);
+const changeTemp = () => {
+  temp.value = !temp.value;
+};
 
 const router = useRouter();
 const arr = ref([]);

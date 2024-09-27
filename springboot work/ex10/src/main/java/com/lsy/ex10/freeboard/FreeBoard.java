@@ -1,5 +1,6 @@
 package com.lsy.ex10.freeboard;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.lsy.ex10.file.FileEntity;
 import com.lsy.ex10.user.User;
 import jakarta.persistence.*;
@@ -31,6 +32,7 @@ public class FreeBoard {
     private String content;
 
     @ManyToOne(cascade = CascadeType.ALL) // 영속성 전파
+    @JsonIgnore
     private User user;
 
     @CreatedBy
@@ -49,6 +51,6 @@ public class FreeBoard {
     @Column(columnDefinition = "int default 0")
     private int view_count;
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "freeBoard")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "freeBoard", cascade = CascadeType.ALL)
     private List<FileEntity> list = new ArrayList<>();
 }
