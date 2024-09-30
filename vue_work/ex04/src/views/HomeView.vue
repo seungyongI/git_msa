@@ -75,10 +75,10 @@ export default {
         })
         .then(result => {
           list.value = result;
-          console.log(result);
+          // console.log(result);
         })
         .catch(e => {
-          console.log("예외 발생");
+          // console.log("예외 발생");
           console.log(e);
         })
     }
@@ -99,10 +99,10 @@ export default {
         .then(res => {
           if(res.status.toString().startsWith('2'))
             alert('입력 실패');
-          console.log(res.status);
+          // console.log(res.status);
         })
       } catch(e) {
-        console.log(e);
+        // console.log(e);
       }
     }
 

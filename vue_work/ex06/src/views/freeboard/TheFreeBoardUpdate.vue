@@ -76,7 +76,7 @@ const save = () => {
     .then((res) => {
       console.log(res);
       alert('저장하였습니다.');
-      router.push({ name: 'freeboardlist', params: { pagenum: 0 } });
+      router.push({ name: 'freeboardlist', params: { pageNum: 0 } });
     })
     .catch((e) => {
       console.log(e);

@@ -1,5 +1,6 @@
 package com.lsy.ex10.user;
 
+import com.lsy.ex10.error.ErrorCode;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
@@ -35,11 +36,9 @@ public class UserController {
 
     @PutMapping("update")
     public ResponseEntity<String> update(@Valid @RequestBody UserReqDto userReqDto) {
-//        System.out.println("실행" + userReqDto);
-        ModelMapper modelMapper = new ModelMapper();
-        User user = modelMapper.map(userReqDto, User.class);
-//        System.out.println("user = " + user);
-        userRepository.save(user);
+
+        userService.update(userReqDto);
+
         return ResponseEntity.status(200).body("success update");
     }
 
