@@ -31,7 +31,7 @@
                 <template v-if="item.list[0]">
                   <td class="border text-center text-lg p-1">
                     <img
-                      :src="`http://localhost:8080/file/download/${item.list[0].name}`"
+                      :src="`${GLOBAL_URL}/file/download/${item.list[0].name}`"
                       alt=""
                       srcset=""
                       width="150"
@@ -66,8 +66,9 @@
 </template>
 
 <script setup>
-import axios from 'axios';
-import { ref } from 'vue';
+import { getFreeBoard } from '@/api/freeboardApi';
+import { GLOBAL_URL } from '@/api/util';
+import { ref, watchEffect } from 'vue';
 import { useRouter } from 'vue-router';
 
 const temp = ref(false);
@@ -80,9 +81,11 @@ const arr = ref([]);
 const totalPages = ref(10);
 const pageNum = ref(0);
 
-const setPageNum = (num) => {
+const setPageNum = async (num) => {
   pageNum.value = num;
-  getFreeBoard(num);
+  const res = await getFreeBoard(num);
+  arr.value = res.data.list;
+  totalPages.value = res.data.totalPages;
 };
 
 const viewPage = (idx) => {
@@ -91,22 +94,13 @@ const viewPage = (idx) => {
   router.push(data);
 };
 
-const getFreeBoard = (pageNum) => {
-  if (pageNum == undefined) pageNum = 0;
-  axios
-    .get(`http://localhost:8080/freeboard/select?pageNum=${pageNum}`)
-    .then((res) => {
-      console.log(res);
-      arr.value = res.data.list;
-      totalPages.value = res.data.totalPages;
-    })
-    .catch((e) => {
-      console.log(e);
-    });
-};
+watchEffect(async () => {
+  const res = await getFreeBoard();
+  arr.value = res.data.list;
+  totalPages.value = res.data.totalPages;
 
-// page 호출 시 자동실행
-getFreeBoard();
+  return;
+});
 </script>
 
 <style scoped></style>

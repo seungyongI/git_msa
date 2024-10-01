@@ -51,7 +51,7 @@ public class FileController {
                          @RequestPart("fileDto") FileReqDto fileReqDto) {
         try {
             // 전체 경로 + 파일 이름
-            String myFilePath = imagePath.toAbsolutePath() + "\\" + file.getOriginalFilename();
+            String myFilePath = imagePath.toAbsolutePath() + File.separator + file.getOriginalFilename();
             File saveFile = new File(myFilePath);
             file.transferTo(saveFile);
             // DB 저장

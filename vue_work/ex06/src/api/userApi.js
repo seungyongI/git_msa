@@ -1,10 +1,11 @@
 import axios from 'axios';
+import { GLOBAL_URL } from './util';
 
-const URL = 'http://localhost:8080/user';
+export const URL = `${GLOBAL_URL}/user`;
 
 export const getUsers = async () => {
   try {
-    const res = await axios.get(`${URL}/select`);
+    const res = await axios.get(`${URL}/user/select`);
     // console.log(res);
     return res;
   } catch (e) {

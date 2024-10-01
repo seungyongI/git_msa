@@ -54,7 +54,6 @@
 
 <script setup>
 import { getUsers, saveUser } from '@/api/userApi';
-import axios from 'axios';
 import { ref, watchEffect } from 'vue';
 
 const arr = ref([]);
