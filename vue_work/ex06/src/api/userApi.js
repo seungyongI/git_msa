@@ -5,7 +5,7 @@ export const URL = `${GLOBAL_URL}/user`;
 
 export const getUsers = async () => {
   try {
-    const res = await axios.get(`${URL}/user/select`);
+    const res = await axios.get(`${URL}/select`);
     // console.log(res);
     return res;
   } catch (e) {
@@ -32,4 +32,13 @@ export const saveUser = async (item) => {
     return e;
   }
 };
-export const deleteUser = () => {};
+
+export const deleteUser = async(idx) => {
+  try {
+    const res = await axios.delete(`${URL}/delete/${idx}`);
+    return res;
+  }catch(e) {
+    console.log(e);
+    return e;
+  };
+};

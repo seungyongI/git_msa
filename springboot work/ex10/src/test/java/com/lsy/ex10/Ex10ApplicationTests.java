@@ -1,11 +1,15 @@
 package com.lsy.ex10;
 
+import com.lsy.ex10.freeboard.FreeBoard;
+import com.lsy.ex10.user.User;
+import com.lsy.ex10.user.UserRepository;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 
 //@SpringBootTest
 class Ex10ApplicationTests {
+
     @Test
     void contextLoads() {
 
@@ -17,4 +21,5 @@ class Ex10ApplicationTests {
         String result = Arrays.stream(str).reduce("", (s, s2) -> s + s2 );
         System.out.println("result = " + result);
     }
+
 }

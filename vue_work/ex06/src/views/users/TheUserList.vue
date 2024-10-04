@@ -46,14 +46,25 @@
         <!-- <h1>{{ item.email }}</h1> -->
         <h1>가입일 : {{ item.wdate }}</h1>
         <h1>작성한 글 : {{ item.list.length }}</h1>
-        <button @click.stop="doDelete(item.idx)">Delete</button>
+        <button
+          class="mt-3 mr-3 px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300"
+          @click.stop="modalUser(item)"
+        >
+          수정
+        </button>
+        <button
+          class="mt-3 px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300"
+          @click.stop="doDelete(item.idx)"
+        >
+          삭제
+        </button>
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { getUsers, saveUser } from '@/api/userApi';
+import { deleteUser, getUsers, saveUser } from '@/api/userApi';
 import { ref, watchEffect } from 'vue';
 
 const arr = ref([]);
@@ -65,17 +76,24 @@ const wdate = ref();
 
 const isModal = ref(false);
 
-const doDelete = () => {
-  console.log('doDelete');
+const doDelete = async (idx) => {
+  await deleteUser(idx);
+  const retValue = await getUsers();
+  arr.value = retValue.data;
 };
 
 const modalUser = async (item) => {
   isModal.value = !isModal.value;
 
   if (item == 'save') {
-    const result = await saveUser({ idx: idx.value, name: name.value, email: email.value, password: '1234' });
+    await saveUser({
+      idx: idx.value,
+      name: name.value,
+      email: email.value,
+      password: '1234'
+    });
     // update 필요
-    alert('수정하였습니다.' + result);
+    alert('수정하였습니다.');
     const retValue = await getUsers();
     arr.value = retValue.data;
     return;
@@ -85,12 +103,10 @@ const modalUser = async (item) => {
   name.value = item.name;
   email.value = item.email;
   wdate.value = item.wdate;
-  console.log(item);
 };
 
 watchEffect(async () => {
   const retValue = await getUsers();
-  // console.log('retValue = ' + JSON.stringify(retValue.data));
   arr.value = retValue.data;
 });
 </script>

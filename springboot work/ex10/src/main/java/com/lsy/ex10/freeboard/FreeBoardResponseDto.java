@@ -14,13 +14,15 @@ public class FreeBoardResponseDto {
     private String title;
     private String content;
 
-    private User user;
+//    private User user;
+
+    private Long userIdx;
 
     private String creAuthor;
     private String modAuthor;
     private String regDate;
     private String modDate;
 
-    private int view_count;
+    private int viewCount;
     private List<FileEntity> list = new ArrayList<>();
 }

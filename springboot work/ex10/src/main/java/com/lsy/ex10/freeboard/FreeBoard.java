@@ -19,7 +19,6 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@ToString
 @Getter
 @Setter
 @EntityListeners(AuditingEntityListener.class)
@@ -31,11 +30,8 @@ public class FreeBoard {
     private String title;
     private String content;
 
-    @ManyToOne(cascade = CascadeType.ALL) // 영속성 전파
-    @JsonIgnore
-    private User user;
-
     @CreatedBy
+    @Column(updatable = false)
     private String creAuthor;
 
     @LastModifiedBy
@@ -49,8 +45,27 @@ public class FreeBoard {
     private LocalDateTime modDate;
 
     @Column(columnDefinition = "int default 0")
-    private int view_count;
+    private int viewCount;
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "freeBoard", cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "freeBoard", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<FileEntity> list = new ArrayList<>();
+
+    @ManyToOne(cascade = CascadeType.ALL) // 영속성 전파
+    @JsonIgnore
+    private User user;
+
+    @Override
+    public String toString() {
+        return "FreeBoard{" +
+                "idx=" + idx +
+                ", title='" + title + '\'' +
+                ", content='" + content + '\'' +
+                ", creAuthor='" + creAuthor + '\'' +
+                ", modAuthor='" + modAuthor + '\'' +
+                ", regDate=" + regDate +
+                ", modDate=" + modDate +
+                ", view_count=" + viewCount +
+                ", list=" + list +
+                '}';
+    }
 }
