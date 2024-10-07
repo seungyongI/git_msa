@@ -1,0 +1,36 @@
+spring:
+  port: 8080
+  application:
+    name: ex10
+
+  sql:
+    init:
+      mode: always
+
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://localhost:3306/lsy
+    username: root
+    password: 1234
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate.format_sql: true
+    show-sql: true
+    open-in-view: false
+    #스프링 부트 시작 후 data.sql 인서트 구문 실행해라
+    defer-datasource-initialization: true
+
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+      file-size-threshold: 0
+
+  jwt:
+    secret: 2dV3UFI_PO3VuPoqqxl4MQm85afDGB25GSerN59J4YY
+
+my:
+  value: "welcome to my value"
