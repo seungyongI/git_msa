@@ -9,6 +9,7 @@ import java.io.PrintWriter;
 
 @RestController
 @RequiredArgsConstructor
+@CrossOrigin
 public class LoginController {
 
     private final LoginService loginService;

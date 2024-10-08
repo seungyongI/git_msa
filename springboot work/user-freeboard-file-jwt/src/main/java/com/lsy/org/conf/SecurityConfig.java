@@ -1,6 +1,7 @@
 package com.lsy.org.conf;
 
 import com.lsy.org.JWT.JWTFilter;
+import com.lsy.org.JWT.JWTManager;
 import com.lsy.org.login.LoginFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -20,6 +21,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 public class SecurityConfig {
 
     private final AuthenticationConfiguration authenticationConfiguration;
+    private final JWTManager jwtManager;
 
 //    public SecurityConfig(AuthenticationConfiguration authenticationConfiguration) {
 //        this.authenticationConfiguration = authenticationConfiguration;
@@ -53,10 +55,10 @@ public class SecurityConfig {
                 .requestMatchers("/admin").hasRole("ADMIN")
                 .anyRequest().authenticated());
 
-        http.addFilterBefore(new JWTFilter(), LoginFilter.class);
-
+        http.addFilterBefore(new JWTFilter(jwtManager), LoginFilter.class);
         http.addFilterAt(new LoginFilter(
-                authenticationManager(authenticationConfiguration)
+                        authenticationManager(authenticationConfiguration),
+                        jwtManager
                 ),
                 UsernamePasswordAuthenticationFilter.class);
 

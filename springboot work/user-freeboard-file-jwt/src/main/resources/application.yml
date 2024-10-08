@@ -30,7 +30,7 @@ spring:
       file-size-threshold: 0
 
   jwt:
-    secret: 2dV3UFI_PO3VuPoqqxl4MQm85afDGB25GSerN59J4YY
+    secret: 2dV3UFI_PO3VuPoqqxl4MQm85afDasdfwfewfwefefasdfsadfweafasefasefasdfsdafasewfasefsaefsaefGB25GSerN59J4YY
 
 my:
   value: "welcome to my value"

@@ -1,11 +1,13 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import TheHome from '../views/TheHome.vue'
-import TheFreeBoardInput from '@/views/freeboard/TheFreeBoardInput.vue'
-import TheFreeBoardList from '@/views/freeboard/TheFreeBoardList.vue'
-import TheFreeBoardView from '@/views/freeboard/TheFreeBoardView.vue'
-import TheFileUpload from '@/views/TheFileUpload.vue'
-import TheFreeBoardUpdate from '@/views/freeboard/TheFreeBoardUpdate.vue'
-import TheUserList from '@/views/users/TheUserList.vue'
+import { createRouter, createWebHistory } from 'vue-router';
+import TheHome from '../views/TheHome.vue';
+import TheFreeBoardInput from '@/views/freeboard/TheFreeBoardInput.vue';
+import TheFreeBoardList from '@/views/freeboard/TheFreeBoardList.vue';
+import TheFreeBoardView from '@/views/freeboard/TheFreeBoardView.vue';
+import TheFileUpload from '@/views/TheFileUpload.vue';
+import TheFreeBoardUpdate from '@/views/freeboard/TheFreeBoardUpdate.vue';
+import TheUserList from '@/views/users/TheUserList.vue';
+import TheJoin from '../views/login/TheJoin.vue';
+import TheLogin from '../views/login/TheLogin.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -19,6 +21,16 @@ const router = createRouter({
       path: '/user',
       name: 'user',
       component: TheUserList
+    },
+    {
+      path: '/join',
+      name: 'join',
+      component: TheJoin
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: TheLogin
     },
     {
       path: '/freeboardinput',
@@ -46,6 +58,6 @@ const router = createRouter({
       component: TheFileUpload
     }
   ]
-})
+});
 
-export default router
+export default router;
