@@ -1,7 +1,7 @@
 package com.lsy.org.conf;
 
-import com.lsy.org.JWT.JWTFilter;
-import com.lsy.org.JWT.JWTManager;
+import com.lsy.org.login.JWT.JWTFilter;
+import com.lsy.org.login.JWT.JWTManager;
 import com.lsy.org.login.LoginFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;

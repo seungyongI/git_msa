@@ -1,14 +1,10 @@
 package com.lsy.org.login;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.lsy.org.JWT.JWTManager;
-import com.lsy.org.user.User;
+import com.lsy.org.login.JWT.JWTManager;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import lombok.RequiredArgsConstructor;
-import org.springframework.core.env.Environment;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;

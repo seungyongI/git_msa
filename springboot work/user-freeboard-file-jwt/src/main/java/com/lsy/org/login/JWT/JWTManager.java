@@ -1,4 +1,4 @@
-package com.lsy.org.JWT;
+package com.lsy.org.login.JWT;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
@@ -56,5 +56,28 @@ public class JWTManager {
             return "fail";
         }
         return "success";
+    }
+
+    public Jws<Claims> getClaims(String jwt) {
+        String secretkey = environment.getProperty("spring.jwt.secret");
+        try {
+            // 비밀번호 설정
+            SecretKey secretKey
+                    = new SecretKeySpec(secretkey.getBytes(),
+                    Jwts.SIG.HS256.key().build().getAlgorithm());
+
+            // 해당 비밀번호로 jwt 토큰 복호화 해서 claims 가져오기
+            Jws<Claims> claims = Jwts.parser()
+                    .verifyWith(secretKey)
+                    .build()
+                    .parseSignedClaims(jwt);
+
+            // claims 안에서 email 값 가져오기
+            claims.getPayload().get("email").toString();
+            return claims;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 }

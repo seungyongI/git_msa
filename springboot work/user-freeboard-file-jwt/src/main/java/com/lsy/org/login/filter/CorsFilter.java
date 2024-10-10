@@ -1,4 +1,4 @@
-package com.lsy.org.filter;
+package com.lsy.org.login.filter;
 
 import jakarta.servlet.*;
 import jakarta.servlet.http.HttpServletRequest;
@@ -22,12 +22,6 @@ public class CorsFilter implements Filter {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         HttpServletResponse response = (HttpServletResponse) servletResponse;
 
-        // Preflight 요청일 경우 응답 처리
-        if ("OPTIONS".equalsIgnoreCase(request.getMethod())) {
-            response.setStatus(HttpServletResponse.SC_OK);
-            return;
-        }
-
         // CORS 헤더 설정
         response.setHeader("Access-Control-Allow-Origin", "*"); // 허용할 도메인 설정
         response.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS"); // 허용할 HTTP 메서드
@@ -35,7 +29,11 @@ public class CorsFilter implements Filter {
         response.setHeader("Access-Control-Allow-Credentials", "true"); // 쿠키 전달 허용
         response.setHeader("Access-Control-Max-Age", "3600"); // Preflight 요청 캐시 시간 설정
 
-        System.out.println("request.getMethod() = " + request.getMethod());
+        // Preflight 요청일 경우 응답 처리
+        if ("OPTIONS".equalsIgnoreCase(request.getMethod())) {
+            response.setStatus(HttpServletResponse.SC_OK);
+            return;
+        }
 
         // Preflight 요청이 아닐 경우 다음 필터로 요청 전달
         filterChain.doFilter(servletRequest, servletResponse);

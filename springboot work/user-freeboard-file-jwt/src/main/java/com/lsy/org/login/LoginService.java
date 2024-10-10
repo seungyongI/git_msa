@@ -27,7 +27,7 @@ public class LoginService implements UserDetailsService {
         user.setPassword(
                 passwordEncoder.encode(joinDto.getPassword())
         );
-        user.setRole("ROLE_ADMIN");
+        user.setRole("ADMIN");
         userRepository.save(user);
     }
 

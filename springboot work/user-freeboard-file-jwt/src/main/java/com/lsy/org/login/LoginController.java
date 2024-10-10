@@ -2,6 +2,9 @@ package com.lsy.org.login;
 
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
@@ -15,9 +18,11 @@ public class LoginController {
     private final LoginService loginService;
 
     @PostMapping("/join")
-    public String join(@RequestBody JoinDto joinDto){
+    public ResponseEntity<String> join(@RequestBody JoinDto joinDto){
+
         loginService.join(joinDto);
-        return "success";
+
+        return ResponseEntity.ok("success");
     }
     // swagger 사용 가능
     @GetMapping("/login")

@@ -43,7 +43,9 @@
 <script setup>
 import { doLogin } from '@/api/loginApi';
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
 
+const router = useRouter();
 const email = ref('');
 const password = ref('');
 
@@ -54,6 +56,8 @@ const subMitLogin = async () => {
     localStorage.setItem('token', res.data);
     console.log(res);
     alert('로그인 성공!');
+    router.push('/freeboardlist');
+    
   } catch (e) {
     alert('로그인 실패!');
   }

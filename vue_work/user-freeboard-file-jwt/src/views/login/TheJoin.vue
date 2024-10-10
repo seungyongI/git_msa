@@ -10,6 +10,7 @@
             type="text"
             id="username"
             name="username"
+            v-model="username"
             required
             class="mt-1 p-2 border border-gray-300 rounded w-full"
             placeholder="사용자 이름을 입력하세요"
@@ -21,9 +22,22 @@
             type="email"
             id="email"
             name="email"
+            v-model="email"
             required
             class="mt-1 p-2 border border-gray-300 rounded w-full"
             placeholder="이메일을 입력하세요"
+          />
+        </div>
+        <div class="mb-4">
+          <label for="age" class="block text-sm font-medium text-gray-700">나이</label>
+          <input
+            type="Number"
+            id="age"
+            name="age"
+            v-model="age"
+            required
+            class="mt-1 p-2 border border-gray-300 rounded w-full"
+            placeholder="나이를 입력하세요"
           />
         </div>
         <div class="mb-4">
@@ -32,6 +46,7 @@
             type="password"
             id="password"
             name="password"
+            v-model="password"
             required
             class="mt-1 p-2 border border-gray-300 rounded w-full"
             placeholder="비밀번호를 입력하세요"
@@ -64,16 +79,31 @@
 
 <script setup>
 import { doJoin } from '@/api/loginApi';
+import { ref } from 'vue';
+import { useRouter } from 'vue-router';
 
-const doSubmit = async (event) => {
-  console.log('Connect ?' + event);
-  const res = await doJoin({
-    "name": '홍길동',
-    "age": '25',
-    "email": 'aaa@naver.com',
-    "password": '1234'
-  });
-  console.log(res);
+const router = useRouter();
+
+const username = ref('');
+const age = ref('');
+const email = ref('');
+const password = ref('');
+
+const doSubmit = async () => {
+  const data = {
+    name: username.value,
+    age: Number(age).value,
+    email: email.value,
+    password: password.value
+  };
+  const res = await doJoin(data);
+  
+  if (res.status === 200) {
+    alert('회원가입 성공');
+    router.push({ name: 'login' });
+  } else {
+    alert('회원가입 실패' + res.response.data.message);
+  }
 };
 </script>
 

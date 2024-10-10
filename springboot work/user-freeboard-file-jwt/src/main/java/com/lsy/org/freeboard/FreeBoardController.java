@@ -15,8 +15,10 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -56,7 +58,6 @@ public class FreeBoardController {
                                            @RequestPart(name = "file", required = false) MultipartFile file) {
 
         FreeBoard freeBoard = new ModelMapper().map(freeBoardReqDto, FreeBoard.class);
-//        freeBoardRepository.save(freeBoard);
 
         if (freeBoardReqDto.getIdx() == null) {
             freeBoardRepository.save(freeBoard);
@@ -66,10 +67,7 @@ public class FreeBoardController {
             freeBoardRepository.save(dbFreeBoard);
         }
 
-//        System.out.println("userRepository = " + userRepository);
-
         User user = userRepository.findById(1l).orElse(new User());
-//        User user = userRepository.findById(1l).orElse(null);
         freeBoard.setUser(user);
 
 
@@ -92,9 +90,7 @@ public class FreeBoardController {
             freeBoard.setList(Arrays.asList());
             freeBoardRepository.save(freeBoard);
         } else {
-//            System.out.println("일로오나");
             freeBoard.setList(null);
-//            freeBoardRepository.save(freeBoard);
 
             List<FileEntity> list = fileRepository.findByFreeBoardIdx(freeBoard.getIdx());
             list.forEach(fileEntity -> {
@@ -112,6 +108,16 @@ public class FreeBoardController {
     public ResponseEntity<FreeBoardResponsePageDto> findALl(
             @RequestParam(name = "pageNum", defaultValue = "0") int pageNum
             , @RequestParam(name = "size", defaultValue = "5") int size) {
+
+        String email = SecurityContextHolder.getContext().getAuthentication().getName();
+        System.out.println("email = "+ email);
+
+        if ((email == null && email.equals("")) || email.equals("anonymousUser")) {
+            System.out.println("로그인을 해주시기 바랍니다.");
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+        } else {
+            System.out.println("로그인이 되어 있습니다.");
+        }
 
         Sort sort = Sort.by(Sort.Direction.DESC, "idx");
         Pageable pageable = PageRequest.of(pageNum, size, sort);
