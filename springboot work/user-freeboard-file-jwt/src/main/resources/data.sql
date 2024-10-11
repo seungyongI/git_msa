@@ -30,4 +30,12 @@ INSERT INTO free_board (idx, title, content, user_idx, cre_author, mod_author, r
 VALUES (5, 'Fifth Title', 'This is the fifth content.', 5, 'Author5', 'Modifier5', '2024-09-24 10:00:00', '2024-09-24 10:00:00', 50);
 
 INSERT INTO free_board_file (free_board_idx, idx, file_desc, name)
-VALUES (5, 1, '이미지파일입니다.', 'image.png');
+VALUES (5, 1, '이미지파일입니다.', 'cat.png');
+INSERT INTO free_board_file (free_board_idx, idx, file_desc, name)
+VALUES (4, 2, '이미지파일입니다.', 'img.png');
+INSERT INTO free_board_file (free_board_idx, idx, file_desc, name)
+VALUES (3, 3, '이미지파일입니다.', 'cat.png');
+INSERT INTO free_board_file (free_board_idx, idx, file_desc, name)
+VALUES (2, 4, '이미지파일입니다.', 'img.png');
+INSERT INTO free_board_file (free_board_idx, idx, file_desc, name)
+VALUES (1, 5, '이미지파일입니다.', 'cat.png');

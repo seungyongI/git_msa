@@ -49,6 +49,7 @@ public class LoginFilter extends UsernamePasswordAuthenticationFilter {
         UsernamePasswordAuthenticationToken token =
                 new UsernamePasswordAuthenticationToken(email, password);
 
+        //UserDetailsService loadByUsername method 호출
         return authenticationManager.authenticate(token);
     }
 

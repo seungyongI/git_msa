@@ -8,6 +8,8 @@ import TheFreeBoardUpdate from '@/views/freeboard/TheFreeBoardUpdate.vue';
 import TheUserList from '@/views/users/TheUserList.vue';
 import TheJoin from '../views/login/TheJoin.vue';
 import TheLogin from '../views/login/TheLogin.vue';
+import TheFileUploads from '@/views/TheFileUploads.vue';
+import TheFileDownload from '@/views/TheFileDownload.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -56,6 +58,16 @@ const router = createRouter({
       path: '/fileupload',
       name: 'fileupload',
       component: TheFileUpload
+    },
+    {
+      path: '/fileuploads',
+      name: 'fileuploads',
+      component: TheFileUploads
+    },
+    {
+      path: '/filedownload',
+      name: 'filedownload',
+      component: TheFileDownload
     }
   ]
 });

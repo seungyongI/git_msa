@@ -42,13 +42,17 @@ public class LoginService implements UserDetailsService {
 
         // password 1234 이면 ADMIN 로그인
         // username 아무거나 상관 X
-        return org.springframework.security.core.userdetails
-                .User
-                .builder()
-                .username(user.getEmail())
-                .password(user.getPassword())
-//                .password(passwordEncoder.encode("1234"))
-                .roles("ADMIN")
-                .build();
+//        return org.springframework.security.core.userdetails
+//                .User
+//                .builder()
+//                .username(user.getEmail())
+//                .password(user.getPassword())
+////                .password(passwordEncoder.encode("1234"))
+//                .roles("ADMIN")
+//                .build();
+
+        return new LoginUserDetails(user.getEmail(),
+                                    user.getPassword(),
+                                    user.getRole());
     }
 }

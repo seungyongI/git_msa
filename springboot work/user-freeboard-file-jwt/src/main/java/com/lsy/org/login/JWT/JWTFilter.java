@@ -11,10 +11,12 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
 
+@Component
 public class JWTFilter extends OncePerRequestFilter {
 
     private final JWTManager jwtManager;
@@ -29,36 +31,36 @@ public class JWTFilter extends OncePerRequestFilter {
 
         String auth = request.getHeader(HttpHeaders.AUTHORIZATION);
 
-        // 입력 토큰인 JWT 가 null 이거나 Bearer 로 시작하는 토큰이 아니면 지나가라
-        if (auth == null || !auth.startsWith("Bearer ")) {
-            filterChain.doFilter(request, response);
-            return;
-        }
-        
         // 회원가입이나 로그인이 되지 않았으면 로그인 요청해라
 //        if (request.getRequestURI().contains("freeboard")
 //                || request.getRequestURI().contains("login")) {
 //            return;
 //        }
 
-        try {
-            String token = auth.split(" ")[1];
-
-            Jws<Claims> claims = jwtManager.getClaims(token);
-
-            String email = claims.getPayload().get("email").toString();
-            String role = claims.getPayload().get("role").toString();
-
-            LoginUserDetails loginUserDetails = new LoginUserDetails(email, null, role);
-
-            Authentication authentication = new UsernamePasswordAuthenticationToken(
-                    loginUserDetails, null, loginUserDetails.getAuthorities()
-            );
-            // login setting
-            SecurityContextHolder.getContext().setAuthentication(authentication);
-        } catch (Exception e) {
-            e.printStackTrace();
+        // jwt 가 넘어오지 않으면 로그인 처리 안 함
+        if (auth == null || !auth.startsWith("Bearer ")) {
+            filterChain.doFilter(request, response);
+            return;
         }
-        filterChain.doFilter(request, response);
+        // jwt 넘어오면 로그인 처리
+        else {
+            try {
+                String token = auth.split(" ")[1];
+                // token 유효성 검사 후 해당 email, role 가져옴
+                Jws<Claims> claims = jwtManager.getClaims(token);
+                String email = claims.getPayload().get("email").toString();
+                String role = claims.getPayload().get("role").toString();
+                LoginUserDetails loginUserDetails = new LoginUserDetails(email, null, role);
+                Authentication authentication = new UsernamePasswordAuthenticationToken(
+                        loginUserDetails, null, loginUserDetails.getAuthorities()
+                );
+                // login setting
+                SecurityContextHolder.getContext().setAuthentication(authentication);
+            } catch (Exception e) {
+//                throw new AuthException(e.getMessage());
+//                System.out.println(e.getMessage());
+            }
+            filterChain.doFilter(request, response);
+        }
     }
 }

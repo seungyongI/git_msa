@@ -19,6 +19,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -109,8 +110,19 @@ public class FreeBoardController {
             @RequestParam(name = "pageNum", defaultValue = "0") int pageNum
             , @RequestParam(name = "size", defaultValue = "5") int size) {
 
+        System.out.println(SecurityContextHolder.getContext());
+        System.out.println(SecurityContextHolder.getContext().getAuthentication());
+        System.out.println(SecurityContextHolder.getContext().getAuthentication().getPrincipal());
+        UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        System.out.println(userDetails);
+
         String email = SecurityContextHolder.getContext().getAuthentication().getName();
-        System.out.println("email = "+ email);
+
+        String role = SecurityContextHolder.getContext().getAuthentication().getAuthorities()
+                .stream()
+                .map(grantedAuthority -> grantedAuthority.toString()).toString();
+
+        System.out.println(email + " " + role);
 
         if ((email == null && email.equals("")) || email.equals("anonymousUser")) {
             System.out.println("로그인을 해주시기 바랍니다.");
