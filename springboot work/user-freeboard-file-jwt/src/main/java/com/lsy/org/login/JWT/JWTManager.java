@@ -1,5 +1,6 @@
 package com.lsy.org.login.JWT;
 
+import com.lsy.org.error.JwtAuthException;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;
@@ -37,27 +38,6 @@ public class JWTManager {
         return jwt;
     }
 
-    // JWT, 비밀번호 유효성 검사
-    public String vaildJWT(String jwt) {
-        String secretkey = environment.getProperty("spring.jwt.secret");
-        try {
-            SecretKey secretKey
-                    = new SecretKeySpec(secretkey.getBytes(),
-                    Jwts.SIG.HS256.key().build().getAlgorithm());
-
-            Jws<Claims> claims = Jwts.parser()
-                    .verifyWith(secretKey)
-                    .build()
-                    .parseSignedClaims(jwt);
-            // Token 유효 시간이 지나면 사용할 수 없게
-            claims.getPayload().getExpiration().before(new Date());
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            return "fail";
-        }
-        return "success";
-    }
-
     public Jws<Claims> getClaims(String jwt) {
         String secretkey = environment.getProperty("spring.jwt.secret");
         try {
@@ -76,8 +56,7 @@ public class JWTManager {
             claims.getPayload().get("email").toString();
             return claims;
         } catch (Exception e) {
-            e.printStackTrace();
-            return null;
+            throw new JwtAuthException("JWT "+e.getMessage());
         }
     }
 }

@@ -41,7 +41,8 @@
 </template>
 
 <script setup>
-import { doLogin } from '@/api/loginApi';
+import { doLogin, doLoginCheck } from '@/api/loginApi';
+import { useLoginStore } from '@/store/loginPinia';
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 
@@ -49,17 +50,20 @@ const router = useRouter();
 const email = ref('');
 const password = ref('');
 
+const loginPinia = useLoginStore();
+
 const subMitLogin = async () => {
-  try {
-    const data = { email: email.value, password: password.value };
-    const res = await doLogin(data);
-    localStorage.setItem('token', res.data);
-    console.log(res);
-    alert('로그인 성공!');
-    router.push('/freeboardlist');
-    
-  } catch (e) {
-    alert('로그인 실패!');
+  const data = { email: email.value, password: password.value };
+  const res = await doLogin(data);
+  localStorage.setItem('token', res.data);
+  if (res.status == 200) {
+    const result = await doLoginCheck(data);
+    loginPinia.login(result.data);
+    alert(loginPinia.name+'님 환영합니다!');
+    router.push({ name: 'freeboardlist' });
+  } else {
+    alert('email과 password가 일치하지 않습니다.');
+    loginPinia.logout();
   }
 };
 </script>

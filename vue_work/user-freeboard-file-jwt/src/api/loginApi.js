@@ -18,6 +18,7 @@ export const doJoin = async (data) => {
 export const doLogin = async (data) => {
   try {
     const res = await axios.get(`${login}?email=${data.email}&password=${data.password}`);
+
     return res;
   } catch (e) {
     console.log(e);
@@ -27,7 +28,7 @@ export const doLogin = async (data) => {
 
 export const doLoginCheck = async () => {
   const token = localStorage.getItem('token');
-  if(!token) return false;
+  if (!token) return false;
   try {
     const res = await axios.get(`${check}?jwt=${token}`);
     return res;

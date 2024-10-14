@@ -39,8 +39,11 @@
             </div>
           </div>
         </div>
-        <template v-if="loginCheck">
-          <button class="hover:bg-slate-700" @click="logout">로그아웃</button>
+        <template v-if="loginPinia.loginCheck">
+          <div class="flex space-x-5">
+            <h1 class="hover:cursor-pointer">{{ loginPinia.name }} 님</h1>
+            <button class="hover:bg-slate-700" @click="logout">로그아웃</button>
+          </div>
         </template>
         <template v-else>
           <div class="flex space-x-5">
@@ -65,12 +68,10 @@ import { RouterLink } from 'vue-router';
 
 const loginPinia = useLoginStore();
 
-console.log(loginPinia.loginCheck);
-
-const logout = () => {
-    localStorage.removeItem('token');
-    loginPinia.logout();
-    window.location.href = '/login';
+const logout = async () => {
+  await loginPinia.logout();
+  localStorage.removeItem('token');
+  window.location.href = '/login';
 };
 
 watchEffect(async () => {
@@ -78,15 +79,14 @@ watchEffect(async () => {
   if (result == false) {
     loginPinia.logout();
   } else {
-    if (result.status != 200) {
-      loginPinia.logout();
-      localStorage.removeItem('token');
-    } else {
+    if (result.status == 200) {
       loginPinia.login(result.data);
+    } else if (result.status == 401) {
+      localStorage.removeItem('token');
+      loginPinia.logout();
     }
   }
 });
-
 </script>
 
 <style lang="scss" scoped></style>

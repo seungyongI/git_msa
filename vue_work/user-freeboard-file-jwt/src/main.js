@@ -1,11 +1,19 @@
-import './assets/main.css'
+import './assets/main.css';
+import 'sweetalert2/dist/sweetalert2.min.css';
 
-import { createApp } from 'vue'
-import App from './App.vue'
-import router from './router'
+import { createApp } from 'vue';
+import { createPinia } from 'pinia';
 
-const app = createApp(App)
+import App from './App.vue';
+import router from './router';
 
-app.use(router)
+import VueSweetalert2 from 'vue-sweetalert2';
 
-app.mount('#app')
+const app = createApp(App);
+const pinia = createPinia();
+
+app.use(VueSweetalert2);
+app.use(router);
+app.use(pinia);
+
+app.mount('#app');

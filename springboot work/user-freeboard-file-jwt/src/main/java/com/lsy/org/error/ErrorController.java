@@ -14,8 +14,15 @@ import java.util.Arrays;
 @ControllerAdvice
 public class ErrorController {
 
+    @ExceptionHandler(JwtAuthException.class)
+    public ResponseEntity<String> jwtAuthException(JwtAuthException e) {
+        return ResponseEntity
+                .status(HttpStatus.UNAUTHORIZED)
+                .body(e.getMessage());
+    }
+
     @ExceptionHandler(SQLIntegrityConstraintViolationException.class)
-    public ResponseEntity<ErrorResponse> sqlIntegrityConstraintViolationException(SQLIntegrityConstraintViolationException e){
+    public ResponseEntity<ErrorResponse> sqlIntegrityConstraintViolationException(SQLIntegrityConstraintViolationException e) {
         ErrorResponse errorResponse = ErrorResponse.builder()
                 .message(e.getMessage())
                 .httpStatus(HttpStatus.INTERNAL_SERVER_ERROR)
@@ -27,7 +34,7 @@ public class ErrorController {
     }
 
     @ExceptionHandler(BizException.class)
-    public ResponseEntity<ErrorResponse> mException(BizException e){
+    public ResponseEntity<ErrorResponse> mException(BizException e) {
         ErrorResponse errorResponse = ErrorResponse.builder()
                 .message(e.getErrorCode().getMessage())
                 .httpStatus(e.getErrorCode().getHttpStatus())
@@ -39,14 +46,14 @@ public class ErrorController {
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity<ErrorResponse> validityException(MethodArgumentNotValidException e){
+    public ResponseEntity<ErrorResponse> validityException(MethodArgumentNotValidException e) {
 
         String msg = (String) Arrays.stream(e.getDetailMessageArguments())
-                .reduce("",(s, s2) -> s.toString()+s2.toString());
+                .reduce("", (s, s2) -> s.toString() + s2.toString());
 
         ErrorResponse errorResponse = ErrorResponse.builder()
                 .httpStatus(HttpStatus.BAD_REQUEST)
-                .message( msg )
+                .message(msg)
                 .localDateTime(LocalDateTime.now())
                 .build();
 
@@ -56,17 +63,17 @@ public class ErrorController {
     }
 
     @ExceptionHandler(ConstraintViolationException.class)
-    public ResponseEntity<ErrorResponse> constraintException(ConstraintViolationException e){
+    public ResponseEntity<ErrorResponse> constraintException(ConstraintViolationException e) {
 
         // Stream
         String msg = e.getConstraintViolations()
                 .stream()
                 .map(constraintViolation -> constraintViolation.getMessage())
-                .reduce("",(s, s2) -> s+s2);
+                .reduce("", (s, s2) -> s + s2);
 
         ErrorResponse errorResponse = ErrorResponse.builder()
                 .httpStatus(HttpStatus.BAD_REQUEST)
-                .message( msg )
+                .message(msg)
                 .localDateTime(LocalDateTime.now())
                 .build();
 
