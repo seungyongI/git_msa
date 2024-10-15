@@ -1,6 +1,6 @@
 <template>
   <header>
-    <div class="p-5 bg-slate-500 text-white text-3xl">
+    <div class="p-5 bg-violet-300 text-white text-3xl">
       <nav class="flex justify-between">
         <div class="flex space-x-5">
           <div>

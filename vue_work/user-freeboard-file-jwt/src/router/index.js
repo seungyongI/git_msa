@@ -12,7 +12,7 @@ import TheFileUploads from '@/views/TheFileUploads.vue';
 import TheFileDownload from '@/views/TheFileDownload.vue';
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHistory('/'),
   routes: [
     {
       path: '/',

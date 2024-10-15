@@ -1,0 +1,27 @@
+# dist 파일 생성
+npm run build
+
+# my_nginx 컨테이너 생성
+docker run -d --name my_nginx -p 80:80 nginx
+
+# host pc에서 dist 경로 이동
+cd dist
+
+# host pc에 있는 index.html 파일을 my_nginx 파일로 복사
+docker cp . my_nginx:/usr/share/nginx/html
+
+# 새로고침 할 때 404 page 뜨는 거 해결
+docker cp default.conf my-nginx:/etc/nginx/conf.d/default.conf
+
+# window host PC 에서 가상 PC 리눅스인 my-nginx container로 이동하는 명령어
+
+docker exec -it my_nginx bash
+
+# container를 이미지 파일로 변경하기
+docker commit my-nginx seungyongi/my_nginx
+
+# dockerhub에 업로드 하기
+docker push seungyongi/my_nginx
+
+# error page 저장
+error_page 404 /index.html

@@ -6,10 +6,13 @@ spring:
   sql:
     init:
       mode: always
+  output:
+    ansi:
+      enabled: always
 
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
-    url: jdbc:mariadb://localhost:3306/lsy
+    url: jdbc:mariadb://localhost:3306/lsy?serverTimezone=Asia/Seoul
     username: root
     password: 1234
 
