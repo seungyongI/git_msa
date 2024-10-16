@@ -1,0 +1,11 @@
+# ci/cd -> 명령어 모아놓고 한 번에 실행
+./cmd_
+# 컨테이너 삭제
+docker rm freeboardvue
+# 이미지 삭제
+docker rmi seungyongi/freeboardvue
+
+# 이미지 생성
+docker build -t seungyongi/freeboardvue .
+# 컨테이너 생성
+docker run -d -p 5173:5173 --name freeboardvue seungyongi/freeboardvue
