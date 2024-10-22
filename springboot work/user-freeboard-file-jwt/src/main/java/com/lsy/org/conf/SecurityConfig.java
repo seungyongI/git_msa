@@ -39,7 +39,7 @@ public class SecurityConfig {
         http.formLogin(form -> form.disable());
         http.httpBasic(basic -> basic.disable());
 
-        http.authorizeRequests(auth -> auth.requestMatchers("**").permitAll());
+        http.authorizeRequests(auth -> auth.requestMatchers("/**").permitAll());
         // 일반 사용자도 접근 가능하다
 //                .requestMatchers("/", "/login", "/join", "/freeboard/**", "/user/**", "/file/**").permitAll()
         // swagger 문서와 h2-console 접속 가능하게..
@@ -59,6 +59,7 @@ public class SecurityConfig {
 //                ),
 //                UsernamePasswordAuthenticationFilter.class);
 
+        http.sessionManagement( session -> session.sessionCreationPolicy( SessionCreationPolicy.STATELESS ));
         return http.build();
     }
 }
