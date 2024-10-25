@@ -1,11 +1,14 @@
 package com.lsy.org.conf;
 
+import com.lsy.org.filter.JWTUtils;
+import com.lsy.org.filter.SecurityFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @Configuration
 @EnableWebSecurity
@@ -22,9 +25,11 @@ public class SecurityConfig {
         httpSecurity.httpBasic(http -> http.disable());
 
         // 스프링 스큐리티... -> PasswordEncoder...
-        httpSecurity.authorizeHttpRequests( auth ->
-                auth.requestMatchers("/**").permitAll()
-        );
+        httpSecurity.authorizeHttpRequests( auth -> auth.requestMatchers("/**").permitAll());
+
+        httpSecurity.addFilterAt(
+                new SecurityFilter(new JWTUtils()),
+                UsernamePasswordAuthenticationFilter.class);
 
         // 세션 유지 기능 사용 안함..
         httpSecurity.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));

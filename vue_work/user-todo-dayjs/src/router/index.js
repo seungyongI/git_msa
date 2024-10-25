@@ -2,7 +2,9 @@ import { createRouter, createWebHistory } from 'vue-router';
 import HomeView from '@/views/HomeView.vue';
 import MonthView from '@/views/MonthView.vue';
 import LoginView from '@/views/login/LoginView.vue';
-import OauthView from '@/views/login/OauthView.vue';
+import LoginProcessView from '@/views/login/LoginProcessView.vue';
+import MessageView from '@/views/MessageView.vue';
+import MyPageView from '@/views/MyPageView.vue';
 
 const loginRouter = [
 	{
@@ -13,14 +15,15 @@ const loginRouter = [
 	{
 		path: '/oauth',
 		name: 'oauth',
-		component: OauthView,
+		component: LoginProcessView,
 	},
 ];
-
+const freeBoardRouter = [];
 const router = createRouter({
 	history: createWebHistory(import.meta.env.BASE_URL),
 	routes: [
 		...loginRouter,
+		...freeBoardRouter,
 		{
 			path: '/',
 			name: 'home',
@@ -30,6 +33,16 @@ const router = createRouter({
 			path: '/month',
 			name: 'month',
 			component: MonthView,
+		},
+		{
+			path: '/message',
+			name: 'message',
+			component: MessageView,
+		},
+		{
+			path: '/mypage',
+			name: 'mypage',
+			component: MyPageView,
 		},
 		{
 			path: '/about',

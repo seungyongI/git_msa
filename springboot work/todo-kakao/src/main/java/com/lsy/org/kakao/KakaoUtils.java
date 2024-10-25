@@ -1,41 +1,7 @@
-package com.lsy.org.kakao.controller;
+package com.lsy.org.kakao;
 
-import com.lsy.org.kakao.dto.KakaoMessageDto;
-import com.lsy.org.service.KakaoService;
-import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
-
-import org.springframework.web.bind.annotation.*;
-
-@RestController
-@RequestMapping("kakao")
-@Slf4j
-@CrossOrigin
-@RequiredArgsConstructor
-public class KakaoController {
-
-    private final KakaoService kakaoService;
-
-    @GetMapping("login")
-    public String kakaoCode(@RequestParam(value = "code") String code) {
-        log.info("code {}", code);
-
-        // 1. restTemplate
-        kakaoService.getToken(code);
-//        kakaoService.messageSend();
-        // 2. openfeign
-
-        return "kakao join success";
-    }
-    @PostMapping("messagesend")
-    public String messageSend(@RequestBody KakaoMessageDto kakaoMessageDto) {
-        kakaoService.messageSend(
-                kakaoMessageDto.getEmail(),
-                kakaoMessageDto.getMessage());
-        return "message send success";
-    }
-
-    public String templateString() {
+public class KakaoUtils {
+    public static String templateString() {
         return "{\n" +
                 "        \"object_type\": \"feed\",\n" +
                 "        \"content\": {\n" +
@@ -105,6 +71,18 @@ public class KakaoController {
                 "                }\n" +
                 "            }\n" +
                 "        ]\n" +
+                "    }";
+    }
+
+    public static String messageString() {
+        return "{\n" +
+                "        \"object_type\": \"text\",\n" +
+                "        \"text\": \"%s %s\",\n" +
+                "        \"link\": {\n" +
+                "            \"web_url\": \"http://first.hellomh.site/first/test\",\n" +
+                "            \"mobile_web_url\": \"http://first.hellomh.site/first/test\"\n" +
+                "        },\n" +
+                "        \"button_title\": \"바로 확인\"\n" +
                 "    }";
     }
 }

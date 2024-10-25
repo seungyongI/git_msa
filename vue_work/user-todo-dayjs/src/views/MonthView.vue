@@ -1,11 +1,13 @@
 <script setup>
 import { ref, watch } from 'vue';
 import dayjs from 'dayjs';
-import utc from 'dayjs/plugin/utc';
-import timezone from 'dayjs/plugin/timezone';
+import { saveTodo } from '@/api/monthApi';
 
-dayjs.extend(utc);
-dayjs.extend(timezone);
+// import utc from 'dayjs/plugin/utc';
+// import timezone from 'dayjs/plugin/timezone';
+
+// dayjs.extend(utc);
+// dayjs.extend(timezone);
 
 const now = ref(dayjs());
 const columns = ref([]);
@@ -19,6 +21,7 @@ const content = ref('');
 const doSave = () => {
 	// 백엔드에 넘겨줘야함...
 	console.log('save', title.value, content.value, selectDate.value);
+	saveTodo(title.value, content.value, selectDate.value);
 };
 
 const subMonth = () => {
