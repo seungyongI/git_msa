@@ -1,0 +1,19 @@
+server:
+  port: 8888
+spring:
+  application:
+    name: config-service
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/seungyongi/spring-cloud-config
+          default-label: main
+#          username: <github-id>
+#          password: <github-password>
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
