@@ -1,3 +1,78 @@
 server:
-  port: 10000
+  port: 20000
 
+spring:
+  application:
+    name: user-service
+  datasource:
+    username: root
+    password: 1234
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://localhost:3306/msa?serverTimezone=Asia/Seoul
+  output:
+    ansi:
+      enabled: always
+
+  # zipkin:
+  #   base-url: http://localhost:9411
+  #   enabled: true
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate.format_sql: true
+    show-sql: true
+    open-in-view: false
+
+# sql:
+#   init:
+#     platform: mysql
+
+#mh:
+#  value: "{cipher}AQBVHrD0Sf21J5LYWyDRUKPll0WQN0+vrUz+O+wAoiFeoIFqD7uqdFf4nDlpm7cQaAikKMHrTh4Kfih63whp+iTKhgt7Mu6T7uUtIMs6HqbRaAP8N1voOZHeWZe+f8K9jgyY41iq50BRGwnI/SMRDpWM+MZQF589D9c1H8vc20D7qwsAjqWoixyGoZwdy1a1Sg9zXWrhmZ/fHGyNy4ne15Sgp1Whh5XlGTjd5Ccgs9KPW1chp5y+e61DHm+3Qqff6Koa2FgIzjLV7Qt8DRCA8BoDIw/QlD/QLUIX3KrkHVIvE7UneM3HYdYgRXIk4VilNBNbDQyuA7rK7Yi0Q1BlFRIbxLV7Wvoqzs+FwRzShPQAtpftZYlmVTqvgMZT96Y++AM="
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+  #      defaultZone: http://localhost:8762/eureka, http://kubernetes.docker.internal:8763/eureka
+
+  instance:
+    instance-id: ${spring.cloud.client.ip-address}:${spring.application.instance_id:${random.value}}
+    prefer-ip-address: true
+
+logging:
+  level:
+    com.green.userservice.feignclient: DEBUG
+  pattern:
+    level: '%5p [${spring.application.name:},%X{traceId:-},%X{spanId:-}]'
+
+# management:
+#   tracing:
+#     sampling:
+#       probability: 1.0
+#     propagation:
+#       consume: B3
+#       produce: B3
+#   zipkin:
+#     tracing:
+#       endpoint: http://localhost:9411/api/v2/spans
+
+# refresh 가 되는 설정
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: "*"
+
+# jwt 비밀번호
+token:
+  access_token_expiration_time: 86400 # 하루
+  refresh_token_expiration_time: 2592000 # 한 달
+  secret: abcdefghijklmnopqrstuvwxyz01234567890
+
+gateway:
+  ip: 127.0.0.1
