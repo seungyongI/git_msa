@@ -1,6 +1,5 @@
 package com.green.userservice.user.vo;
 
-import jakarta.persistence.Column;
 import lombok.Data;
 
 @Data

@@ -9,10 +9,8 @@ import com.green.userservice.user.vo.UserRequest;
 import com.green.userservice.user.vo.UserResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.catalina.User;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.UUID;
 
