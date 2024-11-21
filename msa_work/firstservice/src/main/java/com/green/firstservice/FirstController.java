@@ -15,6 +15,6 @@ public class FirstController {
     @GetMapping("test")
     public String test() {
         System.out.println(" Server Running here " + environment.getProperty("local.server.port"));
-        return "This is FirstService";
+        return "This is First Service";
     }
 }

@@ -1,0 +1,8 @@
+#이미지 삭제
+docker rmi seungyongi/second-service:msa.k8.01
+
+#이미지 생성
+docker build -t seungyongi/second-service:msa.k8.02 .
+
+#이미지 업로드
+docker push seungyongi/second-service:msa.k8.02
