@@ -12,6 +12,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @Slf4j
@@ -51,10 +53,21 @@ public class UserServiceImpl implements UserService {
 
         LoginResponse loginResponse = new LoginResponse();
         loginResponse.setUserId(userEntity.getUserId());
-        loginResponse.setAccessToken(jwtUtils.createAccessToken(userEntity.getEmail(),userEntity.getUserId()));
+        loginResponse.setAccessToken(jwtUtils.createAccessToken(userEntity.getEmail(), userEntity.getUserId()));
         loginResponse.setRefreshToken(jwtUtils.createRefreshToken(userEntity.getEmail()));
 
         return loginResponse;
     }
 
+    @Override
+    public List<UserResponse> list() {
+        List<UserEntity> list = userRepository.findAll();
+        List<UserResponse> userResponses = new ArrayList<>();
+        list.forEach(userEntity -> {
+                    userResponses.add(new ModelMapper().map(userEntity, UserResponse.class));
+                }
+        );
+
+        return userResponses;
+    }
 }

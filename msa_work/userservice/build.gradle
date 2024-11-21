@@ -30,9 +30,10 @@ ext {
 dependencies {
     //refresh 환경설정 새로고침
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'io.micrometer:micrometer-registry-prometheus'
 
     //eureka server 등록
-    implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
+//    implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
 
     // bootstrap.yml 생성해서 config 서버 위치 지정
 //	implementation 'org.springframework.cloud:spring-cloud-starter-bootstrap'

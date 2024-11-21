@@ -4,8 +4,10 @@ import com.green.userservice.user.vo.LoginResponse;
 import com.green.userservice.user.vo.UserRequest;
 import com.green.userservice.user.vo.UserResponse;
 
+import java.util.List;
+
 public interface UserService {
     UserResponse join(UserRequest userRequest);
     LoginResponse login(String email, String password);
-
+    List<UserResponse> list();
 }

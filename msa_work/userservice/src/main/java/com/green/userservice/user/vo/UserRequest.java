@@ -19,6 +19,7 @@ public class UserRequest {
 
     @Schema(hidden = true)
     private String userId;
+
     @Schema(example = "홍길동")
     private String name;
 
