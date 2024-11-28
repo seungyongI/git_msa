@@ -1,0 +1,6 @@
+#이미지 삭제
+docker rmi seungyongi/catalog-service:msa.k8.01
+#이미지 생성
+docker build -t seungyongi/catalog-service:msa.k8.01 .
+#이미지 업로드
+docker push seungyongi/catalog-service:msa.k8.01

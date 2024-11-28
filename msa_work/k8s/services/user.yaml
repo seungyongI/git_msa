@@ -14,7 +14,7 @@ spec: # 어떻게 만들지에 대한 내용
     spec: # pod 하나하나에 대한 내용
       containers:
         - name: user-service
-          image: seungyongi/user-service:msa.k8.01 # dockerhub에 있는 image
+          image: seungyongi/user-service:msa.k8.06 # dockerhub에 있는 image
           ports:
             - containerPort: 40003
           env:
@@ -22,7 +22,7 @@ spec: # 어떻게 만들지에 대한 내용
               valueFrom:
                 configMapKeyRef:
                   name: msa-k8s-configmap
-                  key: spring-datasource-url
+                  key: spring-datasource-url-user
             - name: SPRING_DATASOURCE_USERNAME
               valueFrom:
                 configMapKeyRef:
@@ -33,6 +33,10 @@ spec: # 어떻게 만들지에 대한 내용
                 configMapKeyRef:
                   name: msa-k8s-configmap
                   key: user-service-port
+            - name: ORDER_SERVICE_URL
+              value: order-service:40004
+            - name: CATALOG_SERVICE_URL
+              value: catalog-service:40005
 
 --- # 환경을 두 개 지정할 때 쓰는 구분자
 

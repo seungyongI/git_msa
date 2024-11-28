@@ -1,6 +1,7 @@
 #이미지 삭제
-docker rmi seungyongi/user-service:msa.k8.01
+kubectl delete deploy user-service-deployment
+docker rmi seungyongi/user-service:msa.k8.05
 #이미지 생성
-docker build -t seungyongi/user-service:msa.k8.01 .
+docker build -t seungyongi/user-service:msa.k8.06 .
 #이미지 업로드
-docker push seungyongi/user-service:msa.k8.01
+docker push seungyongi/user-service:msa.k8.06

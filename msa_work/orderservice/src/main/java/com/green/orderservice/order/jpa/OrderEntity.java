@@ -1,29 +1,55 @@
 package com.green.orderservice.order.jpa;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.hibernate.annotations.CreationTimestamp;
+
+import java.io.Serializable;
+import java.util.Date;
 
 @Entity
 @Data
-@Table(name = "users")
-public class OrderEntity {
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name="orders")
+public class OrderEntity implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, length = 50, unique = true)
-    private String email;
+    // ProductService p-001, p-002, p-003
+    @Column(nullable = false, length = 120)
+    private String productId;
 
-    //UUID
-    @Column(nullable = false, unique = true)
+    // 주문 수량
+    @Column(nullable = false)
+    private Integer qty;
+
+    // 주문 가격
+    @Column(nullable = false)
+    private Integer unitPrice;
+
+    // 주문 수량 + 주문 가격
+    @Column(nullable = false)
+    private Integer totalPrice;
+
+    // 사용자 정보
+    @Column(nullable = false)
     private String userId;
 
-    @Column(nullable = false, length = 50)
-    private String name;
+    // UUID 생성 예정
+    @Column(nullable = false, unique = true)
+    private String orderId;
+    
+    // 생성 시간
+    @Column(nullable = false, updatable = false)
+    @Temporal(TemporalType.TIMESTAMP)
+    @CreationTimestamp
+    private Date createdAt;
 
-    @Column(nullable = false, length = 100)
-    private String password;
-
-    private String thumb;
 }

@@ -1,10 +1,12 @@
 package com.green.userservice.user.service;
 
 import com.green.userservice.error.UserException;
+import com.green.userservice.feign.OrderClient;
 import com.green.userservice.jwt.JwtUtils;
 import com.green.userservice.user.jpa.UserEntity;
 import com.green.userservice.user.jpa.UserRepository;
 import com.green.userservice.user.vo.LoginResponse;
+import com.green.userservice.user.vo.OrderResponse;
 import com.green.userservice.user.vo.UserRequest;
 import com.green.userservice.user.vo.UserResponse;
 import lombok.RequiredArgsConstructor;
@@ -14,6 +16,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @Slf4j
@@ -22,6 +25,7 @@ import java.util.UUID;
 public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
     private final JwtUtils jwtUtils;
+    private final OrderClient orderClient;
 
     @Override
     public UserResponse join(UserRequest userRequest) {
@@ -67,7 +71,17 @@ public class UserServiceImpl implements UserService {
                     userResponses.add(new ModelMapper().map(userEntity, UserResponse.class));
                 }
         );
-
         return userResponses;
+    }
+
+    @Override
+    public UserResponse getUser(String userId) {
+        UserEntity userEntity = userRepository.findByUserId(userId).orElseThrow(
+                () -> new UserException(String.format("User with id %s not found", userId))
+        );
+        UserResponse userResponse = new ModelMapper().map(userEntity, UserResponse.class);
+        List<OrderResponse> orderResponses = orderClient.getOrders(userId);
+        userResponse.setOrderResponses(orderResponses);
+        return userResponse;
     }
 }

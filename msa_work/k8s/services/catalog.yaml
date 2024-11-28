@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment # pod 여러개
+metadata:
+  name: catalog-service-deployment
+spec: # 어떻게 만들지에 대한 내용
+  replicas: 1 # pod 몇 개 만들래
+  selector:
+    matchLabels:
+      app: catalog-service # 쿠버네티스 안에서 변수명
+  template:
+    metadata:
+      labels:
+        app: catalog-service # 서비스에서 찾는 변수명
+    spec: # pod 하나하나에 대한 내용
+      containers:
+        - name: catalog-service
+          image: seungyongi/catalog-service:msa.k8.01 # dockerhub에 있는 image
+          ports:
+            - containerPort: 40005
+          env:
+            - name: SPRING_DATASOURCE_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: msa-k8s-configmap
+                  key: spring-datasource-url-catalog
+            - name: SPRING_DATASOURCE_USERNAME
+              valueFrom:
+                configMapKeyRef:
+                  name: msa-k8s-configmap
+                  key: spring-datasource-username
+            - name: SERVER_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: msa-k8s-configmap
+                  key: catalog-service-port
+            - name: USER_SERVICE_URL
+              value: user-service:40003
+            - name: ORDER_SERVICE_URL
+              value: order-service:40004
+
+--- # 환경을 두 개 지정할 때 쓰는 구분자
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: catalog-service
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 40005
+      targetPort: 40005
+  selector:
+    app: catalog-service
