@@ -1,8 +1,12 @@
 package com.green.catalogservice.catalog;
 
 import com.green.catalogservice.catalog.service.CatalogService;
+import com.green.catalogservice.catalog.vo.CatalogResponse;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/catalog-service")
@@ -10,4 +14,9 @@ import org.springframework.web.bind.annotation.*;
 public class CatalogController {
     private final CatalogService userService;
 
+    @GetMapping("catalogs")
+    public ResponseEntity<List<CatalogResponse>> getCatalogs() {
+
+        return ResponseEntity.ok(userService.getCatalogs());
+    }
 }

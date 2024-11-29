@@ -34,6 +34,13 @@ spec:
                 name: order-service
                 port:
                   number: 40004
+          - path: /catalog-service
+            pathType: Prefix
+            backend:
+              service:
+                name: catalog-service
+                port:
+                  number: 40005
           - path: /
             pathType: Prefix
             backend:

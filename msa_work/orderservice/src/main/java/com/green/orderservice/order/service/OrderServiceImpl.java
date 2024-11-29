@@ -2,11 +2,13 @@ package com.green.orderservice.order.service;
 
 import com.green.orderservice.order.jpa.OrderEntity;
 import com.green.orderservice.order.jpa.OrderRepository;
+import com.green.orderservice.order.message.KafkaProducer;
 import com.green.orderservice.order.vo.OrderRequest;
 import com.green.orderservice.order.vo.OrderResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -18,10 +20,13 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class OrderServiceImpl implements OrderService {
     private final OrderRepository orderRepository;
-
+    private final KafkaProducer kafkaProducer;
+    private final Environment environment;
 
     @Override
     public OrderResponse order(OrderRequest orderRequest, String userId) {
+        String myTopic = environment.getProperty("spring.kafka.topic-name");
+
         OrderEntity orderEntity = new OrderEntity();
         orderEntity.setProductId(orderRequest.getProductId());
         orderEntity.setQty(orderRequest.getQty());
@@ -30,6 +35,9 @@ public class OrderServiceImpl implements OrderService {
         orderEntity.setUserId(userId);
         orderEntity.setTotalPrice(orderRequest.getUnitPrice() * orderRequest.getQty());
         OrderEntity dbOrderEntity = orderRepository.save(orderEntity);
+
+        // 메시지 생산
+        kafkaProducer.sendMessage(myTopic, orderEntity);
 
         return new ModelMapper().map(dbOrderEntity, OrderResponse.class);
     }
