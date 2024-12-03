@@ -51,7 +51,6 @@ kafka-console-consumer --topic topic1 --bootstrap-server localhost:9092
 ./kafka-consumer-groups --bootstrap-server 192.168.0.40:9092 --group console-consumer-50468 --reset-offsets --to-earliest --execute
 
 
-
 kafka-console-consumer --topic topic1 --bootstrap-server 192.168.0.29:9092
 
 kafka-console-consumer --topic order-topic --bootstrap-server 192.168.0.29:9092 --from-beginning
@@ -66,10 +65,6 @@ kafka-console-producer --topic topic1 --bootstrap-server 192.168.0.29:9092
 # confluent-hub install confluentinc/kafka-connect-jdbc:latest
 
 # 복사 명령어
-docker cp mariadb-java-client-3.5.1.jar kafka-connect:/usr/share/confluent-hub-components/
-docker cp mysql-connector-j-8.3.0.jar kafka-connect:/usr/share/confluent-hub-components/
-docker cp kafka-connect-jdbc-10.8.0.jar kafka-connect:/usr/share/confluent-hub-components/
-
 docker cp mariadb-java-client-3.5.1.jar kafka-connect:/usr/share/java/kafka/
 docker cp mysql-connector-j-8.3.0.jar kafka-connect:/usr/share/java/kafka/
 docker cp kafka-connect-jdbc-10.8.0.jar kafka-connect:/usr/share/java/kafka/

@@ -41,11 +41,4 @@ spec:
                 name: catalog-service
                 port:
                   number: 40005
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: node-service
-                port:
-                  number: 3000
   ingressClassName: nginx

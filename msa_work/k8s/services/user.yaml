@@ -33,6 +33,11 @@ spec: # 어떻게 만들지에 대한 내용
                 configMapKeyRef:
                   name: msa-k8s-configmap
                   key: user-service-port
+            - name: MANAGEMENT_ZIPKIN_TRACING_ENDPOINT
+              valueFrom:
+                configMapKeyRef:
+                  name: msa-k8s-configmap
+                  key: management-zipkin-tracing-endpoint
             - name: ORDER_SERVICE_URL
               value: order-service:40004
             - name: CATALOG_SERVICE_URL
