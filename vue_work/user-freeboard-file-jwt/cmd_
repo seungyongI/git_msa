@@ -8,4 +8,4 @@ docker rmi seungyongi/freeboardvue
 # 이미지 생성
 docker build -t seungyongi/freeboardvue .
 # 컨테이너 생성
-docker run -d -p 5173:5173 --name freeboardvue seungyongi/freeboardvue
+docker run -d -p 5173:5173 --name freeboardvue seungyongi/freeboardvue:0.1

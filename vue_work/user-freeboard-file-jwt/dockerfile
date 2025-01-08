@@ -1,6 +1,6 @@
 # Dockerfile
-# 이미지 node 16버전
-FROM node:16
+# 이미지 node 18버전
+FROM node:18
 
 # Set the working directory
 WORKDIR /app
